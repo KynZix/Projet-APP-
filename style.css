@@ -1,0 +1,227 @@
+
+
+/*
+  ========================================
+  Layout du site
+  ========================================
+*/
+
+section {
+  float: left;
+  border: 3px solid #949599;
+  margin: 5px;
+  padding: 5px;
+  width: 98.65%;
+  height: 180px;
+}
+
+aside {
+	float: right;
+	border: 3px solid #949599;
+	margin: 5px;
+	padding: 5px;
+  padding-left: 0px;
+  padding-right: 0px;
+	width: 180px;
+	height: 180px;
+}
+
+header {
+  border: 3px solid #949599;
+  margin: 5px;
+  padding: 5px;
+  width: 98.65%;
+  height: 60px;
+}
+
+
+footer {
+  clear: both;
+  border: 3px solid #949599;
+  margin: 5px;
+  padding: 5px;
+  width: 98.65%;
+  height: 30px;
+}
+
+html {
+
+}
+
+form {
+
+}
+
+/*
+  ========================================
+  Layout du menu
+  ========================================
+*/
+.navbar {
+  position:relative;
+  display: inline-block;
+  border: 2px solid black;
+  margin: 5px;
+  padding: 5px;
+  width: 98.65%;
+  height: 20px;
+  background: black;
+}
+
+.dropdown-content {
+  display:none;
+  position: absolute;
+  background: #eaeaed;
+}
+
+.dropdown-content a {
+  text-decoration: none;
+  display: block;
+  padding: 5px;
+}
+
+.menubtn {
+  background-color: black;
+  position: relative;
+  color: white;
+  padding-left: 20px;
+  font-size: 13px;
+  border: white;
+}
+
+.menu1, .menu2, .menu3{
+  display: inline-block;
+  position: left;
+}
+
+.menu4 {
+  display: inline-block;
+  position: right;
+}
+
+.menu1:hover #menu-content1 {
+  display: block;
+}
+
+.menu2:hover #menu-content2 {
+  display: block;
+}
+
+.menu3:hover #menu-content3 {
+  display: block;
+}
+
+.menu4:hover #menu-content4 {
+  display: block;
+}
+
+
+/*
+  ========================================
+  Login / Inscription
+  ========================================
+*/
+
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  border-radius: 4px;
+  font: 14px/1.4 "Arial", Helvetica, Arial, sans-serif;
+  margin: 0;
+}
+
+.account_info {
+  margin-bottom: 6px;
+}
+
+.account_info label{
+  margin-bottom: 50px;
+}
+
+.account_info input, {
+  background: #fff;
+  border: 1px solid #c6c7cc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
+}
+
+.private_info input {
+  background: #fff;
+  border: 1px solid #c6c7cc;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
+}
+
+.account_info #button {
+  position: relative;
+  background: white;
+  border: 1px solid #c6c7cc;
+}
+
+#login{
+  display: inline-block;
+  border: 1px solid #c6c7cc;
+}
+/*
+  ========================================
+  Clearfix
+  ========================================
+*/
+
+.group:before,
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.group {
+	clear: both;
+	*zoom: 1;
+}
+
+
+/*
+  ========================================
+  Index.html
+  ========================================
+*/
+
+
+.logo {
+
+}
+
+#titremenu {
+    position:relative;
+    border: 3px solid #949599;
+    margin: -3px;
+    padding: 0px;
+    width: 180px;
+    height: 20px;
+    top: -5px;
+}
+.smallsection {
+  width: 87.75%;
+}
+
+
+
+/*
+  ========================================
+  
+  ========================================
+*/
+
+
+
+/*
+  ========================================
+  
+  ========================================
+*/
+
+
