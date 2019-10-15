@@ -5,52 +5,33 @@
   Layout du site
   ========================================
 */
-
-section {
-  float: left;
-  border: 3px solid #949599;
-  margin: 5px;
-  padding: 5px;
-  width: 98.65%;
-  height: 180px;
+section, header, footer {
+	margin-bottom: 3px;
+	border: 2px solid #949599;
 }
 
-aside {
-	float: right;
-	border: 3px solid #949599;
-	margin: 5px;
-	padding: 5px;
-  padding-left: 0px;
-  padding-right: 0px;
-	width: 180px;
-	height: 180px;
+header{
+	text-align: center;
 }
 
-header {
-  border: 3px solid #949599;
-  margin: 5px;
-  padding: 5px;
-  width: 98.65%;
-  height: 60px;
-}
-
-
-footer {
+/*Clearfix*/
+.group:before, 
+.group:after { 
+  content: "";
+  display: table;
   clear: both;
-  border: 3px solid #949599;
-  margin: 5px;
-  padding: 5px;
-  width: 98.65%;
-  height: 30px;
+}
+.group {
+	clear: both;
 }
 
-html {
 
+.logo {
+	position:relative;
+	padding-left: 10px;
+	float:left;
 }
 
-form {
-
-}
 
 /*
   ========================================
@@ -58,62 +39,63 @@ form {
   ========================================
 */
 .navbar {
-  position:relative;
+	height: 25px;
+}
+
+.navbar ul{
   display: inline-block;
-  border: 2px solid black;
-  margin: 5px;
-  padding: 5px;
-  width: 98.65%;
-  height: 20px;
-  background: black;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  height: auto;
 }
 
 .dropdown-content {
   display:none;
   position: absolute;
-  background: #eaeaed;
+  background-color: #f9f9f9;
+  min-width: 100px;
+
 }
 
 .dropdown-content a {
-  text-decoration: none;
   display: block;
-  padding: 5px;
 }
 
 .menubtn {
-  background-color: black;
   position: relative;
-  color: white;
-  padding-left: 20px;
+  text-align: center;
+  padding: 5px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
   font-size: 13px;
-  border: white;
+  border: none;
+  color:white;
+  cursor: pointer;
+  background-color: grey;
+  border-right: 1px solid #bbb;
 }
 
-.menu1, .menu2, .menu3{
+.menubtn:hover {
+	background-color: black;
+}
+
+.dropdown {
   display: inline-block;
-  position: left;
+  position: relative;
 }
 
-.menu4 {
-  display: inline-block;
-  position: right;
-}
 
-.menu1:hover #menu-content1 {
+#menu1:hover #menu-content1 {
   display: block;
 }
 
-.menu2:hover #menu-content2 {
+#menu2:hover #menu-content2 {
   display: block;
 }
 
-.menu3:hover #menu-content3 {
-  display: block;
-}
 
-.menu4:hover #menu-content4 {
-  display: block;
-}
 
 
 /*
@@ -165,63 +147,3 @@ input {
   display: inline-block;
   border: 1px solid #c6c7cc;
 }
-/*
-  ========================================
-  Clearfix
-  ========================================
-*/
-
-.group:before,
-.group:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.group {
-	clear: both;
-	*zoom: 1;
-}
-
-
-/*
-  ========================================
-  Index.html
-  ========================================
-*/
-
-
-.logo {
-
-}
-
-#titremenu {
-    position:relative;
-    border: 3px solid #949599;
-    margin: -3px;
-    padding: 0px;
-    width: 180px;
-    height: 20px;
-    top: -5px;
-}
-.smallsection {
-  width: 87.75%;
-}
-
-
-
-/*
-  ========================================
-  
-  ========================================
-*/
-
-
-
-/*
-  ========================================
-  
-  ========================================
-*/
-
-
