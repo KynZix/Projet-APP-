@@ -14,13 +14,14 @@ header{
 	text-align: center;
 }
 
-/*Clearfix*/
+
 .group:before, 
 .group:after { 
   content: "";
   display: table;
   clear: both;
 }
+
 .group {
 	clear: both;
 }
@@ -29,7 +30,7 @@ header{
 .logo {
 	position:relative;
 	padding-left: 10px;
-	float:left;
+	float:left;	
 }
 
 
@@ -39,7 +40,7 @@ header{
   ========================================
 */
 .navbar {
-	height: 25px;
+	background:grey;
 }
 
 .navbar ul{
@@ -54,7 +55,7 @@ header{
   display:none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 100px;
+  min-width: 130px;
 
 }
 
@@ -62,22 +63,35 @@ header{
   display: block;
 }
 
-.menubtn {
-  position: relative;
-  text-align: center;
-  padding: 5px;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-bottom: 0px;
+.menubtn,
+.menuinput {
   font-size: 13px;
   border: none;
-  color:white;
-  cursor: pointer;
+  color: white;
   background-color: grey;
-  border-right: 1px solid #bbb;
+  padding: 5px;
+  height: 100%;
 }
 
-.menubtn:hover {
+.menuinput {
+	width: 100%;
+}
+
+#leftbutton {
+  border-right: 2px solid #bbb;
+}
+
+#rightbutton {
+  border-left: 2px solid #bbb;
+}
+
+.menubtn {
+	position: relative;
+	text-align: center;
+	cursor: pointer;
+}
+
+.menubtn:hover, .menuinput:hover {
 	background-color: black;
 }
 
@@ -95,9 +109,30 @@ header{
   display: block;
 }
 
+.menuoptions {
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
 
 
+input[type=search]
+{
+	padding: 0px;
+	margin: 0px;
+	background-image: url('searchicon.png');
+	background-position: 10px 10px;
+	background-repeat: no-repeat;
+	border: none;
+	height: 100%;
+	width: auto;
+	transition: width 0.4s ease-in-out;
 
+}
+
+input[type=search]:focus {
+  width: 100%;
+}
 /*
   ========================================
   Login / Inscription
