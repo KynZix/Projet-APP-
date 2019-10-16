@@ -11,13 +11,12 @@
 		<header class="group">  
 			<img src="logoapp.PNG" class="logo"></img>
 			<h1 class="logo">Psitech</h1> <!-- logo -->
-		</header>
-		
+		</header>		
 	   <div class="group"> <!-- barre de navigation -->
 	   	<section class="navbar">
-				<ul class="navbar"> 	   
+				<ul class="menuoptions"> 	   
 		   		<li style="float:left" class="dropdown" id="menu1">
-		   			<button class="menubtn">About</button>
+		   			<button class="menubtn" id="leftbutton">About</button>
 	  					<div class="dropdown-content" id="menu-content1">
 	   					<a href="#">Link 1-1</a>
 	    					<a href="#">Link 1-2</a>
@@ -25,7 +24,7 @@
 	  					</div>
 	  				</li>
 					<li style="float:left" class="dropdown" id="menu2">
-	  					<button class="menubtn">Support</button>
+	  					<button class="menubtn"  id="leftbutton">Support</button>
 	  					<div class="dropdown-content" id="menu-content2">
 	 						<a href="#">Link 2-1</a>
 	    					<a href="#">Link 2-2</a>
@@ -33,30 +32,33 @@
 	  					</div>
 	  				</li>
 					<li style="float:right" class="dropdown">
-	  					<button class="menubtn">Forum</button>
+	  					<button class="menubtn"  id="rightbutton">Forum</button>
 	  				</li>
-					<li style="float:right" class="dropdown">
-	  					<button class="menubtn">Search</button>
+					<li class="dropdown">
+	  					<form class="menuinput"  id="leftbutton">
+	  						Recherche
+	  						<input type="search" name="search-website">
+	  					</form>
+	  					
 	  				</li>
 	  				<li style="float:right" class="dropdown">
-	  					<button class="menubtn">Login</button>
+	  					<button class="menubtn" id="rightbutton">Login</button>
 	  				</li>
 	  			</ul>
 			</section>
 		</div>
-	   <div class="group"> 
+	   <div class="group"> <!-- body -->
 	  		<section>
 	    		<h1></h1>
 	   	</section>
 	   	<section>
 	    		<h1></h1>
 	   	</section>
-
 		</div>
-		<footer class="group">
+		
+		<footer class="group"> <!-- footer -->
 			<small>&copy; Psitech</small>
 	   </footer>
-
 	</body>
 
 </html>
