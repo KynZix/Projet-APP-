@@ -7,12 +7,13 @@
 */
 section, header, footer {
 	margin-bottom: 3px;
-	border: 2px solid #949599;
+	border: 1px solid #949599;
 }
 
-header{
-	text-align: center;
+footer: {
+padding-right: 2px;
 }
+
 
 
 .group:before, 
@@ -41,6 +42,8 @@ header{
 */
 .navbar {
 	background:grey;
+	border-radius: 3px;
+	border: none;	
 }
 
 .navbar ul{
@@ -54,7 +57,7 @@ header{
 .dropdown-content {
   display:none;
   position: absolute;
-  background-color: #f9f9f9;
+  background-color: black;
   min-width: 130px;
 
 }
@@ -65,7 +68,7 @@ header{
 
 .menubtn,
 .menuinput {
-  font-size: 13px;
+  font-size: 19px;
   border: none;
   color: white;
   background-color: grey;
@@ -119,20 +122,24 @@ header{
 input[type=search]
 {
 	padding: 0px;
+	padding-left: 15px;
 	margin: 0px;
-	background-image: url('searchicon.png');
-	background-position: 10px 10px;
+	background-image: url(searchicon.png);
+	background-position: left;
 	background-repeat: no-repeat;
+	background-size: 10%;
 	border: none;
 	height: 100%;
 	width: auto;
-	transition: width 0.4s ease-in-out;
-
 }
 
-input[type=search]:focus {
-  width: 100%;
+
+.menubtn a, .dropdown-content a {
+  color: white;	
+  text-decoration: none;
 }
+
+
 /*
   ========================================
   Login / Inscription
