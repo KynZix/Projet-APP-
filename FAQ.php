@@ -10,7 +10,7 @@
 	<body>  
 		<!-- comment -->
 		
-	   			<?php include("menus.php"); ?>
+	   			<?php include("menu.php"); ?>
 	    	
 	  		<section>
 	  		<h4>FAQ</h4>
