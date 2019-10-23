@@ -1,109 +1,46 @@
 <header class="logo_entreprise">
-
-        
-
         <a href="index.html">
-
-          <img src="logoapp.png" id="logo">
-
+                <img src="Media\logoapp.PNG" id="logo">
         </a>
-
-
-
-        <div class="navbar">
-
-          <div class="menu1">
-
-
-
-            <div class="About">
-
-              <a href="about.html">
-
-                <button class="menubtn" id="About">About</button>
-
-              </a>
-
-              <div class="dropdown-content" id="About">
-
-                <a href="#">Our story</a>
-
-                <a href="#">Recruitemet</a>
-
-                <a href="#">Components</a>
-
-              </div>
-
-            </div>
-
-              
-
-
-
-            <div class="Instructions">
-
-              <a href="#">
-
-                <button class="menubtn">Instructions</button>
-
-              </a>
-
-            </div>
-
-
-
-            <div class="FAQ">
-
-              <a href="FAQ.html">
-
-                <button class="menubtn">FAQ</button>
-
-              </a>
-
-            </div>
-
-
-
-          </div>
-
-
-
-
-
-          <div class="menu2">
-
-            <div class="Search">
-
-              <button class="menubtn">Search</button>
-
-            </div>
-
-
-
-            <div class="Login">
-
-              <button class="menubtn">Login</button>
-
-            </div>
-
-
-
-            <div class="Language">
-
-              <button class="menubtn">Language</button>
-
-              <div class="dropdown-content" id="Language">
-
-                <a href="#">Francais</a>
-
-                <a href="#">Anglais</a>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </header>
+</header>        
+<div class="group">
+	<nav>
+		<ul class="menuoptions"> 	   
+			<li style="float:left" class="dropdown" id="menu1">
+				<button class="menubtn" id="leftbutton">À propos</button>
+	  			<div class="dropdown-content" id="menu-content1">
+					<a href="index.html">Accueil</a>
+	 				<a href="#">Adresse</a>
+	 				<a href="terms.html">Mentions légales</a>
+	  			</div>
+	  		</li>
+			<li style="float:left" class="dropdown" id="menu2">
+	  			<button class="menubtn" id="leftbutton">Support</button>
+	  			<div class="dropdown-content" id="menu-content2">
+	 				<a href="#">Guide d'utilisation</a>
+	 				<a href="FAQ.html">FAQ</a>
+	 				<a href="#">Nous Contactez</a>
+	  			</div>
+	  		</li>
+			<li style="float:right" class="dropdown">
+	  			<button class="menubtn" id="rightbutton">Forum</button>
+	  		</li>
+			<li class="dropdown">
+	  			<form class="menuinput"  id="leftbutton">
+	  				Recherche
+	  				<input type="search" name="search-website">
+	  			</form>
+	  		</li>
+	  		<li style="float:right" class="dropdown">
+	  			<button class="menubtn" id="rightbutton"><a href="login.html">Login</a></button>
+	  		</li>
+	  		<li class="dropdown" id="menu3">
+				<button class="menubtn">Langue</button>
+		      		<div class="dropdown-content" id="menu-content3">
+					<a href="#">Francais</a>
+					<a href="#">Anglais</a>
+				</div>
+			</li>
+		</ul>
+	</nav>
+</div>
