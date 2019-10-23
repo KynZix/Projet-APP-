@@ -70,13 +70,13 @@
 
             <div class="follow_icons">
 
-              <a href="#"><img src="facebook.png" id="Follow"></a>
+              <a href="#"><img src="Media\facebook.png" id="Follow"></a>
 
-              <a href="#"><img src="insta.png" id="Follow"></a>
+              <a href="#"><img src="Media\insta.png" id="Follow"></a>
 
-              <a href="#"><img src="linkedin.png" id="Follow"></a>
+              <a href="#"><img src="Media\linkedin.png" id="Follow"></a>
 
-              <a href="#"><img src="twitter.png" id="Follow"></a>
+              <a href="#"><img src="Media\twitter.png" id="Follow"></a>
 
             </div>
 
@@ -90,7 +90,7 @@
 
           <p class="copyright">&copy; Psitech</p>
 
-          <img src="logoapp.png" id="footer_logo">
+          <img src="Media\logoapp.png" id="footer_logo">
 
         </div>
 
