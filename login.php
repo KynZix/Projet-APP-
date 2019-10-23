@@ -55,9 +55,7 @@
 	   		</section>
 		</div>
 
-	    <footer class="group">
-			<small>&copy; Psitech</small>
-	    </footer>
+	    <?php include("footer.php"); ?>
 
 
 	</body>

@@ -10,7 +10,7 @@
 	<body>  
 		<!-- comment -->
 		
-	   			<?php include("menu.php"); ?>
+	   			<?php include("menus.php"); ?>
 	    	
 	  		<section>
 	  		<h4>FAQ</h4>
@@ -27,10 +27,8 @@
 		<section>
 	    	<h1>Bloc 2</h1>
 	    </section>
-
-	    <footer class="group">
-			<small>&copy; Psitech</small>
-	    </footer>
+<?php include("footer.php"); ?>
+	    
 
 
 	</body>
