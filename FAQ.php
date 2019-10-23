@@ -9,14 +9,9 @@
 
 	<body>  
 		<!-- comment -->
-		<header class="group">
-			<h1 class="logo">Psitech</h1>
-	    </header>
-
-	    <div class="group">
-	    	<header>
+		
 	   			<?php include("menus.php"); ?>
-	    	</header>
+	    	
 	  		<section>
 	  		<h4>FAQ</h4>
 			<dl>
