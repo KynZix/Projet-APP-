@@ -1,39 +1,41 @@
-<div class="navbar">
-	   			<a href="index.html">Psitech</a>
-
-	   			<div class="menu1">
-	   				<button class="menubtn">Menu 1</button>
-  					<div class="dropdown-content" id="menu-content1">
-   						<a href="#">Link 1-1</a>
-    					<a href="#">Link 1-2</a>
-    					<a href="#">Link 1-3</a>
-  					</div>
-  				</div>
-
-  				<div class="menu2">
-  					<button class="menubtn">Menu 2</button>
-  					<div class="dropdown-content" id="menu-content2">
- 						<a href="#">Link 2-1</a>
-    					<a href="#">Link 2-2</a>
-    					<a href="#">Link 2-3</a>
-  					</div>
-  				</div>
-
-  				<div class="menu3">
-  					<button class="menubtn">Menu 3</button>
-  					<div class="dropdown-content" id="menu-content3">
- 						<a href="#">Link 3-1</a>
-    					<a href="#">Link 3-2</a>
-    					<a href="#">Link 3-3</a>
-  					</div>
-  				</div>
-
-  				<div class="menu4">
-  					<button class="menubtn">Menu 4</button>
-  					<div class="dropdown-content" id="menu-content4">
- 						<a href="#">Link 4-1</a>
-    					<a href="#">Link 4-2</a>
-    					<a href="#">Link 4-3</a>
-  					</div>
-  				</div>
+<nav>
+	<ul class="menuoptions"> 	   
+		<li style="float:left" class="dropdown" id="menu1">
+			<button class="menubtn" id="leftbutton">À propos</button>
+  			<div class="dropdown-content" id="menu-content1">
+				<a href="index.html">Accueil</a>
+ 				<a href="#">Adresse</a>
+ 				<a href="terms.html">Mentions légales</a>
   			</div>
+  		</li>
+		<li style="float:left" class="dropdown" id="menu2">
+  			<button class="menubtn" id="leftbutton">Support</button>
+  			<div class="dropdown-content" id="menu-content2">
+ 				<a href="#">Guide d'utilisation</a>
+ 				<a href="FAQ.html">FAQ</a>
+ 				<a href="#">Nous Contactez</a>
+  			</div>
+  		</li>
+		<li style="float:right" class="dropdown">
+  			<button class="menubtn" id="rightbutton">Forum</button>
+  		</li>
+		<li class="dropdown">
+  			<form class="menuinput"  id="leftbutton">
+  				Recherche
+  				<input type="search" name="search-website">
+  			</form>
+  		</li>
+  		<li style="float:right" class="dropdown">
+  			<button class="menubtn" id="rightbutton"><a href="login.html">Login</a></button>
+  		</li>
+  		<li class="dropdown" id="menu3">
+			<button class="menubtn">Langue</button>
+	      		<div class="dropdown-content" id="menu-content3">
+				<a href="#">Francais</a>
+				<a href="#">Anglais</a>
+			</div>
+		</div>
+	</ul>
+</nav>
+
+
