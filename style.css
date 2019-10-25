@@ -1,191 +1,145 @@
 
-
-/*
-  ========================================
-  Layout du site
-  ========================================
-*/
-section, header, footer {
-	margin-bottom: 3px;
-	border: 1px solid #949599;
-}
-
-footer: {
-padding-right: 2px;
-}
-
-
-
-.group:before, 
-.group:after { 
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.group {
-	clear: both;
-}
-
-
-.logo {
-	position:relative;
-	padding-left: 10px;
-	float:left;	
-}
-
-
-/*
-  ========================================
-  Layout du menu
-  ========================================
-*/
-.navbar {
-	background:grey;
-	border-radius: 3px;
-	border: none;	
-}
-
-.navbar ul{
-  display: inline-block;
+body
+{
+  background: black;
   margin: 0px;
-  padding: 0px;
-  width: 100%;
-  height: auto;
+  
 }
+
+/*-----------------------------baniere---------------------------*/
+
+#logo
+{
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 80px;
+}
+
+.menu1,.menu2
+{
+  display: flex;
+}
+
+
+header {
+  background: black;
+  width: 100%;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  align-items: flex-end;
+  position: fixed;
+  
+
+}
+.navbar {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
 
 .dropdown-content {
   display:none;
   position: absolute;
-  background-color: black;
-  min-width: 130px;
-
+  background: #eaeaed;
 }
 
 .dropdown-content a {
+  text-decoration: none;
   display: block;
-}
-
-.menubtn,
-.menuinput {
-  font-size: 19px;
-  border: none;
+  padding: 15px 5px 5px 5px;
   color: white;
-  background-color: grey;
-  padding: 5px;
-  height: 100%;
-}
-
-.menuinput {
-	width: 100%;
-}
-
-#leftbutton {
-  border-right: 2px solid #bbb;
-}
-
-#rightbutton {
-  border-left: 2px solid #bbb;
+  background: black;
+  text-align: center;
 }
 
 .menubtn {
-	position: relative;
-	text-align: center;
-	cursor: pointer;
+  background: transparent;
+  color: white;
+  padding-left: 20px;
+  font-size: medium;
+  border: white;
+  cursor: pointer;
 }
 
-.menubtn:hover, .menuinput:hover {
-	background-color: black;
-}
-
-.dropdown {
-  display: inline-block;
-  position: relative;
-}
-
-
-#menu1:hover #menu-content1 {
+.About:hover #About {
   display: block;
 }
 
-#menu2:hover #menu-content2 {
+.Language:hover #Language{
   display: block;
+  right: 10px;
 }
 
-.menuoptions {
-	height: 100%;
-	margin: 0px;
-	padding: 0px;
-}
+/*-----------------------------baniere---------------------------*/
 
-
-input[type=search]
+p
 {
-	padding: 0px;
-	padding-left: 15px;
-	margin: 0px;
-	background-image: url(searchicon.png);
-	background-position: left;
-	background-repeat: no-repeat;
-	background-size: 10%;
-	border: none;
-	height: 100%;
-	width: auto;
+  color:white;
 }
 
 
-.menubtn a, .dropdown-content a {
-  color: white;	
-  text-decoration: none;
+/*-----------------------------footer---------------------------*/
+.copyright
+{
+  color:black;
+}
+
+.footer
+{
+  display:  flex;
+  justify-content:  space-between
 }
 
 
-/*
-  ========================================
-  Login / Inscription
-  ========================================
-*/
 
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
+.footer p
+{
+  color: black;
 }
 
-input {
-  border-radius: 4px;
-  font: 14px/1.4 "Arial", Helvetica, Arial, sans-serif;
-  margin: 0;
+.footer_menu
+{
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
 }
 
-.account_info {
-  margin-bottom: 6px;
+.footer_follow
+{
+  width: 30%;
+  text-align: center;
 }
 
-.account_info label{
-  margin-bottom: 50px;
+.follow_icons
+{
+  display: flex;
+  justify-content:  space-evenly;
 }
 
-.account_info input, {
-  background: #fff;
-  border: 1px solid #c6c7cc;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
+#Follow
+{
+  height: 30px;
 }
 
-.private_info input {
-  background: #fff;
-  border: 1px solid #c6c7cc;
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .1);
+.footer_logo
+{
+  display: flex;
+  justify-content:  space-between;
+  align-items:  end;
 }
 
-.account_info #button {
-  position: relative;
-  background: white;
-  border: 1px solid #c6c7cc;
+#footer_logo
+{
+  width: 60px;
+  
 }
 
-#login{
-  display: inline-block;
-  border: 1px solid #c6c7cc;
+footer {
+  background:white;
+  width: 100%;
+  bottom:0px;
+  right: 0px;
 }
+
