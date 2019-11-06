@@ -16,32 +16,13 @@ $_SESSION['age'] = 24;
 
 	<head>
 		<title>Connexion</title>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="CSS/main.css">
 	</head>
 
 	<body>  
-		<!-- comment -->
-		<header class="group">
-			<h1 class="logo">Psitech</h1>
-	    </header>
-
+		<?php include("header.php"); ?>
 	    <div class="group">
-	    	<header>
-				<?php include("menus.php"); ?>
-
-	    	</header>
 	  		<section>
-	  			<form id="login">
-		  			<fieldset class="account_info">
-			  			<legend>Pas encore inscrit ?</legend>
-						<p>Créer un compte pour profiter de plusieurs avantages</p>
-
-						</p>
-					</fieldset>
-					<fieldset class="account_info">	
-						<a href="register.html" id="button">S'inscrire</a>
-					</fieldset>
-				</form>
 
 	  			<form id="login">
 		  			<fieldset class="account_info">
@@ -71,5 +52,7 @@ $_SESSION['age'] = 24;
 
 
 	</body>
+
+</html>
 
 </html>
