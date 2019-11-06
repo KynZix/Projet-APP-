@@ -4,13 +4,13 @@
 
 	<head>
 		<title>FAQ</title>
-		<link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="CSS/main.css">
 	</head>
 
 	<body>  
 		<!-- comment -->
 		
-	   			<?php include("menus.php"); ?>
+	<?php include("menus.php"); ?>
 	    	
 	  		<section>
 	  		<h4>FAQ</h4>
@@ -27,7 +27,7 @@
 		<section>
 	    	<h1>Bloc 2</h1>
 	    </section>
-<?php include("footer.php"); ?>
+	<?php include("footer.php"); ?>
 	    
 
 

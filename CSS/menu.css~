@@ -1,0 +1,154 @@
+/*
+  ========================================
+  Layout du header / menu
+  ========================================
+*/
+header {
+  background: black;
+  width: 100%;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  align-items: flex-end;
+  position: fixed;
+  margin-bottom: 3px;
+  border: 1px solid #949599;
+
+}
+
+#logo
+{
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 80px;
+}
+
+
+.menu1,.menu2
+{
+  display: flex;
+}
+
+nav {
+   width: 100%;
+	border-radius: 3px;
+	border: none;	
+}
+
+.menuoptions{
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  height: auto;
+}
+
+.dropdown-content {
+  display:none;
+  position: absolute;
+  background-color: black;
+  min-width: 130px;
+  background: #eaeaed;
+}	
+
+.dropdown-content a {
+  text-decoration: none;
+  display: block;
+  color: white;
+  padding: 15px 5px 5px 5px;
+  background: black;
+  text-align: center;
+}
+
+.menubtn,
+.menuinput {
+  font-size: medium;;
+  border: none;
+  background: transparent;
+  color: white;
+  padding: 5px;
+  height: 100%;
+  cursor: pointer;
+}
+
+.menuinput {
+	width: 100%;
+	font-size: medium;;
+	border: none;
+	background: transparent;
+	color: white;
+	padding: 5px;
+}
+
+#leftbutton {
+  border-right: 2px solid #bbb;
+}
+
+#rightbutton {
+  border-left: 2px solid #bbb;
+}
+
+#search-bar {
+height: 19px;
+}
+
+.menubtn {
+	position: relative;
+	text-align: center;
+	cursor: pointer;
+
+}
+
+.menubtn:hover{
+	background-color: black;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+
+#menu1:hover #menu-content1 {
+  display: block;
+}
+
+#menu2:hover #menu-content2 {
+  display: block;
+}
+
+#menu3:hover #menu-content3 {
+  display: block;
+}
+
+
+
+
+
+
+input[type=search]
+{
+	padding: 0px;
+	padding-left: 15px;
+	margin: 0px;
+	background-image: url(Media\searchicon.png);
+	background-position: left;
+	background-repeat: no-repeat;
+	background-size: 10%;
+	border: none;
+	height: 100%;
+	width: auto;
+}
+
+
+.menubtn a, .dropdown-content a {
+  color: white;	
+  text-decoration: none;
+}
+
+.menubtn a:hover, .dropdown-content a:hover {
+  color: black;	
+  text-decoration: none;
+  background-color: white;
+}
