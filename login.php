@@ -1,16 +1,47 @@
+<php? // On démarre la session AVANT d écrire du code HTML
+session_start();
+// On s amuse à créer quelques variables de session dans $_SESSION
+$_SESSION['prenom'] = 'Jean';
+$_SESSION['nom'] = 'Dupont';
+$_SESSION['age'] = 24;
+?>
+<?php setcookie('nom', 'Dupont', time() + 365*24*3600, null, null, false, true); ?>
+<?php setcookie('prenom', 'Jean', time() + 365*24*3600, null, null, false, true); ?>
+<?php setcookie('age', 21, time() + 365*24*3600, null, null, false, true); ?>
+<?php setcookie('email', 'jean.dupont@gmail.com', time() + 365*24*3600, null, null, false, true); ?>
+<?php setcookie('mot de passe', 'M@teo21', time() + 365*24*3600, null, null, false, true); ?>
 <!DOCTYPE html>
 
 <html>
 
 	<head>
 		<title>Connexion</title>
-		<link rel="stylesheet" href="CSS/main.css">
+		<link rel="stylesheet" href="style.css">
 	</head>
 
 	<body>  
-		<?php include("header.php"); ?>
+		<!-- comment -->
+		<header class="group">
+			<h1 class="logo">Psitech</h1>
+	    </header>
+
 	    <div class="group">
+	    	<header>
+				<?php include("menus.php"); ?>
+
+	    	</header>
 	  		<section>
+	  			<form id="login">
+		  			<fieldset class="account_info">
+			  			<legend>Pas encore inscrit ?</legend>
+						<p>Créer un compte pour profiter de plusieurs avantages</p>
+
+						</p>
+					</fieldset>
+					<fieldset class="account_info">	
+						<a href="register.html" id="button">S'inscrire</a>
+					</fieldset>
+				</form>
 
 	  			<form id="login">
 		  			<fieldset class="account_info">
