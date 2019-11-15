@@ -40,7 +40,7 @@
             <h1>Follow us!</h1>
             <div class="follow_icons">
               <a href="#"><img src="Media\facebook.png" id="Follow"></a>
-              <a href="#"><img src="Media\insta.png" id="Follow"></a>
+              <a href="#"><img src="Media\instagram.png" id="Follow"></a>
               <a href="#"><img src="Media\linkedin.png" id="Follow"></a>
               <a href="#"><img src="Media\twitter.png" id="Follow"></a>
             </div>
