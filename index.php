@@ -14,15 +14,7 @@
 	   <div class="group"> <!-- body -->
 	  		<section>
 
-	  <div class="slider">
-	  	<div class="slides">
-	  		<div class="slide"><img src="Media/slide1.jpg" alt="Très belle image" /></div>
-	  		<div class="slide"><img src="Media/slide2.jpg" alt="Très belle image" /></div>
-	  		<div class="slide"><img src="Media/slide3.jpg" alt="Très belle image" /></div>
-	  		<div class="slide"><img src="Media/slide4.jpg" alt="Très belle image" /></div>
-	  	</div>
-	  </div>
-
+            <?php include("diapo.php");?>
       <p><video width=100% height= 600 controls>
       	<source src="Media/videotest.mp4" type="video/mp4">
       	Votre navigateur ne supporte pas ce type de video.
