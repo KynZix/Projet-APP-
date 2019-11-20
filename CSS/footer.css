@@ -32,7 +32,10 @@
 .follow_icons
 {
   display: flex;
-  justify-content:  space-evenly;
+  justify-content:  center;
+}
+.follow_icons img{
+  margin-left: 20px;
 }
 
 #Follow
@@ -54,7 +57,7 @@
 }
 
 footer {
-  background:white;
+  background:#c4c4c4;
   width: 100%;
   bottom:0px;
   right: 0px;
