@@ -4,29 +4,36 @@
 
 	<head>
 		<title>FAQ</title>
-		<link rel="stylesheet" href="CSS/main.css">
+		<link rel="stylesheet" href="CSS/faq.css">
 	</head>
 
 	<body>  
-		<!-- comment -->
-		
-	<?php include("menus.php"); ?>
-	    	
-	  		<section>
-	  		<h4>FAQ</h4>
-			<dl>
-				<dt>Q1</dt>
-				<dd>R1</dd>
-				<dt>Q2</dt>
-  				<dd>R2</dd>
-			</dl>
-	   		</section>
-
+	<?php include("header.php"); ?>
+	<p>
+		<div id="conteneur">
+			<div class="element1">
+				<!-- Cette partie sert à positionner la FAQ et la recherche -->
+					<h1>FAQ</h1> 
+					<form action="faq.php" method = "post">
+						Search : <input type="text" name="question" /><br/>
+					<input type="submit" name="submit">
+					</form>
+			</div>
+			<div class="element2">
+				<!-- Ici on va avoir les questions/réponses -->
+				<h6>Comment faire pour avoir un compte?</h6>
+			</div>
+			<div class="element2">
+				Je sais comment le faire ! 
+			</div>
+			
 		</div>
+	</p>	
 
-		<section>
-	    	<h1>Bloc 2</h1>
-	    </section>
+		
+
+
+
 	<?php include("footer.php"); ?>
 	    
 
