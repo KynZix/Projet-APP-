@@ -1,0 +1,51 @@
+html, body {
+  height: 100%; width; 100%;
+  margin: 0;
+  padding; 0;
+}
+/* Va nous permettre d'avoir des flex et de les gérer de façon à ce que ça ressemble à une page de FAQ */
+#conteneur{
+	display: flex;
+	flex-direction: column;
+}
+
+/* -----------------------------------------------------------------------------
+  |element 1 Correspond à la disposition du titre "FAQ" et du bouton recherche  |
+   -----------------------------------------------------------------------------
+*/
+
+/* C'est pour mettre la fonction recherche en ligne et un peu sur la droite*/
+.element1 form{					
+	display: inline-flex;
+	font-size: 22px;
+	position: relative;
+	left: 100px;
+}
+/* On veut que le titre de la page soit centrer */
+.element1 h1{
+	text-align: center;
+}
+/* -----------------------------------------------------------------------------
+  |element 2 Correspond à la disposition des questions / réponses               |
+   -----------------------------------------------------------------------------
+*/
+
+.element2{
+	display: flex;
+	margin-top: 20px;
+}
+.element2 h6{
+	font-weight: normal;
+	font-size: 22px;
+}
+.element2:nth-child(1){
+  background-color: grey ;
+  flex : 1 1 0;
+  min-width: 0;
+}
+
+.element2:nth-child(2){
+  
+  flex : 1 1 0;
+  min-width: 0;
+}
