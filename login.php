@@ -42,7 +42,8 @@ $_SESSION['age'] = 24;
 						<input type="checkbox" name="remember"> Se souvenir de moi
 					</fieldset>
 					<fieldset class="account_info">	
-						<input type="submit" name="submit" value="Se connecter" id="button">
+						<input type="submit" name="submit" value="Se connecter" id="button" link = "">
+						<?php înclude("testValiditeloginFonctionnel.php") ?>
 					</fieldset>
 				</form>
 	   		</section>
