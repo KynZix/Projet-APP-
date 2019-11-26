@@ -74,19 +74,7 @@
 
 					<input type="submit" name="submit" value="S'inscrire">
 				</form>
-				<?php
-        if(isset($_POST['valider'])){
-        	$Nom = $_POST['Nom'];
-        	$Prenom = $_POST['Prenom'];
-        	$Sexe = $_POST['Sexe'];
-        	$Pays = $_POST['Pays'];
-        	$Ville = $_POST['Ville'];
-        	$Code_postal = $_POST['Code Postal'];
-        	$Adresse = $_POST['Adresse'];
-        	$Complement_d_adresse = $_POST['Complement d adresse'];
-        	echo 'Salut '. $Nom . ' ' . $Prenom.'de '. $Pays.'<br/>Bienvenue sur le site de Psytech !';
-        	}
-        ?>
+				<php include("testValiditeregisterFonctionnel.php")>
 
 	   		</section>
 
