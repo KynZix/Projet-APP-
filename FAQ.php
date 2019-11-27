@@ -4,7 +4,7 @@
 
 	<head>
 		<title>FAQ</title>
-		<link rel="stylesheet" href="CSS/main.css">
+		<link rel="stylesheet" href="CSS/faq.css">
 	</head>
 
 	<body>  
@@ -12,11 +12,10 @@
 		
 
 		<body>
-			<!--
 			<header>
-				<?php //include("header.php"); ?>
+				<?php include("header.php"); ?>
 			</header>
-			-->
+			
 
 			<?php
 			//on essaie e se connecter a la bdd, s'il y a une erreur on affiche juste une erreur au lieu d'afficher le lien vers la bdd par securité
@@ -45,8 +44,7 @@
 
 				<?php
 				//on recupere les 10 dernieres questions pseudos et reponses dans une table
-				$questionsReponses = $bdd->query('SELECT question, reponse FROM faq ORDER BY id DESC');
-
+				$questionsReponses = $bdd->query('SELECT question, reponse FROM faq ORDER BY id DESC ');
 				while ($questionReponse = $questionsReponses->fetch()){
 				?>
 				<!-- questions/reponses -->
@@ -82,11 +80,10 @@
 			*/
 			?>	
 
-			<!--
 			<footer>
 				<?php include("footer.php"); ?>
 			</footer>
-			-->
+
 		</body>
 	
 	    
