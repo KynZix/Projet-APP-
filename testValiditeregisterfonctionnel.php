@@ -69,7 +69,7 @@ OR empty($Code_postal)OR empty($Adresse) OR empty($Complement_d_adresse)
 $connexion = mysql_connect("localhost.localdomain", "root", "") or die ("message d'erreur : ".mysql_error($connexion));  
 //$db = mysql_select_db("XXXX");   
       
-    // on écrit la requête sql 
+    //on crée la database si jamais elle n'existe pas
         $sql = "CREATE DATABASE  IF NOT EXISTS infos_tbl(
 id INTEGER PRIMARY KEY,
 nom VARCHAR(128) NOT NULL,
@@ -83,7 +83,7 @@ Complement_d_adresse TEXT NOT NULL) ";
 mysql_query($sql) or die('Erreur SQL !'.$sql.'<br>'.mysql_error());
 
 
-
+        // on écrit la requête sql 
     $sql = "INSERT INTO infos_tbl(id, nom, Prenom, Sexe, Pays, Ville, Code_postal, Adresse,Complement_d_adresse)  
 VALUES('','$Nom','$Prenom','$Sexe','$Pays','$Ville','$Code_postal','$Adresse','$Complement_d_adresse')";  
       
