@@ -1,3 +1,5 @@
+
+
 <?php
         if(isset($_POST['valider'])){
         	$Nom = $_POST['Nom'];
@@ -65,9 +67,23 @@ OR empty($Code_postal)OR empty($Adresse) OR empty($Complement_d_adresse)
 { 
        // connexion à la base 
 $connexion = mysql_connect("localhost.localdomain", "root", "") or die ("message d'erreur : ".mysql_error($connexion));  
-$db = mysql_select_db("XXXX");   
+//$db = mysql_select_db("XXXX");   
       
-    // on écrit la requête sql  
+    // on écrit la requête sql 
+        $sql = "CREATE DATABASE  IF NOT EXISTS infos_tbl(
+id INTEGER PRIMARY KEY,
+nom VARCHAR(128) NOT NULL,
+Prenom VARCHAR(128) NOT NULL,
+Sexe TEXT NOT NULL,
+Pays VARCHAR(128) NOT NULL DEFAULT ="France",
+Ville VARCHAR(128) NOT NULL DEFAULT ="Paris",
+Code_postal INTEGER NOT NULL,
+Adresse TEXT NOT NULL,
+Complement_d_adresse TEXT NOT NULL) ";
+mysql_query($sql) or die('Erreur SQL !'.$sql.'<br>'.mysql_error());
+
+
+
     $sql = "INSERT INTO infos_tbl(id, nom, Prenom, Sexe, Pays, Ville, Code_postal, Adresse,Complement_d_adresse)  
 VALUES('','$Nom','$Prenom','$Sexe','$Pays','$Ville','$Code_postal','$Adresse','$Complement_d_adresse')";  
       
