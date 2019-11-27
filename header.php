@@ -31,13 +31,6 @@
 		  				<a href="login.php">Login</a>
 		  			</button>
 		  		</li>
-		  		<li class="dropdown" id="menu4">
-					<button class="menubtn"id="rightbutton">Langue</button>
-			      <div class="dropdown-content" id="menu-content4">
-						<a href="#">Francais</a>
-						<a href="#">Anglais</a>
-					</div>
-				</li>
 			</div>
 			<div class="menu2">	  	  	
 		  		<form class="menuinput"  id="leftbutton" action="search.php">
