@@ -1,3 +1,17 @@
+<?php Session_start();
+$_SESSION['Nom'] = "";
+$_SESSION['Prenom'] = "";
+$_SESSION['mail'] ="";
+$_SESSION['date_de_naissance'] ='';
+$_SESSION['numero_de_telephone'] ='';
+$_SESSION['Sexe'] ='';
+$_SESSION['Pays'] ='';
+$_SESSION['Ville'] ='';
+$_SESSION['Code Postal'] ='';
+$_SESSION['adresse'] ='';
+$_SESSION['complement_d_adresse'] ='';
+?>
+
 <!DOCTYPE html>
 
 <html lang="fr">
@@ -73,8 +87,22 @@
 					</fieldset>
 
 					<input type="submit" name="submit" value="S'inscrire">
+
 				</form>
-				<php include("testValiditeregisterFonctionnel.php")>
+				<?php include("testValiditeregisterFonctionnel.php")?>
+				<?php
+		$to      = $mail;
+		$subject = "inscription sur le site Psytech";
+		$message = "répondez à ce message si vous avez bien demandé à être inscrit aux tests psychotechniques";
+		$headers = array(
+    		'From' => 'cyril.nerin@gamil.com',
+    		'CC ' => 'leonard.huang@isep.fr, msaknisabri@gmail.com, cdechateauvieux7@gmail.com, leopold.lacruz@gmail.com, leonard.huang.99@gmail.com', 
+    		'Reply-To' => 'cyril.nerin@gmail.com, leonard.huang@isep.fr, msaknisabri@gmail.com, cdechateauvieux7@gmail.com, leopold.lacruz@gmail.com, leonard.huang.99@gmail.com',
+    		'X-Mailer' => 'PHP/' . phpversion()
+		);
+
+mail($to, $subject, $message, $headers);
+?>
 
 	   		</section>
 
