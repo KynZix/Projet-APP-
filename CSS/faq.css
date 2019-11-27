@@ -19,7 +19,8 @@ html, body {
 */
 
 /* C'est pour mettre la fonction recherche en ligne et un peu sur la droite*/
-.element1 form{					
+.element1 form{		
+	z-index: 1;			
 	display: inline-flex;
 	font-size: 22px;
 	position: relative;
@@ -51,73 +52,6 @@ html, body {
 	display: none;
 }
 .text1{
-	display: none;		/* Faire en sorte que le text ne s'affiche pas par défaut */
-	background-color: #D3D3D3;
-}
-/* Ici on va répeter le processus pour les autres questions */
-/* 2ème question */
-.span1:focus~.text2{	/* Afficher le text quand on appuie sur la question*/ 
-	display: block;
-}
-.span2:focus~.text2{	/* Fermer le text quand on appuie sur fermer*/
-	display: none;
-}
-.text2{
-	display: none;		/* Faire en sorte que le text ne s'affiche pas par défaut */
-	background-color: #D3D3D3;
-}
-/* 3ème question */
-.span1:focus~.text3{	/* Afficher le text quand on appuie sur la question*/ 
-	display: block;
-}
-.span2:focus~.text3{	/* Fermer le text quand on appuie sur fermer*/
-	display: none;
-}
-.text3{
-	display: none;		/* Faire en sorte que le text ne s'affiche pas par défaut */
-	background-color: #D3D3D3;
-}
-/* 4ème question */
-.span1:focus~.text4{	/* Afficher le text quand on appuie sur la question*/ 
-	display: block;
-}
-.span2:focus~.text4{	/* Fermer le text quand on appuie sur fermer*/
-	display: none;
-}
-.text4{
-	display: none;		/* Faire en sorte que le text ne s'affiche pas par défaut */
-	background-color: #D3D3D3;
-}
-/* 5ème question */
-.span1:focus~.text5{	/* Afficher le text quand on appuie sur la question*/ 
-	display: block;
-}
-.span2:focus~.text5{	/* Fermer le text quand on appuie sur fermer*/
-	display: none;
-}
-.text5{
-	display: none;		/* Faire en sorte que le text ne s'affiche pas par défaut */
-	background-color: #D3D3D3;
-}
-/* 6ème question */
-.span1:focus~.text6{	/* Afficher le text quand on appuie sur la question*/ 
-	display: block;
-}
-.span2:focus~.text6{	/* Fermer le text quand on appuie sur fermer*/
-	display: none;
-}
-.text6{
-	display: none;		/* Faire en sorte que le text ne s'affiche pas par défaut */
-	background-color: #D3D3D3;
-}
-/* 5ème question */
-.span1:focus~.text7{	/* Afficher le text quand on appuie sur la question*/ 
-	display: block;
-}
-.span2:focus~.text7{	/* Fermer le text quand on appuie sur fermer*/
-	display: none;
-}
-.text7{
 	display: none;		/* Faire en sorte que le text ne s'affiche pas par défaut */
 	background-color: #D3D3D3;
 }
