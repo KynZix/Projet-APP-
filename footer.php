@@ -11,26 +11,26 @@
             <div class="Company">
               <h1>Company</h1>
               <div class="Company_menu">
-                <p>Our story</p>
-                <p>Components</p>
+                <a href="ourStory.php"><p>Our story</p></a>
+                <a href="components.php"><p>Components</p></a>
               </div>
             </div>
 
             <div class="Support">
               <h1>Support</h1>
               <div class="Support_menu">
-                <p>Instructions</p>
-                <p>FAQ</p>
-                <p>Contact us @:</p>
+                <a href="instructions.php"><p>Instructions</p></a>
+                <a href="FAQ.php"><p>FAQ</p></a>
+                <a href="contact.php"><p>Contact us @:</p></a>
               </div>
             </div>
 
             <div class="Other_stuff">
               <h1>Other stuff</h1>
               <div class="Other_stuff_menu">
-                <p>Terms & Conditions</p>
-                <p>Privacy popcy</p>
-                <p>Change language</p>
+                <a href="terms.php"><p>Terms & Conditions</p></a>
+                <a href="privacy"><p>Privacy policy</p></a>
+                <a href="language.php"><p>Change language</p></a>
               </div>
             </div>
 
