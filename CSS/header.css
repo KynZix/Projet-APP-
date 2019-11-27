@@ -12,9 +12,8 @@ header {
   right: 0px;
   display: flex;
   align-items: flex-end;
-  position:sticky;
+  position:fixed;
   margin-bottom: 3px;
-  border: 1px solid #949599;
 
 }
 
@@ -107,13 +106,12 @@ nav {
   display: block;
 }
 
-#menu3:hover #menu-content3 {
+#menu4:hover #menu-content4 {
   display: block;
 }
 
-#menu1:hover,#menu2:hover,#menu3:hover {
-	background-color:white;
-	color: black;
+#menu-content4{
+	right:0;
 }
 
 
@@ -122,18 +120,21 @@ nav {
   text-decoration: none;
 }
 
-.menubtn:hover{
-  color: black;
+#menu1:hover,#menu2:hover,#menu3:hover, #menu4:hover {
+	background-color:white;
+	color: black;
+}
+
+
+#menu1:hover .menubtn,#menu2:hover .menubtn,#menu3:hover  .menubtn a, #menu4:hover .menubtn {
+	background-color:white;
+	color: black;
 }
 
 
 .menubtn a:hover, .dropdown-content a:hover {
   color: black;	
   background-color: white;
-}
-
-#menu-content3{
-	right:0;
 }
 
 /* barre de recherche */
@@ -149,11 +150,15 @@ input[type=search]
 	border: none;
 	height: 100%;
 	width: 100%;
-	background-color: grey;
+	background-color: white;
 }
 
 #search-bar {
 	height: 19px;
 }
 
+#search-button {
+	
+content: "\f002"
 
+}
