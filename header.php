@@ -23,7 +23,7 @@
 		  			<div class="dropdown-content" id="menu-content2">
 		 				<a href="#">Guide d'utilisation</a>
 		 				<a href="FAQ.php">FAQ</a>
-		 				<a href="contactus.php#">Nous Contactez</a>
+		 				<a href="contactus.php">Nous Contactez</a>
 		  			</div>
 		  		</li>
 				<li class="dropdown" id="menu3">

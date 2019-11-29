@@ -1,4 +1,5 @@
-<php? // On démarre la session AVANT d écrire du code HTML
+
+<?php // On démarre la session AVANT d écrire du code HTML
 session_start();
 // On s amuse à créer quelques variables de session dans $_SESSION
 $_SESSION['prenom'] = 'Jean';
@@ -9,7 +10,7 @@ $_SESSION['age'] = 24;
 <?php setcookie('prenom', 'Jean', time() + 365*24*3600, null, null, false, true); ?>
 <?php setcookie('age', 21, time() + 365*24*3600, null, null, false, true); ?>
 <?php setcookie('email', 'jean.dupont@gmail.com', time() + 365*24*3600, null, null, false, true); ?>
-<?php setcookie('mot de passe', 'M@teo21', time() + 365*24*3600, null, null, false, true); ?>
+<?php setcookie('motDePasse', 'M@teo21', time() + 365*24*3600, null, null, false, true); ?>
 <!DOCTYPE html>
 
 <html>
@@ -41,11 +42,17 @@ $_SESSION['age'] = 24;
 					<fieldset class="account_info">
 						<input type="checkbox" name="remember"> Se souvenir de moi
 					</fieldset>
+
+				
 					<fieldset class="account_info">	
 						<input type="submit" name="submit" value="Se connecter" id="button" link = "">
-						<?php înclude("testValiditeloginFonctionnel.php") ?>
+						<?php include("testValiditeloginFonctionnel.php") ?>
 					</fieldset>
+
 				</form>
+				<button><a href="register.php"> pas de compte </a></button>
+
+
 	   		</section>
 		</div>
 

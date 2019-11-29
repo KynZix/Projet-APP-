@@ -8,8 +8,10 @@
 	</head>
 
 	<body>  
+            <header>
+                  <?php include("header.php"); ?>
+            </header>
 
-	   <?php include("header.php"); ?>
 
 	   <div class="group"> <!-- body -->
 	  		<section>
@@ -61,8 +63,11 @@
 	   	</section>
 		</div>
 		
-		<!-- footer -->	
-	  	<?php include("footer.php"); ?>
+		<!-- footer -->
+            <footer>
+                  <?php include("footer.php"); ?>
+            </footer>	
+	  	
 
 	</body>
 
