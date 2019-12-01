@@ -27,7 +27,7 @@
     <input type="radio" name="radio-btn" id="img-2" />
     <li class="slide-container">
         <div class="slide">
-          <img src="http://farm9.staticflickr.com/8504/8365873811_d32571df3d_z.jpg" />
+          <img src="Media/slide5.jpg" />
         </div>
     <div class="nav">
       <label for="img-1" class="prev">&#x2039;</label>
