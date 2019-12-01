@@ -46,7 +46,7 @@
 		  			<button class="menubtn" id="rightbutton">
 		  				<?php 
 				  		//on affiche les variables de session deja existants
-						<?php if (isset($_SESSION['mail'])) { ?>
+						if (isset($_SESSION['mail'])) { ?>
 							<a href="logout.php">Se déconnecter</a>
 						<?php } 
 						else { ?>
