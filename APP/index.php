@@ -14,7 +14,7 @@
       
       <div>
             <video width=100% height= 600 controls>
-      	     <source src="Media/videotest.mp4" type="video/mp4">
+      	     <source src="Media/tech.mp4" type="video/mp4">
       	     Votre navigateur ne supporte pas ce type de video.
             </video>
   	</div>
@@ -22,7 +22,7 @@
 	<div id="conteneur">
 		<div class="element">
                   <div>
-                        <img src="Media/think.png" style="width: 200px;height: 500px;"> 
+                        <img src="Media/easy.png" style="width: 450px;height: 500px;"> 
                   </div>
 			<h1 class="text">
 				<div>
@@ -37,25 +37,25 @@
 			</h1>
 		</div>
 		<div class="element">
-                  <img src="Media/image1.jpg">
+                  <img src="Media/computer.png">
             </div>
 	</div>
 
       <div id="conteneur">
       	<div class="element">
-                  <img src="Media/image1.jpg">
+                  <img src="Media/brain.png">
             </div >
 		<div class="element">
-                  <img src="Media/think.png" style="width: 200px;height: 500px;"> 
+                  <img src="Media/idea.png" style="width: 400px;height: 500px;"> 
                   <h1 class="text">
                         <div>
-                        Facile à utiliser
+                        Détaillé
                         </div>
                         <div>
-                        À la portée de tous 
+                        Précis
                         </div>
                         <div>
-                        Personnalisable 
+                        Compréhensible
                         </div>
                   </h1>
             </div>
