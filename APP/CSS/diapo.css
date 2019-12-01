@@ -5,7 +5,7 @@ html, body { background: #010101 url("Media/slide1.png"); }
 .slides {
     padding: 0;
     width: 1280px;
-    height: 600px;
+    height: 682px;
     display: block;
     margin: 0 auto;
     position: relative;
@@ -28,7 +28,7 @@ html, body { background: #010101 url("Media/slide1.png"); }
     top: 0;
     opacity: 0;
     width: 1280px;
-    height: 600px;
+    height: 682px;
     display: block;
     position: absolute;
 
