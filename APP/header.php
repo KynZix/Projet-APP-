@@ -1,13 +1,28 @@
-
+<?php session_start(); ?>
 <head>
 	<link rel="stylesheet" href="CSS/header.css">
 </head>
 
 <header>
-	<a href="index.php">
-		<img src="Media/logoapp.png" id="logo">
-	</a>
 	<nav class="group">
+		<a href="index.php">
+			<img src="Media/logoapp.png" id="logo">
+		</a>
+		<div>
+			
+		<p id="user">
+          <strong> 
+            <?php
+            if (isset($_SESSION['mail']) and isset($_SESSION['motDePasse']) and isset($_SESSION['typeUtilisateur'])) {
+              echo 'YOU :'.$_SESSION['mail'].'---'.$_SESSION['motDePasse'].'---'.$_SESSION['typeUtilisateur'];
+            }
+            else {
+              echo "YOU : GUEST";
+            }
+            ?>
+          </strong>
+        </p>
+
 		<ul class="menuoptions"> 
 			<div class="menu1">	   
 				<li class="dropdown" id="menu1">
@@ -21,35 +36,53 @@
 				<li class="dropdown" id="menu2">
 		  			<button class="menubtn" id="leftbutton">Support</button>
 		  			<div class="dropdown-content" id="menu-content2">
-		 				<a href="about.php">À propos</a>
+		 				<a href="#">Guide d'utilisation</a>
 		 				<a href="FAQ.php">FAQ</a>
-		 				<a href="#">Nous Contactez</a>
+		 				<a href="contactus.php">Nous Contactez</a>
 		  			</div>
 		  		</li>
-		  		<li class="dropdown">
-		  			<form class="menuinput"  id="leftbutton">
-		  				<input type="search" name="search-website" value="Recherche..." id ="search-bar" style="background-image: url("Media/searchicon.png");">	
-		  			</form>
-		  		</li>	
-			</div>
-			<div class="menu2">	  	  		
-				<li class="dropdown">
-		  			<button class="menubtn" id="rightbutton">Forum</button>
+		  		
+
+				<li class="dropdown" id="menu3">
+		  			<button class="menubtnlog" id="rightbutton">
+		  				<?php 
+				  		//on affiche les variables de session deja existants
+						if (isset($_SESSION['mail'])) {
+							echo "<a href=\"logout.php\">Logout</a>";
+						}
+						else{
+							echo "<a href=\"login.php\">Login</a>";
+						}
+						?>
+		  				
+		  			</button> 	
 		  		</li>
-	
-		  		<li class="dropdown">
-		  			<button class="menubtn" id="rightbutton">
-		  				<a href="login.php">Login</a>
-		  			</button>
-		  		</li>
-		  		<li class="dropdown" id="menu3">
-					<button class="menubtn"id="rightbutton">Langue</button>
-			      <div class="dropdown-content" id="menu-content3">
-						<a href="#">Francais</a>
-						<a href="#">Anglais</a>
-					</div>
-				</li>
+
+		  		
+  				<?php 
+		  		//on affiche les variables de session deja existants
+				if (isset($_SESSION['mail'])) {
+					if ($_SESSION['typeUtilisateur']<=1) {
+						echo 	"<li class=\"dropdown\" id=\"menu3\">
+  									<button class=\"menubtn\" id=\"rightbutton\">
+  										<a href=\"register.php\">register</a>
+									</button> 	
+					  			</li>";
+					}
+					
+				}
+				?>
+		  		
+
 			</div>
+			<div class="menu2">
+		  		<form class="menuinput"  id="leftbutton" action="search.php">
+		  			<input type="search" name="search-website" placeholder="Recherche..." id ="search-bar">	
+					<button type="submit"><i class="search-button"></i></button>
+		  		</form>
+			</div>
+
+			
 		</ul>
 	</nav>
 </header>

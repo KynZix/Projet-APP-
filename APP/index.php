@@ -9,6 +9,8 @@
 
 	<body>  
             <?php include("header.php");?>
+
+            <?php include("diapo.php");?>
       
       <div>
             <video width=100% height= 600 controls>
