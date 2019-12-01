@@ -1,6 +1,7 @@
 <?php session_start(); ?>
 <head>
 	<link rel="stylesheet" href="CSS/header.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <header>
@@ -76,9 +77,9 @@
 
 			</div>
 			<div class="menu2">
-		  		<form class="menuinput"  id="leftbutton" action="search.php">
-		  			<input type="search" name="search-website" placeholder="Recherche..." id ="search-bar">	
-					<button type="submit"><i class="search-button"></i></button>
+		  		<form class="menuinput" action="FAQ.php">
+		  			<input type="search" name="searchtext" placeholder="Recherche..." id ="search-bar">	
+					<button type="submit" id="search-button"><i class="fa fa-search"></i></button>
 		  		</form>
 			</div>
 
