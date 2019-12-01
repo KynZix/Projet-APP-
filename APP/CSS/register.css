@@ -16,14 +16,9 @@ input {
   margin: 0;
 }
 
-legend,fieldset{
-  margin: 8px;
-}
-
 form
 {
   text-align: center;
-  margin-bottom: 40px;
 }
 
 fieldset
