@@ -1,0 +1,162 @@
+/*
+  ========================================
+  Layout du header
+  ========================================
+*/
+header {
+  z-index: 999999;
+  background: black;
+  width: 100%;
+  top: 0px;
+  right: 0px;
+  display: flex;
+  align-items: flex-end;
+  position:sticky;
+  margin-bottom: 3px;
+
+}
+
+#logo
+{
+  margin-left: 10px;
+  margin-top: 10px;
+  width: 80px;
+}
+
+#user
+{
+  color: cornflowerblue;
+}
+
+/*
+  ========================================
+  Layout du menu 
+  ========================================
+*/
+
+.menu1,.menu2
+{
+  display: flex;
+}
+
+li{
+  z-index: 99999;
+}
+
+nav {
+  width: 100%;
+	border-radius: 3px;
+	border: none;	
+}
+
+.menuoptions{
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  height: auto;
+}
+
+.dropdown-content {
+  display:none;
+  position: absolute;
+  background-color: black;
+  min-width: 130px;
+  background: #eaeaed;
+}	
+
+.dropdown-content a {
+  text-decoration: none;
+  display: block;
+  color: white;
+  padding: 10px 3px 3px 3px;
+  background: black;
+  text-align: center;
+}
+
+.menubtn{
+  font-size: medium;;
+  border: none;
+  background: transparent;
+  color: white;
+  padding: 5px;
+  height: 100%;
+  cursor: pointer;
+  	position: relative;
+	text-align: center;
+}
+
+.menuinput {
+	width: 100%;
+	font-size: medium;;
+	border: none;
+	background: transparent;
+	color: white;
+	padding: 5px;
+}
+
+.dropdown {
+  display: inline-block;
+  position: relative;
+}
+
+
+#menu1:hover #menu-content1 {
+  display: block;
+}
+
+#menu2:hover #menu-content2 {
+  display: block;
+}
+
+#menu3:hover #menu-content3 {
+  display: block;
+}
+
+#menu1:hover,#menu2:hover,#menu3:hover {
+	background-color:white;
+	color: black;
+}
+
+
+.menubtn a, .dropdown-content a {
+  color: white;	
+  text-decoration: none;
+}
+
+.menubtn:hover{
+  color: black;
+}
+
+
+.menubtn a:hover, .dropdown-content a:hover {
+  color: black;	
+  background-color: white;
+}
+
+#menu-content3{
+	right:0;
+}
+
+/* barre de recherche */
+
+input[type=search]
+{
+	padding: 0px;
+	padding-left: 15px;
+	margin: 0px;
+	background-position: left;
+	background-repeat: no-repeat;
+	background-size: 10%;
+	border: none;
+	height: 100%;
+	width: 100%;
+	background-color: grey;
+}
+
+#search-bar {
+	height: 19px;
+}
+
+
