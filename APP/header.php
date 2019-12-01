@@ -30,14 +30,14 @@
 					<button class="menubtn" id="leftbutton">À propos</button>
 		  			<div class="dropdown-content" id="menu-content1">
 						<a href="index.php">Accueil</a>
-		 				<a href="#">Adresse</a>
+		 				<a href="about.php">À propos de nous</a>
 		 				<a href="terms.php">Mentions légales</a>
 		  			</div>
 		  		</li>
 				<li class="dropdown" id="menu2">
 		  			<button class="menubtn" id="leftbutton">Support</button>
 		  			<div class="dropdown-content" id="menu-content2">
-		 				<a href="#">Guide d'utilisation</a>
+		 				<a href="privacy.php">Règlement</a>
 		 				<a href="FAQ.php">FAQ</a>
 		 				<a href="contactus.php">Nous Contactez</a>
 		  			</div>
