@@ -74,8 +74,8 @@
 
 			</div>
 			<div class="menu2">
-		  		<form class="menuinput"  id="leftbutton" action="search.php">
-		  			<input type="search" name="search-website" placeholder="Recherche..." id ="search-bar">	
+		  		<form class="menuinput"  id="leftbutton" action="FAQ.php">
+		  			<input type="search" name="searchtext" placeholder="Recherche..." id ="search-bar">	
 					<button type="submit"><i class="search-button"></i></button>
 		  		</form>
 			</div>
