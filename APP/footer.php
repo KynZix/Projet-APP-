@@ -11,10 +11,10 @@
           <div class="footer_menu">
 
             <div class="Company">
-              <h1>Company</h1>
+              <h1>Psitech</h1>
               <div class="Company_menu">
-                <a href="about.php"><p>About us</p></a>
-                <a href="components.php"><p>Components</p></a>
+                <a href="about.php"><p>A propos de nous</p></a>
+                <a href="components.php"><p>jsp koi mettre</p></a>
 
                 <p>
                   <strong> 
@@ -37,16 +37,16 @@
               <div class="Support_menu">
                 <a href="instructions.php"><p>Instructions</p></a>
                 <a href="FAQ.php"><p>FAQ</p></a>
-                <a href="contactus.php"><p>Contact us @:</p></a>
+                <a href="contactus.php"><p>Nous contacter @:</p></a>
               </div>
             </div>
 
             <div class="Other_stuff">
               <h1>Other stuff</h1>
               <div class="Other_stuff_menu">
-                <a href="terms.php"><p>Terms & Conditions</p></a>
-                <a href="privacy"><p>Privacy policy</p></a>
-                <a href="language.php"><p>Change language</p></a>
+                <a href="terms.php"><p>Conditions générales & mentions légales</p></a>
+                <a href="privacy"><p>Politique de confidentialité</p></a>
+                <a href="language.php"><p>Changer de langue</p></a>
               </div>
             </div>
 
