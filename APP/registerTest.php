@@ -115,8 +115,24 @@
 			'typeUtilisateur'=> $typeUtilisateur));
 
 			echo "<br>";
-			echo 'Votre compte a été créé avec succès!';
-			//on redirige
+			echo 'Votre compte a été créé avec succès!';?>
+
+   			<?php 
+   			ini_set( 'display_errors', 1 );
+    		error_reporting( E_ALL );
+ 
+   			$motPasseProvisoire = "Xa123§wY";
+ 
+    		$subject = "Votre mot de passe provisoire pour vous connecter sur Psitech";
+ 			$message = "Vous venez de vous inscrire sur le site de Psitech. Voici votre mot de passe provisoire : ".$motPasseProvisoire." \n Vous devrez le changer lors de la première connexion. \n L'équipe Psitech";
+
+    		mail($mail,$subject,$message);
+ 
+   			echo "L'email a été envoyé."; ?>
+			
+
+			<?php
+			 //on redirige
 			header("Location: index.php");
 			}
 			

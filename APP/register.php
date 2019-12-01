@@ -84,7 +84,7 @@
 						<fieldset>
 							<label> 
 								<p>Pays</p>
-								<input type="text" name="pays" id="country" placeholder="France"
+								<input type="text" name="pays" id="pays" placeholder="France"
 								<?php if (isset($_COOKIE['pays'])) {
 										echo 'value=' .$_COOKIE['pays'];
 									} ?>
@@ -92,7 +92,7 @@
 							</label>
 							<label> 
 								<p>Ville</p>
-								<input type="text" name="ville" id="town" placeholder="Ville"
+								<input type="text" name="ville" id="ville" placeholder="Ville"
 								<?php if (isset($_COOKIE['ville'])) {
 										echo 'value=' .$_COOKIE['ville'];
 									} ?>
@@ -111,7 +111,7 @@
 						<fieldset >
 							<label>
 								<p>Adresse</p>
-								<input type="text" name="adresse" id="adress" placeholder="Adresse"
+								<input type="text" name="adresse" id="adresse" placeholder="Adresse"
 								<?php if (isset($_COOKIE['adresse'])) {
 										echo 'value=' .$_COOKIE['adresse'];
 									} ?>
@@ -119,7 +119,7 @@
 							</label>
 							<label> 
 								<p>Complement d'adresse</p>
-								<input type="text" name="adresse2" id="adress2" placeholder="Complement d'adresse"
+								<input type="text" name="adresse2" id="adresse2" placeholder="Complement d'adresse"
 								<?php if (isset($_COOKIE['adresse2'])) {
 										echo 'value=' .$_COOKIE['adresse2'];
 									} ?>
@@ -130,18 +130,6 @@
 					<input type="submit" name="submit" value="S'inscrire">
 
 				</form>
-				
-				<?php
-				$subject = "inscription sur le site Psytech";
-				$message = "répondez à ce message si vous avez bien demandé à être inscrit aux tests psychotechniques";
-				$headers = array(
-		    		'From' => 'cyril.nerin@gamil.com',
-		    		'CC ' => 'leonard.huang@isep.fr, msaknisabri@gmail.com, cdechateauvieux7@gmail.com, leopold.lacruz@gmail.com, leonard.huang.99@gmail.com', 
-		    		'Reply-To' => 'cyril.nerin@gmail.com, leonard.huang@isep.fr, msaknisabri@gmail.com, cdechateauvieux7@gmail.com, leopold.lacruz@gmail.com, leonard.huang.99@gmail.com',
-		    		'X-Mailer' => 'PHP/' . phpversion()
-				);
-
-				?>
 
 	   		</section>
 
