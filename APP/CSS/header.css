@@ -3,11 +3,9 @@
   Layout du header
   ========================================
 */
-
-
 header {
   z-index: 999999;
-  background: black;
+  background-image: url("../Media/header.jpg");
   width: 100%;
   top: 0px;
   right: 0px;
@@ -15,7 +13,6 @@ header {
   align-items: flex-end;
   position:sticky;
   margin-bottom: 3px;
-  border: 1px solid #949599;
 
 }
 
@@ -24,6 +21,32 @@ header {
   margin-left: 10px;
   margin-top: 10px;
   width: 80px;
+}
+
+#user
+{
+  color: cornflowerblue;
+  position: absolute;
+    left: 75%;
+    top: 65%;
+}
+
+
+@media screen and (max-width: 1280px) { 
+  .menu2{
+    width: 15%;
+  }
+}
+
+@media screen and (max-width: 1024px) { 
+  .menu2{
+    width: 13%;
+  }
+}
+@media screen and (max-width: 840px) { 
+  .menu2{
+    width: 10%;
+  }
 }
 
 /*
@@ -42,7 +65,7 @@ li{
 }
 
 nav {
-   width: 100%;
+  width: 100%;
 	border-radius: 3px;
 	border: none;	
 }
@@ -77,7 +100,7 @@ nav {
   font-size: medium;;
   border: none;
   background: transparent;
-  color: white;
+  color: black;
   padding: 5px;
   height: 100%;
   cursor: pointer;
@@ -92,6 +115,23 @@ nav {
 	background: transparent;
 	color: white;
 	padding: 5px;
+}
+
+.menubtnlog{
+    font-size: medium;;
+  border: none;
+  background: transparent;
+  color: black;
+  padding: 5px;
+  height: 100%;
+  cursor: pointer;
+    position: relative;
+  text-align: center;
+}
+
+.menubtnlog a {
+  color: black;  
+  text-decoration: none;
 }
 
 .dropdown {
@@ -156,5 +196,3 @@ input[type=search]
 #search-bar {
 	height: 19px;
 }
-
-
