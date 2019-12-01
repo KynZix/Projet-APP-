@@ -6,7 +6,6 @@
 
 
 header {
-  z-index: 999999;
   background: black;
   width: 100%;
   top: 0px;
@@ -14,9 +13,6 @@ header {
   display: flex;
   align-items: flex-end;
   position:sticky;
-  margin-bottom: 3px;
-  border: 1px solid #949599;
-
 }
 
 #logo
@@ -38,7 +34,7 @@ header {
 }
 
 li{
-  z-index: 99999;
+  z-index: 1;
 }
 
 nav {
@@ -108,13 +104,12 @@ nav {
   display: block;
 }
 
-#menu3:hover #menu-content3 {
+#menu4:hover #menu-content4 {
   display: block;
 }
 
-#menu1:hover,#menu2:hover,#menu3:hover {
-	background-color:white;
-	color: black;
+#menu-content4{
+	right:0;
 }
 
 
@@ -123,8 +118,15 @@ nav {
   text-decoration: none;
 }
 
-.menubtn:hover{
-  color: black;
+#menu1:hover,#menu2:hover,#menu3:hover, #menu4:hover {
+	background-color:white;
+	color: black;
+}
+
+
+#menu1:hover .menubtn,#menu2:hover .menubtn,#menu3:hover  .menubtn a, #menu4:hover .menubtn {
+	background-color:white;
+	color: black;
 }
 
 
@@ -133,28 +135,21 @@ nav {
   background-color: white;
 }
 
-#menu-content3{
-	right:0;
-}
-
 /* barre de recherche */
 
-input[type=search]
+.search-bar
 {
 	padding: 0px;
-	padding-left: 15px;
+	padding-left: 3px;
 	margin: 0px;
-	background-position: left;
-	background-repeat: no-repeat;
-	background-size: 10%;
 	border: none;
 	height: 100%;
-	width: 100%;
-	background-color: grey;
 }
 
 #search-bar {
-	height: 19px;
+	width: 80%;
+	border-left: none;
+	padding: 0px;
+	border: 0px;
+	margin: 0px;
 }
-
-
