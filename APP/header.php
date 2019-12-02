@@ -6,23 +6,33 @@
 
 <header>
 	<nav class="group">
-		<a href="index.php">
-			<img src="Media/logoapp.png" id="logo">
-		</a>
+		<div class="preheader">
+			<div>
+				<a href="index.php">
+					<img src="Media/logoapp.png" id="logo">
+				</a>
+			</div>
+			<div>
+				<p id="user">
+		          <strong> 
+		            <?php
+		            if (isset($_SESSION['mail']) and isset($_SESSION['mdp']) and isset($_SESSION['typeUtilisateur'])) {
+		              echo 'YOU :'.$_SESSION['mail'].'---'.$_SESSION['mdp'].'---'.$_SESSION['typeUtilisateur'];
+		            }
+		            else {
+		              echo "YOU : GUEST";
+		            }
+		            ?>
+		          </strong>
+		        </p>
+			</div>	
+				
+		</div>
+
+		
 		<div>
 			
-		<p id="user">
-          <strong> 
-            <?php
-            if (isset($_SESSION['mail']) and isset($_SESSION['mdp']) and isset($_SESSION['typeUtilisateur'])) {
-              echo 'YOU :'.$_SESSION['mail'].'---'.$_SESSION['mdp'].'---'.$_SESSION['typeUtilisateur'];
-            }
-            else {
-              echo "YOU : GUEST";
-            }
-            ?>
-          </strong>
-        </p>
+		
 
 		<ul class="menuoptions"> 
 			<div class="menu1">	   
