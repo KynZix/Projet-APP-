@@ -15,23 +15,23 @@ catch(Exception $e)
 
 //on affiche le resultat du formlaire
 echo '<p>$_POST[mail] :    '.$_POST['mail'].'</p>';
-echo '<p>$_POST[motDePasse] :   '.$_POST['motDePasse'].'</p>';
+echo '<p>$_POST[mdp] :   '.$_POST['mdp'].'</p>';
 echo "<p>-----------------------------------</p>";
 
 
 //on recherche tus les mails correspondant a la requette de l'internaute
-$req = $bdd -> prepare('SELECT typeUtilisateur,mail,motDePasse FROM utilisateur WHERE motDePasse=:motDePasse AND mail=:mail');
-$req -> execute(array('motDePasse' => $_POST['motDePasse'],'mail' => $_POST['mail']));
+$req = $bdd -> prepare('SELECT typeUtilisateur,mail,mdp FROM compte WHERE mdp=:mdp AND mail=:mail');
+$req -> execute(array('mdp' => $_POST['mdp'],'mail' => $_POST['mail']));
 $mailMDP = $req->fetch();
 
 //si on trouve un mail qui correspond a la requette on stoke les infos dans la session
 if (isset($mailMDP['typeUtilisateur'])) {
 	$_SESSION['mail'] = $mailMDP['mail'];
-	$_SESSION['motDePasse'] = $mailMDP['motDePasse'];
+	$_SESSION['mdp'] = $mailMDP['mdp'];
 	$_SESSION['typeUtilisateur'] = $mailMDP['typeUtilisateur'];
 
 	echo '<p>$_SESSION[mail] :    '.$_SESSION['mail'].'</p>';
-	echo '<p>$_SESSION[motDePasse] :    '.$_SESSION['motDePasse'].'</p>';
+	echo '<p>$_SESSION[mdp] :    '.$_SESSION['mdp'].'</p>';
 	echo '<p>$_SESSION[typeUtilisateur]'.$_SESSION['typeUtilisateur'].'</p>';
 	header("Location:index.php");
 }

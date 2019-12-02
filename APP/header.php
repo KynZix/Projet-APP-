@@ -14,8 +14,8 @@
 		<p id="user">
           <strong> 
             <?php
-            if (isset($_SESSION['mail']) and isset($_SESSION['motDePasse']) and isset($_SESSION['typeUtilisateur'])) {
-              echo 'YOU :'.$_SESSION['mail'].'---'.$_SESSION['motDePasse'].'---'.$_SESSION['typeUtilisateur'];
+            if (isset($_SESSION['mail']) and isset($_SESSION['mdp']) and isset($_SESSION['typeUtilisateur'])) {
+              echo 'YOU :'.$_SESSION['mail'].'---'.$_SESSION['mdp'].'---'.$_SESSION['typeUtilisateur'];
             }
             else {
               echo "YOU : GUEST";

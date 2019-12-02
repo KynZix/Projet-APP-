@@ -17,7 +17,7 @@
 	    <div class="group">
 	  		<section>
 
-	  			<form action="testLogin.php" id="login" method="post">
+	  			<form action="loginTest.php" id="login" method="post">
 	  				<legend>Login</legend>
 		  			<fieldset>
 						<label>
@@ -27,7 +27,7 @@
 
 					<fieldset class="account_info">
 						<label> 
-							Mot de passe <input type="password" name="motDePasse" id="password" placeholder="*****" required> 
+							Mot de passe <input type="password" name="mdp" id="password" placeholder="*****" required> 
 						</label>
 					</fieldset>
 
