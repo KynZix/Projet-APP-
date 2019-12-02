@@ -182,17 +182,27 @@ nav {
 input[type=search]
 {
 	padding: 0px;
-	padding-left: 15px;
+	padding-left: 3px;
+	display: inline-block;
+	border-radius: 0px;
+}	
+	
+#search-button {
 	margin: 0px;
-	background-position: left;
-	background-repeat: no-repeat;
-	background-size: 10%;
 	border: none;
-	height: 100%;
-	width: 100%;
-	background-color: grey;
+	padding: 0px;
+	color: black;
+	text-align: center;
+	background-color: transparent;
+	display: inline-block;
 }
 
-#search-bar {
-	height: 19px;
+.menuinput {
+	display: inline-block;		
+	height: 100%;
+	width: 100%;
+}
+
+#search-button hover {
+	cursor: pointer;
 }
