@@ -123,7 +123,7 @@
 								<?php if (isset($_COOKIE['adresse2'])) {
 										echo 'value=' .$_COOKIE['adresse2'];
 									} ?>
-									required>
+									>
 							</label>
 						</fieldset>
 					</div>
