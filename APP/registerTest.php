@@ -24,6 +24,18 @@
 				}
 			?>
 			<?php
+
+			//fonction chargé de generer un mot de passe aleatoire temporaire
+			function RandomString(int $nbrcaracteres)
+		    {//créer une chaine de caractère aléatoir avec minuscules, majuscules, chiffres (parfait pour des mdp aléatoire)
+		        $characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		        $randstring = "";
+		        for ($i = 0; $i < $nbrcaracteres; $i++) {
+		            $randstring .= $characters[rand(0, strlen($characters)-1)];
+		        }
+		        return $randstring;
+		    }
+
 			//on remplis les infos
 			$nom = $_POST['nom'];
 			$prenom = $_POST['prenom'];
@@ -99,7 +111,7 @@
 			//s'il n'est pas present on ajoute les infos et on redirige a lindex
 			else
 			{
-			$req = $bdd->prepare(' INSERT INTO compte(mail, birthday, phone, nom, prenom, genre, pays, ville, ZIP, adresse, adresse2, typeUtilisateur) VALUES (:mail, :birthday, :phone, :nom, :prenom, :genre, :pays, :ville, :ZIP, :adresse, :adresse2, :typeUtilisateur) ');
+			$req = $bdd->prepare(' INSERT INTO compte(mail, mdp, birthday, phone, nom, prenom, genre, pays, ville, ZIP, adresse, adresse2, typeUtilisateur) VALUES (:mail, :mdp, :birthday, :phone, :nom, :prenom, :genre, :pays, :ville, :ZIP, :adresse, :adresse2, :typeUtilisateur) ');
 			$req -> execute(array(
 			'mail' => $mail,
 			'birthday'=> $birthday,
@@ -112,12 +124,12 @@
 			'ZIP'=> $ZIP,
 			'adresse'=> $adresse,
 			'adresse2'=> $adresse2,
-			'typeUtilisateur'=> $typeUtilisateur));
+			'typeUtilisateur'=> $typeUtilisateur,		  
+		    'mdp'=> RandomString(10)));
 
 			echo "<br>";
-			echo 'Votre compte a été créé avec succès!';?>
+			echo 'Votre compte a été créé avec succès!';
 
-   			<?php 
    			ini_set( 'display_errors', 1 );
     		error_reporting( E_ALL );
  
@@ -128,11 +140,9 @@
 
     		mail($mail,$subject,$message);
  
-   			echo "L'email a été envoyé."; ?>
-			
+   			echo "L'email a été envoyé.";
 
-			<?php
-			 //on redirige
+			//on redirige
 			header("Location: index.php");
 			}
 			
