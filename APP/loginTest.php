@@ -1,8 +1,4 @@
 <?php
-
-session_start();
-// On s amuse à créer quelques variables de session dans $_SESSION
-
 //on essaie e se connecter a la bdd, s'il y a une erreur on affiche juste une erreur au lieu d'afficher le lien vers la bdd par securité
 try
 {
