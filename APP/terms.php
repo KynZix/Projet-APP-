@@ -72,7 +72,7 @@
 		<img src="Media/separator.png"> <!-- Separateur entre chaque partie -->
 
 		<h1>CONTACT US</h1>
-		<p>If you have any questions about our privacy policy, or the ways in which we use your data, please contact us on here : <a href="contact.php">Contact us</a> </p>
+		<p>If you have any questions about our privacy policy, or the ways in which we use your data, please contact us on here : <a href="contactus.php">Contact us</a> </p>
 
 		 
 
