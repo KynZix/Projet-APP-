@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 02 déc. 2019 à 13:25
+-- Généré le :  lun. 02 déc. 2019 à 14:34
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -32,6 +32,7 @@ DROP TABLE IF EXISTS `compte`;
 CREATE TABLE IF NOT EXISTS `compte` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `mail` varchar(255) NOT NULL,
+  `mdp` varchar(255) NOT NULL DEFAULT 'mdp',
   `birthday` date NOT NULL,
   `phone` int(11) NOT NULL,
   `nom` varchar(150) NOT NULL,
@@ -42,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `compte` (
   `ZIP` int(11) NOT NULL,
   `adresse` text NOT NULL,
   `adresse2` text NOT NULL,
-  `typeUtilisateur` varchar(14) NOT NULL,
+  `typeUtilisateur` int(14) NOT NULL DEFAULT '2',
   PRIMARY KEY (`id`),
   UNIQUE KEY `mail` (`mail`)
 ) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
@@ -51,11 +52,11 @@ CREATE TABLE IF NOT EXISTS `compte` (
 -- Déchargement des données de la table `compte`
 --
 
-INSERT INTO `compte` (`id`, `mail`, `birthday`, `phone`, `nom`, `prenom`, `genre`, `pays`, `ville`, `ZIP`, `adresse`, `adresse2`, `typeUtilisateur`) VALUES
-(18, 'cyne@gmail', '1900-01-01', 1023456789, 'NERIN', 'Cyril', 1, 'France', 'ISSY', 92130, '4 Bis rue CHENIER', 'NR', 'administrateur'),
-(26, 'canchero@yopmail.com', '1999-07-02', 6, 'lacroix', 'leopold', 1, 'france', 'paris', 21, '21 av', '', '2'),
-(27, 'a', '0001-01-01', 1, 'aA', 'a', 0, 'a', 'a', 1, 'a', 'a', '2'),
-(28, 'aze', '0001-01-01', 11, '1', '1', 0, '1', '1', 1, '1', '', '2');
+INSERT INTO `compte` (`id`, `mail`, `mdp`, `birthday`, `phone`, `nom`, `prenom`, `genre`, `pays`, `ville`, `ZIP`, `adresse`, `adresse2`, `typeUtilisateur`) VALUES
+(18, 'cyne@gmail', 'mdp', '1900-01-01', 1023456789, 'NERIN', 'Cyril', 1, 'France', 'ISSY', 92130, '4 Bis rue CHENIER', 'NR', 0),
+(26, 'canchero@yopmail.com', 'mdp', '1999-07-02', 6, 'lacroix', 'leopold', 1, 'france', 'paris', 21, '21 av', '', 0),
+(27, 'a', 'mdp', '0001-01-01', 1, 'aA', 'a', 0, 'a', 'a', 1, 'a', 'a', 2),
+(28, 'aze', 'mdp', '0001-01-01', 11, '1', '1', 0, '1', '1', 1, '1', '', 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
