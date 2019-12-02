@@ -13,13 +13,17 @@ header {
   align-items: flex-end;
   position:sticky;
   margin-bottom: 3px;
+}
 
+.preheader
+{
+  display: flex;
+  flex-direction: row;
 }
 
 #logo
 {
-  margin-left: 10px;
-  margin-top: 10px;
+  margin: 10px 10px 0px 10px;
   width: 80px;
 }
 
@@ -27,27 +31,8 @@ header {
 {
   color: cornflowerblue;
   position: absolute;
-    left: 75%;
-    top: 65%;
 }
 
-
-@media screen and (max-width: 1280px) { 
-  .menu2{
-    width: 15%;
-  }
-}
-
-@media screen and (max-width: 1024px) { 
-  .menu2{
-    width: 13%;
-  }
-}
-@media screen and (max-width: 840px) { 
-  .menu2{
-    width: 10%;
-  }
-}
 
 /*
   ========================================
