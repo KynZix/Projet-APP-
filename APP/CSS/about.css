@@ -1,0 +1,31 @@
+html, body {
+  height: 100%; width; 100%;
+  margin: 0;
+  padding; 0;
+  background-color: #f0e6c2;	/* Couleur similaire à celle de l'image About */
+}
+
+#conteneur{
+  display: flex;
+}
+.element{
+  display: flex;
+  flex : 1 ;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+.element img{
+float: left;
+}
+
+.element p{
+	font-family: : "Comic Sans MS","Comic Sans",cursive;
+	font-size: 30px;
+}
+
+.about img{
+	margin-bottom: 100px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
