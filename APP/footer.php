@@ -16,18 +16,7 @@
                 <a href="about.php"><p>A propos de nous</p></a>
                 <a href="components.php"><p>jsp koi mettre</p></a>
 
-                <p>
-                  <strong> 
-                    <?php
-                    if (isset($_SESSION['mail']) and isset($_SESSION['motDePasse']) and isset($_SESSION['typeUtilisateur'])) {
-                      echo 'YOU :'.$_SESSION['mail'].'---'.$_SESSION['motDePasse'].'---'.$_SESSION['typeUtilisateur'];
-                    }
-                    else {
-                      echo "YOU : GUEST";
-                    }
-                    ?>
-                  </strong>
-                </p>
+
                 
               </div>
             </div>
