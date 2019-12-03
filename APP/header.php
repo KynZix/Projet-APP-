@@ -66,7 +66,7 @@
 						}
 						else{ ?>
   							<button class="menubtnsingle" id="rightbutton">
-  								<a href="login.php">Login</a>
+  								<a href="login.php">Se connecter</a>
 							</button> 	
 						<?php 
 						}
