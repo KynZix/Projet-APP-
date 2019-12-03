@@ -3,7 +3,7 @@
 <html>
 
 	<head>
-		<title>FAQ</title>
+		<title>Contact</title>
 		<link rel="stylesheet" href="CSS/contact.css">
 	</head>
 
@@ -16,7 +16,7 @@
 				<?php include("header.php"); ?>
 			</header>
 			<div class="header">
-				<h1>Contact us </h1>
+				<h1>Nous contacter </h1>
 			</div>
 			
 			
