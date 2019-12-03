@@ -13,7 +13,7 @@
 		</header>
 	  <div id="conteneur">
 	  	<div class="terms">
-		  	<h2>TERMS&CONDITIONS</h2>
+		  	<h2>CONDITIONS GENERALES D'UTILISATION</h2>
 			<h1>PURCHASES</h1>
 		<p>Shop items are listed in USD. If you are purchasing from an alternative currency, the exchange rate is determined at the time of purchase according to the customer’s bank.</p>
 
@@ -35,7 +35,7 @@
 		<img src="Media/separator.png"> <!-- Separateur entre chaque partie -->
 
 		<h1>PRIVACY & GDPR</h1>
-		<p>At Woven we value and respect the personal information our customers and users personal choose to share with us. Any sensitive data you share with us including your name, address, or contact information will be kept safe and will only be used to provide the best possible service to you. We will never sell or otherwise trade your personal data with any other organizations. Our policy on protecting our customers’ personal data has always been the same, but in compliance with the GDPR (General Data Protection Regulation) we have spelled out our policies here. </p>
+		<p>At Psitech we value and respect the personal information our customers and users personal choose to share with us. Any sensitive data you share with us including your name, address, or contact information will be kept safe and will only be used to provide the best possible service to you. We will never sell or otherwise trade your personal data with any other organizations. Our policy on protecting our customers’ personal data has always been the same, but in compliance with the GDPR (General Data Protection Regulation) we have spelled out our policies here. </p>
 
 		<img src="Media/separator.png"> <!-- Separateur entre chaque partie -->
 
@@ -76,7 +76,7 @@
 
 		 
 
-		<p>UPDATED ON NOVEMBER 11,2019</p>
+		<p>UPDATED ON DECEMBER 02,2019</p>
 		</div>
 	</div>
 
