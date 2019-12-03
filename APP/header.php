@@ -1,4 +1,16 @@
 <?php session_start(); ?>
+
+<?php
+try
+{
+	$bdd = new PDO('mysql:host=localhost;dbname=app;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}
+catch(Exception $e)
+{
+	die('erreur:'.$e -> getMessage());
+}
+?>
+
 <head>
 	<link rel="stylesheet" href="CSS/header.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -16,10 +28,24 @@
 				<p id="user">
 		          <strong> 
 		            <?php
-		            if (isset($_SESSION['mail']) and isset($_SESSION['mdp']) and isset($_SESSION['typeUtilisateur'])) {
-		              echo 'Bienvenue, '.$_SESSION['prenom'].' '.$_SESSION['nom'];
-		            }
-		            else {
+		            if (isset($_SESSION['id'])) {
+		            	$req = $bdd -> prepare('SELECT * FROM compte WHERE id=:id');
+						$req -> execute(array('id' => $_SESSION['id']));
+						$BDD = $req->fetch();
+						$_SESSION['prenom']=$BDD['prenom'];
+						$_SESSION['nom']=$BDD['nom'];
+						$_SESSION['mail']=$BDD['mail'];
+						$_SESSION['mdp']=$BDD['mdp'];
+						$_SESSION['typeUtilisateur']=$BDD['typeUtilisateur'];
+						$_SESSION['birthday']=$BDD['birthday'];
+						$_SESSION['phone']=$BDD['phone'];
+						$_SESSION['pays']=$BDD['pays'];
+						$_SESSION['ville']=$BDD['ville'];
+						$_SESSION['ZIP']=$BDD['ZIP'];
+						$_SESSION['adresse']=$BDD['adresse'];
+						$_SESSION['adresse2']=$BDD['adresse2'];
+
+		            	echo 'Bienvenue, '.$_SESSION['prenom'].' '.$_SESSION['nom'];
 		            }
 		            ?>
 		          </strong>
@@ -56,7 +82,7 @@
 				<li class="dropdown" id="menu3">
 		  				<?php 
 				  		//on affiche les variables de session deja existants
-						if (isset($_SESSION['mail'])) { ?>
+						if (isset($_SESSION['id'])) { ?>
 								<button class="menubtn" id="leftbutton">Mon Compte</button>
 								<div class="dropdown-content" id="menu-content3">
 		 							<a href="profil.php">Profil</a>
@@ -78,17 +104,13 @@
 		  		
   				<?php 
 		  		//on affiche les variables de session deja existants
-				if (isset($_SESSION['mail'])) {
-					if ($_SESSION['typeUtilisateur']<=1) { ?>
-						<li class="dropdown" id="menu3">
-  									<button class="menubtnsingle" id="rightbutton">
-  										<a href="register.php">Créer un compte</a>
-									</button> 	
-					  	</li>
-				<?php 	}
-					
-				}
-				?>
+				if (isset($_SESSION['typeUtilisateur']) and $_SESSION['typeUtilisateur']<=1) {
+					echo "<li class='dropdown' id='menu3'>";
+						echo "<button class='menubtnsingle' id='rightbutton'>";
+							echo "<a href='register.php'>Créer un compte</a>";
+						echo "</button>"; 	
+				  	echo "</li>";
+				}?>
 		  		
 
 			</div>

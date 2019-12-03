@@ -16,21 +16,13 @@ echo "<p>-----------------------------------</p>";
 
 
 //on recherche tous les mails correspondant a la requête de l'internaute
-$req = $bdd -> prepare('SELECT typeUtilisateur,mail,mdp,nom,prenom FROM compte WHERE mdp=:mdp AND mail=:mail');
+$req = $bdd -> prepare('SELECT id FROM compte WHERE mdp=:mdp AND mail=:mail');
 $req -> execute(array('mdp' => $_POST['mdp'],'mail' => $_POST['mail']));
-$mailMDP = $req->fetch();
+$idBDD = $req->fetch();
 
 //si on trouve un mail qui correspond a la requête on stocke les infos dans la session
-if (isset($mailMDP['typeUtilisateur'])) {
-	$_SESSION['mail'] = $mailMDP['mail'];
-	$_SESSION['mdp'] = $mailMDP['mdp'];
-	$_SESSION['typeUtilisateur'] = $mailMDP['typeUtilisateur'];
-	$_SESSION['nom'] = $mailMDP['nom'];
-	$_SESSION['prenom'] = $mailMDP['prenom'];	
-	
-	echo '<p>$_SESSION[mail] :    '.$_SESSION['mail'].'</p>';
-	echo '<p>$_SESSION[mdp] :    '.$_SESSION['mdp'].'</p>';
-	echo '<p>$_SESSION[typeUtilisateur]'.$_SESSION['typeUtilisateur'].'</p>';
+if (isset($idBDD['id'])) {
+	$_SESSION['id'] = $idBDD['id'];
 	header("Location:index.php");
 }
 else{

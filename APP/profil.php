@@ -21,10 +21,10 @@
 			die('erreur:'.$e -> getMessage()); //Affiche un message en cas d'erreur
 		}
 		
-		$mailactuel = $_SESSION['mail'];
-		
-		$bdd = $bdd->query("SELECT * FROM compte WHERE mail = '".$mailactuel."'");	
-		$profil = $bdd->fetch();
+		$req = $bdd -> prepare('SELECT nom,prenom,mail,adresse,phone FROM compte WHERE id=:id');
+		$req -> execute(array('id' => $_SESSION['id']));
+		$profil = $req->fetch();
+
 		?>
 		<div class="affichage">
 			<div class="menuProfil1">
@@ -44,7 +44,7 @@
 				</div>
 			</div>
 			<div class="menuProfil2">
-				<a href="modifInfos.php">MODIFIER MES INFORMATIONS PERSONNELLES</a>
+				<a href="modifINFO.php">MODIFIER MES INFORMATIONS PERSONNELLES</a>
 				<a href="modifMDP.php">MODIFIER MON MOT DE PASSE</a>
 			</div>
 		</div>
