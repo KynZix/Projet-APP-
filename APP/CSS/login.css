@@ -5,8 +5,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  background: black;
-  color: white;
+  background-image: url("../Media/login.jpg");
 }
 
 fieldset {
@@ -28,9 +27,50 @@ section{
   justify-content: center;
 }
 
-
+.login{
+  display: flex;
+  flex-direction: column;
 }
 
+.login h1{
+  margin-left: auto;
+  margin-right: auto;
+  color:white;
+}
 
+.login label,legend{  
+  position: relative;
+  right: 50px;
+  color:white;
+  font-size: 120%;
+}
 
+#loginquestion{
+  display: flex;
+  flex-direction: column;
+}
 
+#loginquestion p{
+  color:white;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 100%;
+}
+
+#loginquestion a{
+    color:white;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 100%;
+}
+
+.inputinfo input{
+  width: 150%;
+}
+
+.submitbut input{
+  position: relative;
+  margin-top: 10%;
+  left: 25%;
+  width: 60%;
+}
