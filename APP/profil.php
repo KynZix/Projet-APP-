@@ -44,8 +44,8 @@
 				</div>
 			</div>
 			<div class="menuProfil2">
-				<a href="modifInfos.php">MODIFIER INFOS</a>
-				<a href="modifMDP.php">MODIFIER MOT DE PASSE</a>
+				<a href="modifInfos.php">MODIFIER MES INFORMATIONS PERSONNELLES</a>
+				<a href="modifMDP.php">MODIFIER MON MOT DE PASSE</a>
 			</div>
 		</div>
 
