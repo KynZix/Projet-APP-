@@ -1,56 +1,42 @@
+<html>
+			
 
-<?php // On démarre la session AVANT d écrire du code HTML
-session_start();
-// On s amuse à créer quelques variables de session dans $_SESSION
-$_SESSION['prenom'] = 'Jean';
-$_SESSION['nom'] = 'Dupont';
-$_SESSION['age'] = 24;
-?>
-<?php setcookie('nom', 'Dupont', time() + 365*24*3600, null, null, false, true); ?>
-<?php setcookie('prenom', 'Jean', time() + 365*24*3600, null, null, false, true); ?>
-<?php setcookie('age', 21, time() + 365*24*3600, null, null, false, true); ?>
-<?php setcookie('email', 'jean.dupont@gmail.com', time() + 365*24*3600, null, null, false, true); ?>
-<?php setcookie('motDePasse', 'M@teo21', time() + 365*24*3600, null, null, false, true); ?>
-<!DOCTYPE html>
-
+			
 <html>
 
 	<head>
+		<meta charset="utf-8"/>
 		<title>Connexion</title>
-		<link rel="stylesheet" href="CSS/main.css">
+		<link rel="stylesheet" href="CSS/login.css">
 	</head>
 
 	<body>  
 		<?php include("header.php"); ?>
+
+
 	    <div class="group">
 	  		<section>
 
-	  			<form id="login">
-		  			<fieldset class="account_info">
-			  			<legend>Login</legend>
+	  			<form action="loginTest.php" id="login" method="post">
+	  				<legend>Login</legend>
+		  			<fieldset>
 						<label>
-							Adresse mail <input type="text" name="mail" id="mail" placeholder="abcd123@gmail.com"> 
+							Adresse mail <input type="text" name="mail" id="mail" placeholder="exemple@gmail.com" required> 
 						</label>
 					</fieldset>
 
 					<fieldset class="account_info">
 						<label> 
-							Mot de passe <input type="text" name="mot de passe" id="password" placeholder="*****"> 
+							Mot de passe <input type="password" name="mdp" id="password" placeholder="*****" required> 
 						</label>
 					</fieldset>
 
 					<fieldset class="account_info">
-						<input type="checkbox" name="remember"> Se souvenir de moi
+						<input type="submit" name="remember" value="Se connecter" id="button">
 					</fieldset>
+				</form>
 
 				
-					<fieldset class="account_info">	
-						<input type="submit" name="submit" value="Se connecter" id="button" link = "">
-						<?php include("testValiditeloginFonctionnel.php") ?>
-					</fieldset>
-
-				</form>
-				<button><a href="register.php"> pas de compte </a></button>
 
 
 	   		</section>

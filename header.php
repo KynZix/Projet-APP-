@@ -1,3 +1,15 @@
+<?php session_start(); ?>
+
+<?php
+try
+{
+	$bdd = new PDO('mysql:host=localhost;dbname=app;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+}
+catch(Exception $e)
+{
+	die('erreur:'.$e -> getMessage());
+}
+?>
 
 <head>
 	<link rel="stylesheet" href="CSS/header.css">
@@ -6,39 +18,110 @@
 
 <header>
 	<nav class="group">
-		<a href="index.php">
-			<img src="Media/logoapp.png" id="logo">
-		</a>
+		<div class="preheader">
+			<div>
+				<a href="index.php">
+					<img src="Media/logoapp.png" id="logo">
+				</a>
+			</div>
+			<div>
+				<p id="user">
+		          <strong> 
+		            <?php
+		            if (isset($_SESSION['id'])) {
+		            	$req = $bdd -> prepare('SELECT * FROM compte WHERE id=:id');
+						$req -> execute(array('id' => $_SESSION['id']));
+						$BDD = $req->fetch();
+						$_SESSION['prenom']=$BDD['prenom'];
+						$_SESSION['nom']=$BDD['nom'];
+						$_SESSION['mail']=$BDD['mail'];
+						$_SESSION['mdp']=$BDD['mdp'];
+						$_SESSION['typeUtilisateur']=$BDD['typeUtilisateur'];
+						$_SESSION['birthday']=$BDD['birthday'];
+						$_SESSION['phone']=$BDD['phone'];
+						$_SESSION['pays']=$BDD['pays'];
+						$_SESSION['ville']=$BDD['ville'];
+						$_SESSION['ZIP']=$BDD['ZIP'];
+						$_SESSION['adresse']=$BDD['adresse'];
+						$_SESSION['adresse2']=$BDD['adresse2'];
+
+		            	echo 'Bienvenue, '.$_SESSION['prenom'].' '.$_SESSION['nom'];
+		            }
+		            ?>
+		          </strong>
+		        </p>
+			</div>	
+				
+		</div>
+
+		
+		<div>
+			
+		
+
 		<ul class="menuoptions"> 
 			<div class="menu1">	   
 				<li class="dropdown" id="menu1">
 					<button class="menubtn" id="leftbutton">À propos</button>
 		  			<div class="dropdown-content" id="menu-content1">
 						<a href="index.php">Accueil</a>
-		 				<a href="#">Adresse</a>
+		 				<a href="about.php">À propos de nous</a>
 		 				<a href="terms.php">Mentions légales</a>
 		  			</div>
 		  		</li>
 				<li class="dropdown" id="menu2">
 		  			<button class="menubtn" id="leftbutton">Support</button>
 		  			<div class="dropdown-content" id="menu-content2">
-		 				<a href="#">Guide d'utilisation</a>
+		 				<a href="privacy.php">Règlement</a>
 		 				<a href="FAQ.php">FAQ</a>
-		 				<a href="contactus.php#">Nous Contactez</a>
+		 				<a href="contactus.php">Nous Contactez</a>
 		  			</div>
 		  		</li>
+		  		
+
 				<li class="dropdown" id="menu3">
-		  			<button class="menubtn" id="rightbutton">
-		  				<a href="login.php">Login</a>
-		  			</button>
+		  				<?php 
+				  		//on affiche les variables de session deja existants
+						if (isset($_SESSION['id'])) { ?>
+								<button class="menubtn" id="leftbutton">Mon Compte</button>
+								<div class="dropdown-content" id="menu-content3">
+		 							<a href="profil.php">Profil</a>
+									<a href="logout.php">Se déconnecter</a>
+		  						</div>
+						<?php 
+						}
+						else{ ?>
+  							<button class="menubtnsingle" id="rightbutton">
+  								<a href="login.php">Se connecter</a>
+							</button> 	
+						<?php 
+						}
+						?>
+		  				
+		  			</button> 	
 		  		</li>
+
+		  		
+  				<?php 
+		  		//on affiche les variables de session deja existants
+				if (isset($_SESSION['typeUtilisateur']) and $_SESSION['typeUtilisateur']<=1) {
+					echo "<li class='dropdown' id='menu3'>";
+						echo "<button class='menubtnsingle' id='rightbutton'>";
+							echo "<a href='register.php'>Créer un compte</a>";
+						echo "</button>"; 	
+				  	echo "</li>";
+				}?>
+		  		
+
 			</div>
-			<div class="menu2">	  	  	
-		  		<form class="search-bar"  id="leftbutton" action="FAQ.php">
-		  			<input type="search" name="search-text" placeholder="Recherche..." id ="search-bar">	
+			<div class="menu2">
+		  		<form class="menuinput" action="FAQ.php">
+		  			<input type="search" name="searchtext" placeholder="Recherche..." id ="search-bar">	
 					<button type="submit" id="search-button"><i class="fa fa-search"></i></button>
 		  		</form>
 			</div>
+
+			
 		</ul>
 	</nav>
 </header>

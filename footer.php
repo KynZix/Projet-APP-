@@ -1,4 +1,6 @@
-	<head>
+
+
+<head>
 	<link rel="stylesheet" href="CSS\footer.css">
 </head>
 
@@ -9,10 +11,23 @@
           <div class="footer_menu">
 
             <div class="Company">
-              <h1>Company</h1>
+              <h1>Psitech</h1>
               <div class="Company_menu">
-                <a href="ourStory.php"><p>Our story</p></a>
-                <a href="components.php"><p>Components</p></a>
+                <a href="about.php"><p>A propos de nous</p></a>               
+
+                <p>
+                  <strong> 
+                    <?php
+                    if (isset($_SESSION['id'])) {
+                      echo 'YOU :'.$_SESSION['nom'].'  '.$_SESSION['prenom'];
+                    }
+                    else {
+                      echo "YOU : GUEST";
+                    }
+                    ?>
+                  </strong>
+                </p>
+                
               </div>
             </div>
 
@@ -21,23 +36,23 @@
               <div class="Support_menu">
                 <a href="instructions.php"><p>Instructions</p></a>
                 <a href="FAQ.php"><p>FAQ</p></a>
-                <a href="contact.php"><p>Contact us @:</p></a>
+                <a href="contactus.php"><p>Nous contacter @:</p></a>
               </div>
             </div>
 
             <div class="Other_stuff">
-              <h1>Other stuff</h1>
+              <h1>Autre</h1>
               <div class="Other_stuff_menu">
-                <a href="terms.php"><p>Terms & Conditions</p></a>
-                <a href="privacy"><p>Privacy policy</p></a>
-                <a href="language.php"><p>Change language</p></a>
+                <a href="terms.php"><p>CGU & mentions légales</p></a>
+                <a href="privacy"><p>Politique de confidentialité</p></a>
+                <a href="language.php"><p>Changer de langue</p></a>
               </div>
             </div>
 
           </div>
 
           <div class="footer_follow">
-            <h1>Follow us!</h1>
+            <h1>Nos réseaux sociaux</h1>
             <div class="follow_icons">
               <a href="#"><img src="Media\facebook.png" id="Follow"></a>
               <a href="#"><img src="Media\instagram.png" id="Follow"></a>

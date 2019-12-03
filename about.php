@@ -24,12 +24,8 @@
       			<img src="Media/team.png" >
       		</div>
       		<div class="element">
-      			<p>Founded in Paris in 2019, Psitech was created as an answer to the luxury trend of over-abundant branding and excessive pricing.
-      			</p>
-      			<p>Our designs do not confine to fashion - we simply aspire to provide high quality, well-designed essentials for the right price. 
-      			</p>
-      			<p>We work with a minimalistic philosophy, as we believe sustainability and durability are better for us and our world.
-      			</p>
+      			<p>Fondé à Paris en 2019, Psitech a été créé afin de répondre aux besoins des entreprises en SI.
+			</p>
       		</div>
       	</div>
       </p>

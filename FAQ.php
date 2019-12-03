@@ -18,67 +18,66 @@
 			
 
 			<?php
-			//on essaie e se connecter a la bdd, s'il y a une erreur on affiche juste une erreur au lieu d'afficher le lien vers la bdd par securité
+			//Connexion à la BDD
 			try
 			{
 				$bdd = new PDO('mysql:host=localhost;dbname=app;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 			}
 			catch(Exception $e)
 			{
-				die('erreur:'.$e -> getMessage());
+				die('erreur:'.$e -> getMessage()); //Affiche un message en cas d'erreur
 			}
 			?>
 
 
 			<div id="conteneur">
-				<div class="element1">
-					<!-- Cette partie sert à positionner la FAQ et la recherche -->
-						<h1>FAQ</h1> 
-						<form action="faq.php" method = "post">
-							Recherche : <input type="text" name="question" /><br/>
-						<input type="submit" name="submit">
-						</form>
-				</div>
-
-
-
 				<?php
-				//on recupere les 10 dernieres questions pseudos et reponses dans une table
-				$questionsReponses = $bdd->query('SELECT question, reponse FROM faq ORDER BY id DESC ');
-				while ($questionReponse = $questionsReponses->fetch()){
-				?>
-				<!-- questions/reponses -->
-					<div class="element2">
+				
+				if (isset($_GET['searchtext'])) {  //Si l'utilisateur a effectué une recherche
+					$searchquery = $_GET['searchtext'];
+					$questionsReponses = $bdd->query("SELECT * FROM faq WHERE reponse LIKE '%$searchquery%' OR reponse LIKE '%$searchquery%' ");	
+					if ($questionsReponses->rowCount() > 0) { //Si au moins 1 résultat a été trouvé	
+						while ($donnees = $questionsReponses->fetch()){?>
+							<div class="element2">
+								<!-- question -->
+								<p>
+								<strong>Question <?php echo $donnees['id']?>:</strong> <?php echo $donnees['question']?>
+								</p>
+								
+								<!-- reponses-->
+								<p>
+									<?php echo $donnees['reponse']?>
+								</p>
+								
+							</div>
+<?php 
+						}
 
-						<!-- question -->
-						<span class="span1" tabindex="0">
-							<?php echo $questionReponse['question']; ?>
-						</span>
+					} else { //Aucun résultat 	 ?>		
+						<p>Aucun résultat.</p>
+<?php				}  
 
-						<!-- reponses-->
-						<p class="text1">
-							<?php echo $questionReponse['reponse']?>
-						</p>
-					</div>
-				<?php } ?>
+				}
+				else {   //L'utilisateur n'a pas effectué de recherche (soit il a directement accédé à la FAQ via le bouton du menu ou bien il a lancé une recherche vide")
+					$questionsReponses = $bdd->query("SELECT * FROM faq ORDER BY ID DESC"); //Affiche toutes les questions dans la BDD, par ordre décroissant
+					while ($donnees = $questionsReponses->fetch()){?>
+						<div class="element2">
+							<!-- question -->
+							<p>
+							<strong>Question <?php echo $donnees['id']?>:</strong> <?php echo $donnees['question']?>
+							</p>
+							
+							<!-- reponses-->
+							<p>
+								<?php echo $donnees['reponse']?>
+							</p>
+							
+						</div>
+				<?php 
+					}
+				
+				} ?>
 			</div>
-
-				
-				
-					
-					 
-					
-				
-
-			<?php
-			//recuperer le nombre de question
-			/*
-			$nrbQuestions =  $bdd->query('SELECT MAX(id) AS nbr FROM faq');
-			$nbrQuestions = $nrbQuestions->fetch();
-			$nbrQuestions = $nbrQuestions['nbr'];
-			echo $nbrQuestions;
-			*/
-			?>	
 
 			<footer>
 				<?php include("footer.php"); ?>
