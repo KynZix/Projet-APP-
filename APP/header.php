@@ -17,10 +17,9 @@
 		          <strong> 
 		            <?php
 		            if (isset($_SESSION['mail']) and isset($_SESSION['mdp']) and isset($_SESSION['typeUtilisateur'])) {
-		              echo 'YOU :'.$_SESSION['mail'].'---'.$_SESSION['mdp'].'---'.$_SESSION['typeUtilisateur'];
+		              echo 'Bienvenue, '.$_SESSION['prenom'].' '.$_SESSION['nom'];
 		            }
 		            else {
-		              echo "YOU : GUEST";
 		            }
 		            ?>
 		          </strong>
@@ -49,7 +48,7 @@
 		  			<div class="dropdown-content" id="menu-content2">
 		 				<a href="privacy.php">Règlement</a>
 		 				<a href="FAQ.php">FAQ</a>
-		 				<a href="contactus.php">Nous Contacter</a>
+		 				<a href="contactus.php">Nous Contactez</a>
 		  			</div>
 		  		</li>
 		  		
