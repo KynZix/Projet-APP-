@@ -43,7 +43,7 @@
             <div class="Other_stuff">
               <h1>Autre</h1>
               <div class="Other_stuff_menu">
-                <a href="terms.php"><p>Conditions générales & mentions légales</p></a>
+                <a href="terms.php"><p>CGU & mentions légales</p></a>
                 <a href="privacy"><p>Politique de confidentialité</p></a>
                 <a href="language.php"><p>Changer de langue</p></a>
               </div>
