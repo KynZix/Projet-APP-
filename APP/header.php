@@ -59,10 +59,10 @@
 		  				<?php 
 				  		//on affiche les variables de session deja existants
 						if (isset($_SESSION['mail'])) {
-							echo "<a href=\"logout.php\">Logout</a>";
+							echo "<a href=\"logout.php\">Déconnexion</a>";
 						}
 						else{
-							echo "<a href=\"login.php\">Login</a>";
+							echo "<a href=\"login.php\">Connexion</a>";
 						}
 						?>
 		  				
