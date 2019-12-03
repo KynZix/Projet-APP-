@@ -63,9 +63,9 @@
 							<label>
 								<p>Adresse mail</p>
 								<input type="text" name="mail" id="mail" placeholder="abcd123@gmail.com"
-									<?php //if (isset($_COOKIE['mail'])) {
-										//echo 'value=' .$_COOKIE['mail'];
-									//} ?>
+									<?php if (isset($_COOKIE['mail'])) {
+										echo 'value=' .$_COOKIE['mail'];
+									} ?>
 								required> 
 							</label>
 						</fieldset>
@@ -123,7 +123,7 @@
 								<?php if (isset($_COOKIE['adresse2'])) {
 										echo 'value=' .$_COOKIE['adresse2'];
 									} ?>
-									required>
+									>
 							</label>
 						</fieldset>
 					</div>
