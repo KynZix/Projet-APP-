@@ -5,7 +5,7 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>Connexion</title>
-		<link rel="stylesheet" href="CSS">
+		<link rel="stylesheet" href="CSS/modifMDP.css">
 	</head>
 
 	<body>
@@ -27,7 +27,7 @@
 						</label>
 					</fieldset>
 
-					<fieldset class="account_info">
+					<fieldset class="nouveauMDP">
 						<label> 
 							nouveau mot de passe <input type="password" name="nmdp1" id="nmdp" placeholder="**********" 
 							<?php if (isset($_COOKIE['nmdp1'])) {
@@ -37,7 +37,7 @@
 						</label>
 					</fieldset>
 
-					<fieldset class="account_info">
+					<fieldset class="nouveauMDP">
 						<label> 
 							confirmation passe <input type="password" name="nmdp2" id="nmdp" placeholder="**********" 
 							<?php if (isset($_COOKIE['nmdp2'])){
@@ -50,7 +50,19 @@
 					<fieldset class="validif">
 						<input type="submit" name="validation" value="changer" id="button">
 					</fieldset>
+
+					<?php if (isset($_COOKIE['nmdp2'])){
+						if ($_COOKIE['nmdp1']==$_COOKIE['nmdp2']) {
+							echo "<fieldset>mot de passe erroné</fieldset>";
+						}
+						else{
+							echo "<fieldset>mettez le meme nouveau mot de passe</fieldset>";
+						}
+						
+					} ?>
+
 				</form>
+
 	   		</section>
 		</div>
 
