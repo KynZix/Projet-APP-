@@ -41,7 +41,7 @@
 							<div class="element2">
 								<!-- question -->
 								<p>
-								<strong>Question <?php echo $donnees['id']?>:</strong> <?php echo $donnees['question']?>
+								<strong>Question <?php echo $donnees['id']?>:</strong>
 								</p>
 								
 								<!-- reponses-->
@@ -58,13 +58,17 @@
 <?php				}  
 
 				}
+
+				//________________________________
+
+
 				else {   //L'utilisateur n'a pas effectué de recherche (soit il a directement accédé à la FAQ via le bouton du menu ou bien il a lancé une recherche vide")
 					$questionsReponses = $bdd->query("SELECT * FROM faq ORDER BY ID DESC"); //Affiche toutes les questions dans la BDD, par ordre décroissant
 					while ($donnees = $questionsReponses->fetch()){?>
 						<div class="element2">
 							<!-- question -->
 							<p>
-							<strong>Question <?php echo $donnees['id']?>:</strong> <?php echo $donnees['question']?>
+							<strong>Question <?php echo $donnees['id']?>:</strong>
 							</p>
 							
 							<!-- reponses-->
