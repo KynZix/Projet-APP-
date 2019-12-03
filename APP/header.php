@@ -55,14 +55,21 @@
 		  		
 
 				<li class="dropdown" id="menu3">
-		  			<button class="menubtnlog" id="rightbutton">
 		  				<?php 
 				  		//on affiche les variables de session deja existants
-						if (isset($_SESSION['mail'])) {
-							echo "<a href=\"logout.php\">Logout</a>";
+						if (isset($_SESSION['mail'])) { ?>
+								<button class="menubtn" id="leftbutton">Mon Compte</button>
+								<div class="dropdown-content" id="menu-content3">
+		 							<a href="profil.php">Profil</a>
+									<a href="logout.php">Se déconnecter</a>
+		  						</div>
+						<?php 
 						}
-						else{
-							echo "<a href=\"login.php\">Login</a>";
+						else{ ?>
+  							<button class="menubtnsingle" id="rightbutton">
+  								<a href="login.php">Login</a>
+							</button> 	
+						<?php 
 						}
 						?>
 		  				
@@ -73,13 +80,13 @@
   				<?php 
 		  		//on affiche les variables de session deja existants
 				if (isset($_SESSION['mail'])) {
-					if ($_SESSION['typeUtilisateur']<=1) {
-						echo 	"<li class=\"dropdown\" id=\"menu3\">
-  									<button class=\"menubtn\" id=\"rightbutton\">
-  										<a href=\"register.php\">register</a>
+					if ($_SESSION['typeUtilisateur']<=1) { ?>
+						<li class="dropdown" id="menu3">
+  									<button class="menubtnsingle" id="rightbutton">
+  										<a href="register.php">Créer un compte</a>
 									</button> 	
-					  			</li>";
-					}
+					  	</li>
+				<?php 	}
 					
 				}
 				?>
