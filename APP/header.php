@@ -49,7 +49,7 @@
 		  			<div class="dropdown-content" id="menu-content2">
 		 				<a href="privacy.php">Règlement</a>
 		 				<a href="FAQ.php">FAQ</a>
-		 				<a href="contactus.php">Nous Contactez</a>
+		 				<a href="contactus.php">Nous Contacter</a>
 		  			</div>
 		  		</li>
 		  		
