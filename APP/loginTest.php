@@ -9,13 +9,13 @@ catch(Exception $e)
 	die('erreur:'.$e -> getMessage());
 }
 
-//on affiche le resultat du formlaire
+//on affiche le résultat du formulaire
 echo '<p>$_POST[mail] :    '.$_POST['mail'].'</p>';
 echo '<p>$_POST[mdp] :   '.$_POST['mdp'].'</p>';
 echo "<p>-----------------------------------</p>";
 
 
-//on recherche tus les mails correspondant a la requette de l'internaute
+//on recherche tous les mails correspondant a la requête de l'internaute
 $req = $bdd -> prepare('SELECT typeUtilisateur,mail,mdp,nom,prenom FROM compte WHERE mdp=:mdp AND mail=:mail');
 $req -> execute(array('mdp' => $_POST['mdp'],'mail' => $_POST['mail']));
 $mailMDP = $req->fetch();
