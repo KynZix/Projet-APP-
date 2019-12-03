@@ -63,12 +63,14 @@
 					while ($donnees = $questionsReponses->fetch()){?>
 						<div class="element2">
 							<!-- question -->
-							<p>
-							<strong>Question <?php echo $donnees['id']?>:</strong> <?php echo $donnees['question']?>
-							</p>
+							<span class="span1" tabindex="0">
+								<p>
+								<strong>Question <?php echo $donnees['id']?>:</strong> <?php echo $donnees['question']?>
+								</p>
+							</span>
 							
 							<!-- reponses-->
-							<p>
+							<p class="text1">
 								<?php echo $donnees['reponse']?>
 							</p>
 							
