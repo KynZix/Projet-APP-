@@ -15,8 +15,8 @@ echo '<p>$_POST[mdp] :   '.$_POST['mdp'].'</p>';
 echo "<p>-----------------------------------</p>";
 
 
-//on recherche tous les mails correspondant a la requette de l'internaute
-$req = $bdd -> prepare('SELECT typeUtilisateur,mail,mdp FROM compte WHERE mdp=:mdp AND mail=:mail');
+//on recherche tus les mails correspondant a la requette de l'internaute
+$req = $bdd -> prepare('SELECT typeUtilisateur,mail,mdp,nom,prenom FROM compte WHERE mdp=:mdp AND mail=:mail');
 $req -> execute(array('mdp' => $_POST['mdp'],'mail' => $_POST['mail']));
 $mailMDP = $req->fetch();
 
@@ -25,7 +25,9 @@ if (isset($mailMDP['typeUtilisateur'])) {
 	$_SESSION['mail'] = $mailMDP['mail'];
 	$_SESSION['mdp'] = $mailMDP['mdp'];
 	$_SESSION['typeUtilisateur'] = $mailMDP['typeUtilisateur'];
-
+	$_SESSION['nom'] = $mailMDP['nom'];
+	$_SESSION['prenom'] = $mailMDP['prenom'];	
+	
 	echo '<p>$_SESSION[mail] :    '.$_SESSION['mail'].'</p>';
 	echo '<p>$_SESSION[mdp] :    '.$_SESSION['mdp'].'</p>';
 	echo '<p>$_SESSION[typeUtilisateur]'.$_SESSION['typeUtilisateur'].'</p>';
