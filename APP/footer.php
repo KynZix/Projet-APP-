@@ -14,7 +14,7 @@
               <h1>Psitech</h1>
               <div class="Company_menu">
                 <a href="about.php"><p>A propos de nous</p></a>
-                <a href="components.php"><p>jsp koi mettre</p></a>
+                <a href="components.php"><p></p></a>
 
 
                 
