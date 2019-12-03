@@ -1,4 +1,4 @@
-<?php
+<?php session_start(); 
 //on essaie e se connecter a la bdd, s'il y a une erreur on affiche juste une erreur au lieu d'afficher le lien vers la bdd par securité
 try
 {
