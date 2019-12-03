@@ -91,8 +91,7 @@
 
 			//on test si mail est deja present pour eviter les erreurs
 			if (isset($mailBDD['mail'])) {
-				echo "<a href = \"register.php\">no chance</a>";
-				header('Location: register.php');
+				echo "<a href = \"register.php\">le mail est deja lié a un autre compte</a>";
 				setcookie('nom',$nom,time() + 600);
 				setcookie('prenom',$prenom,time() + 600);
 				setcookie('genre',$genre,time() + 600);
@@ -106,6 +105,7 @@
 				{
 					setcookie('adresse2',$adresse2,time() + 600);
 				}
+				header('Location: register.php');
 				
 			}
 			//s'il n'est pas present on ajoute les infos et on redirige a lindex

@@ -20,7 +20,7 @@
 			  			<fieldset>
 							<label>
 								<p>Nom</p>
-								<input type="text" name="nom" id="name" placeholder="Nom" 
+								<input type="text" name="nom" id="nom" placeholder="Nom" 
 									<?php if (isset($_COOKIE['nom'])) {
 										echo 'value='.$_COOKIE['nom'];
 									} ?>
