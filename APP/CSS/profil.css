@@ -28,14 +28,13 @@ body {
 .infos
 {
   display: flex;
-  flex-direction: column;
   flex: 1;
   border: solid;
   
 }
 .infos p
 {
-  text-align: center;
+	margin-left: 2px;
 }
 
 .menuProfil2
@@ -51,3 +50,10 @@ body {
   
 }
 
+.col-1-2,
+.col-2-2 {
+	width: 33%;
+	display: inline-block;
+   text-align: center;
+	border-right: 1px solid #949599;
+}
