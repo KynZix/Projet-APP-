@@ -55,9 +55,8 @@ CREATE TABLE IF NOT EXISTS `compte` (
 INSERT INTO `compte` (`id`, `mail`, `mdp`, `birthday`, `phone`, `nom`, `prenom`, `genre`, `pays`, `ville`, `ZIP`, `adresse`, `adresse2`, `typeUtilisateur`) VALUES
 (18, 'cyne@gmail', 'mdp', '1900-01-01', 1023456789, 'NERIN', 'Cyril', 1, 'France', 'ISSY', 92130, '4 Bis rue CHENIER', 'NR', 0),
 (26, 'canchero@yopmail.com', 'mdp', '1999-07-02', 6, 'lacroix', 'leopold', 1, 'france', 'paris', 21, '21 av', '', 0),
-(27, 'msaknisabri@gmail.com', 'mdp', '1997-05-10', 6, 'msekni', 'sabri', 1, 'france', 'paris', 10, '20', '', 0),
-(28, 'a', 'mdp', '0001-01-01', 1, 'aA', 'a', 0, 'a', 'a', 1, 'a', 'a', 2),
-(29, 'aze', 'mdp', '0001-01-01', 11, '1', '1', 0, '1', '1', 1, '1', '', 2);
+(27, 'a', 'mdp', '0001-01-01', 1, 'aA', 'a', 0, 'a', 'a', 1, 'a', 'a', 2),
+(28, 'aze', 'mdp', '0001-01-01', 11, '1', '1', 0, '1', '1', 1, '1', '', 2);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
