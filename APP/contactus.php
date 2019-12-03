@@ -29,7 +29,7 @@
 				    <input type="text" id="name" name="visitor_name" placeholder="Votre nom" pattern=[A-Z\sa-z]{3,20} required>
 				  </div>
 				  <div class="elem-group">
-				    <label for="email">Votre E-mail</label>
+				    <label for="email">Votre e-mail</label>
 				    <input type="email" id="email" name="visitor_email" placeholder="votre@email.com" required>
 				  </div>
 				  <div class="elem-group">
@@ -40,7 +40,7 @@
 				    <label for="message">Votre message</label>
 				    <textarea id="message" name="visitor_message" placeholder="Votre message ici." required></textarea>
 				  </div>
-				  <button type="submit">Send Message</button>
+				  <button type="submit">Envoyer le message</button>
 				</form>
 			</div>
 			<footer>
