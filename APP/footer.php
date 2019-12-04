@@ -13,21 +13,7 @@
             <div class="Company">
               <h1>Psitech</h1>
               <div class="Company_menu">
-                <a href="about.php"><p>A propos de nous</p></a>               
-
-                <p>
-                  <strong> 
-                    <?php
-                    if (isset($_SESSION['id'])) {
-                      echo 'YOU :'.$_SESSION['nom'].'  '.$_SESSION['prenom'];
-                    }
-                    else {
-                      echo "YOU : GUEST";
-                    }
-                    ?>
-                  </strong>
-                </p>
-                
+                <a href="about.php"><p>A propos de nous</p></a>                
               </div>
             </div>
 
