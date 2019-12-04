@@ -41,7 +41,7 @@
 							<div class="element2">
 								<!-- question -->
 								<p>
-								<strong>Question <?php echo $donnees['id']?>:</strong>
+								<strong>Question <?php echo $donnees['id']?>:</strong> <?php echo $donnees['question']?>
 								</p>
 								
 								<!-- reponses-->
@@ -68,7 +68,7 @@
 						<div class="element2">
 							<!-- question -->
 							<p>
-							<strong>Question <?php echo $donnees['id']?>:</strong>
+							<strong>Question <?php echo $donnees['id']?>:</strong> <?php echo $donnees['question']?>
 							</p>
 							
 							<!-- reponses-->
