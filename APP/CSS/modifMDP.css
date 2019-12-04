@@ -5,7 +5,7 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  background: black;
+  background-image: url("../Media/login.jpg");
   color: white;
 }
 
@@ -19,8 +19,8 @@ input {
   border-radius: 4px;
 }
 
-legend,fieldset{
-  margin: 8px;
+fieldset{
+  margin: 15px;
   color: white;
 }
 
@@ -29,5 +29,22 @@ section{
   justify-content: center;
 }
 
+legend{
+  font-size: 200%;
+  margin : 20px;
+}
 
+label{
+  font-size: 150%;
+}
 
+footer{
+  position: absolute;
+  bottom: 0;
+}
+
+.validif{
+  margin-top: 20%;
+  position: relative;
+  left: 40%;
+}
