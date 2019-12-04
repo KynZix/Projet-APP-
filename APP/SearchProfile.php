@@ -41,7 +41,7 @@
 							<div class="element2">
 								<!-- question -->
 								<p>
-								<strong>Utilisateur n°<?php echo $donnees['id']?>:</strong> <a href="profil.php?searchid=<?php echo $donnees['id'] ?> "><?php echo $donnees['prenom'].' '.$donnees['nom']?></a>
+								<strong>Utilisateur n°<?php echo $donnees['id']?>:</strong> <a href="profil.php?profileid=<?php echo $donnees['id'] ?> "><?php echo $donnees['prenom'].' '.$donnees['nom']?></a>
 								</p>
 							
 							</div>
