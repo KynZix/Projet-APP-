@@ -44,7 +44,6 @@ catch(Exception $e)
 						$_SESSION['ZIP']=$BDD['ZIP'];
 						$_SESSION['adresse']=$BDD['adresse'];
 						$_SESSION['adresse2']=$BDD['adresse2'];
-
 		            	echo 'Bienvenue, '.$_SESSION['prenom'].' '.$_SESSION['nom'];
 		            }
 		            ?>
@@ -85,7 +84,7 @@ catch(Exception $e)
 						if (isset($_SESSION['id'])) { ?>
 								<button class="menubtn" id="leftbutton">Mon Compte</button>
 								<div class="dropdown-content" id="menu-content3">
-		 							<a href="profil.php">Profil</a>
+		 							<a href="profil.php?searchid=<?php echo $_SESSION['id'] ?>">Profil</a>
 									<a href="logout.php">Se déconnecter</a>
 		  						</div>
 						<?php 
