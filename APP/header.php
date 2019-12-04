@@ -84,7 +84,7 @@ catch(Exception $e)
 						if (isset($_SESSION['id'])) { ?>
 								<button class="menubtn" id="leftbutton">Mon Compte</button>
 								<div class="dropdown-content" id="menu-content3">
-		 							<a href="profil.php?searchid=<?php echo $_SESSION['id'] ?>">Profil</a>
+		 							<a href="profil.php">Profil</a>
 									<a href="logout.php">Se déconnecter</a>
 		  						</div>
 						<?php 
