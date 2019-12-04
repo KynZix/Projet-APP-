@@ -1,0 +1,36 @@
+
+/*layout du site*/
+body {
+  height: 100%; 
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-image: url("../Media/login.jpg");
+}
+
+fieldset {
+  border: 0;
+  padding: 0;
+}
+
+input {
+  border-radius: 4px;
+  margin: 0;
+
+}
+
+legend,fieldset{
+  margin: 15px;
+  color:white;
+  font-size: 158%;
+}
+
+section{
+  display: flex;
+  justify-content: center;
+}
+
+.validif {
+  position: relative;
+  left: 37%;
+}
