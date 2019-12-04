@@ -20,10 +20,10 @@
 		{
 			die('erreur:'.$e -> getMessage()); //Affiche un message en cas d'erreur
 		}
-		if (isset($_GET['searchid'])) {  //Si l'utilisateur a effectué une recherche
-			$currentid = $_GET['searchid'];
+		if (isset($_GET['profileid'])) {  //Si l'utilisateur a taper une ID dans l'url
+			$currentid = $_GET['profileid'];
 		} else {
-			$currentid = $_SESSION['id'];
+			header("Location:profil.php?profileid=".urlencode($_SESSION['id']));
 		}
 		$req = $bdd -> query("SELECT id,nom,prenom,mail,adresse,phone FROM compte WHERE id='$currentid'");
 		$req -> execute(array('id' => $_SESSION['id']));
@@ -33,7 +33,7 @@
 		?>
 		<div class="affichage">
 			<div class="menuProfil1">
-				<a href="profil.php?searchid=<?php echo $_SESSION['id'] ?>">USER</a>
+				<a href="profil.php?profileid=<?php echo $_SESSION['id'] ?>">USER</a>
 				<a href="tests.php">TESTS</a>
 				
 				<form class="menuinput" action="SearchProfile.php">
@@ -61,7 +61,7 @@
 			</div>
 			<?php } ?>
 			<?php
-			if (($profil['id'] == $_SESSION['id'])) { //on cache les boutons si l'utilisateur regarde le profil d'une autre personne	?>
+			if (($profil['id'] == $_SESSION['id'])) {	?>
 			<div class="menuProfil2">
 				<a href="modifINFO.php">MODIFIER MES INFORMATIONS PERSONNELLES</a>
 				<a href="modifMDP.php">MODIFIER MON MOT DE PASSE</a>
