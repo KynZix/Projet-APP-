@@ -71,7 +71,7 @@ if (isset($_POST['adresse']) and $_POST['adresse']!="") {
 	$req -> execute(array('mail' => $_SESSION['mail'],'adresse' => $_POST['adresse']));
 	echo "<p>le adresse a bien ete changé</p>";
 } 
-$req->closeCursor();
+
 
 
 if (isset($mailPris)) {
