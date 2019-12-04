@@ -57,3 +57,11 @@ body {
    text-align: center;
 	border-right: 1px solid #949599;
 }
+
+
+#errorimage {
+	margin: 5px;
+	width: 5%;
+	height: 10%;
+}
+
