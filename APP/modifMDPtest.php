@@ -31,7 +31,7 @@ if ($_POST['nmdp1']==$_POST['nmdp2']) {
 		$req = $bdd -> prepare('UPDATE compte SET mdp = :nmdp WHERE mail = :mail');
 		$req -> execute(array('mail' => $_SESSION['mail'],'nmdp' => $_POST['nmdp1']));
 		echo "<p>le mdp a bien ete changé</p>";
-		header("Location:profil.php");		
+		header("Location:profil.php");
 	}
 	else{
 		echo "<p>le mot de passe n'est pas bon</p>";
