@@ -57,7 +57,15 @@
 				$adresse2 = 'NR';
 			}
 
-			$typeUtilisateur = 2;
+			if(isset($_POST['typeUtilisateur']))
+			{
+				$typeUtilisateur = $_POST['typeUtilisateur'];
+			}
+			else
+			{
+				$typeUtilisateur = 2;
+			}
+			
 
 			echo 'mail =', $mail, '='; 
 			echo "<br>";
@@ -101,6 +109,7 @@
 				setcookie('ville',$ville,time() + 600);
 				setcookie('ZIP',$ZIP,time() + 600);
 				setcookie('adresse',$adresse,time() + 600);
+				setcookie('typeUtilisateur',$typeUtilisateur,time() + 600);
 				if(isset($adresse2))
 				{
 					setcookie('adresse2',$adresse2,time() + 600);
@@ -129,7 +138,9 @@
 
 			echo "<br>";
 			echo 'Votre compte a été créé avec succès!';
+			header("Location: index.php");
 
+			/*
    			ini_set( 'display_errors', 1 );
     		error_reporting( E_ALL );
  
@@ -145,7 +156,7 @@
 			//on redirige
 			header("Location: index.php");
 			}
-			
+			*/
 			?>
 			</p>
 		</section>

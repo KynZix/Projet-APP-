@@ -15,8 +15,6 @@
 	  		<section>
 	  			<form name="inscription" method="post" action="registerTest.php">
 			  		<legend><p>Creation d'un nouveau compte</p></legend>
-			  		<div class="formulaire">
-
 			  			<fieldset>
 							<label>
 								<p>Nom</p>
@@ -41,14 +39,14 @@
 							</label>
 						</fieldset>
 
-						<fieldset id="sexe">
-							<label><input type="radio" name="genre" value="1" required 
+						<fieldset id="radios">
+							<label><input type="radio" id="radio" name="genre" value="1" required 
 								<?php if (isset($_COOKIE['genre']) and $_COOKIE['genre']==1) { echo "checked";setcookie("genre","",time()-200);} ?> 
 								>Homme</label>
-							<label><input type="radio" name="genre" value="0"
+							<label><input type="radio" id="radio" name="genre" value="0"
 								<?php if (isset($_COOKIE['genre']) and $_COOKIE['genre']==0) { echo "checked";setcookie("genre","",time()-200);} ?> 
 								>Femme</label>
-							<label><input type="radio" name="genre" value="2"
+							<label><input type="radio" id="radio" name="genre" value="2"
 								<?php if (isset($_COOKIE['genre']) and $_COOKIE['genre']==2) {echo "checked";setcookie("genre","",time()-200);} ?>
 								>Autre</label>
 						</fieldset>
@@ -148,7 +146,14 @@
 									>
 							</label>
 						</fieldset>
-					</div>
+
+						<?php if ($_SESSION['typeUtilisateur']==0) {?>
+							<fieldset id="radios">
+								<label><input type="radio" id="radio" name="typeUtilisateur" value="1" checked>Utilisateur</label>
+								<label><input type="radio" id="radio" name="typeUtilisateur" value="0">Gestionnaire</label>
+								<label><input type="radio" id="radio" name="typeUtilisateur" value="2">Administrateur</label>
+							</fieldset>
+						<?php } ?>
 
 					<fieldset>
 						<input type="submit" name="submit" value="S'inscrire">
