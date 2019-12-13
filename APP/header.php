@@ -44,7 +44,8 @@ catch(Exception $e)
 						$_SESSION['ZIP']=$BDD['ZIP'];
 						$_SESSION['adresse']=$BDD['adresse'];
 						$_SESSION['adresse2']=$BDD['adresse2'];
-		            	echo 'Bienvenue, '.$_SESSION['prenom'].' '.$_SESSION['nom'];
+
+		            	echo 'Bienvenue, '.$_SESSION['prenom'].' '.$_SESSION['nom'].' ';
 		            }
 		            ?>
 		          </strong>
@@ -60,17 +61,17 @@ catch(Exception $e)
 
 		<ul class="menuoptions"> 
 			<div class="menu1">	   
-				<li class="dropdown" id="menu1">
+				<li class="menuDeroulant">
 					<button class="menubtn" id="leftbutton">À propos</button>
-		  			<div class="dropdown-content" id="menu-content1">
+		  			<div class="contenuMenu">
 						<a href="index.php">Accueil</a>
 		 				<a href="about.php">À propos de nous</a>
 		 				<a href="terms.php">Mentions légales</a>
 		  			</div>
 		  		</li>
-				<li class="dropdown" id="menu2">
+				<li class="menuDeroulant">
 		  			<button class="menubtn" id="leftbutton">Support</button>
-		  			<div class="dropdown-content" id="menu-content2">
+		  			<div class="contenuMenu">
 		 				<a href="privacy.php">Règlement</a>
 		 				<a href="FAQ.php">FAQ</a>
 		 				<a href="contactus.php">Nous Contactez</a>
@@ -78,12 +79,12 @@ catch(Exception $e)
 		  		</li>
 		  		
 
-				<li class="dropdown" id="menu3">
+				<li class="menuDeroulant">
 		  				<?php 
 				  		//on affiche les variables de session deja existants
 						if (isset($_SESSION['id'])) { ?>
 								<button class="menubtn" id="leftbutton">Mon Compte</button>
-								<div class="dropdown-content" id="menu-content3">
+								<div class="contenuMenu">
 		 							<a href="profil.php">Profil</a>
 									<a href="logout.php">Se déconnecter</a>
 		  						</div>
@@ -102,15 +103,29 @@ catch(Exception $e)
 
 		  		
   				<?php 
-		  		//on affiche les variables de session deja existants
+		  		//si on en a lautorisation on affiche le bouton pour creer un compte
 				if (isset($_SESSION['typeUtilisateur']) and $_SESSION['typeUtilisateur']<=1) {
-					echo "<li class='dropdown' id='menu3'>";
-						echo "<button class='menubtnsingle' id='rightbutton'>";
+					echo "<li class='menuDeroulant'>";
+						echo "<button class='boutonCreerCompte'>";
 							echo "<a href='register.php'>Créer un compte</a>";
 						echo "</button>"; 	
 				  	echo "</li>";
 				}?>
-		  		
+
+				<li class="menuDeroulant">
+						<?php 
+				  		//si on en a lautorisation on affiche le bouton pour creer un compte
+						if (isset($_SESSION['typeUtilisateur']) and $_SESSION['typeUtilisateur'] == 0) { ?>
+								<button class="menubtn" id="leftbutton">Back Office</button>
+								<div class="contenuMenu">
+		 							<a href="BOComptes.php">Comptes</a>
+									<a href="BOFAQ.php">FAQ</a>
+									<a href="BOTests.p hp">Tests</a>
+		  						</div>
+						<?php 
+						}?>
+		  			</button> 	
+		  		</li>
 
 			</div>
 			<div class="menu2">
