@@ -117,7 +117,7 @@
 								<input type="number" name="ZIP" id="ZIP" placeholder="Code Postal"
 								<?php if (isset($_COOKIE['ZIP'])) {
 										echo 'value=' .$_COOKIE['ZIP'];
-										//setcookie("ZIP","",time()-200);
+										setcookie("ZIP","",time()-200);
 									} ?>
 									required>
 							</label>
@@ -129,7 +129,7 @@
 								<input type="text" name="adresse" id="adresse" placeholder="Adresse"
 								<?php if (isset($_COOKIE['adresse'])) {
 										echo 'value=' .$_COOKIE['adresse'];
-										//setcookie("adresse","",time()-200);
+										setcookie("adresse","",time()-200);
 									} ?>
 									required>
 							</label>
@@ -149,9 +149,9 @@
 
 						<?php if ($_SESSION['typeUtilisateur']==0) {?>
 							<fieldset id="radios">
-								<label><input type="radio" id="radio" name="typeUtilisateur" value="1" checked>Utilisateur</label>
-								<label><input type="radio" id="radio" name="typeUtilisateur" value="0">Gestionnaire</label>
-								<label><input type="radio" id="radio" name="typeUtilisateur" value="2">Administrateur</label>
+								<label><input type="radio" id="radio" name="typeUtilisateur" value="2" checked>Utilisateur</label>
+								<label><input type="radio" id="radio" name="typeUtilisateur" value="1">Gestionnaire</label>
+								<label><input type="radio" id="radio" name="typeUtilisateur" value="0">Administrateur</label>
 							</fieldset>
 						<?php } ?>
 
