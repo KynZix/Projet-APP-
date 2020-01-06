@@ -17,7 +17,7 @@
 
 			$action = $_POST['action'];
 
-			if ($action == "annuler" && $_COOKIE['action'] != 'annuler'){ //on veut annuler
+			if ($action == "annuler" && isset($_COOKIE['action']) && $_COOKIE['action'] != 'annuler'){ //on veut annuler
 				echo "annuler  ".$_COOKIE['action'];
 
 				$AnciennesValeurs = unserialize($_COOKIE["arrayChangementsSerialise"]);
