@@ -1,12 +1,17 @@
 
 /*layout du site*/
+hr{
+  width: auto;
+  color:#fefefe;
+}
+
 body {
   height: 100%; 
   width: 100%;
   margin: 0;
   padding: 0;
-  background-image: url("../Media/login.jpg");
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 
@@ -20,8 +25,8 @@ input {
 }
 
 fieldset{
-  margin: 15px;
-  color: white;
+  margin: 30px;
+  color: black;
 }
 
 section{
@@ -46,5 +51,5 @@ footer{
 .validif{
   margin-top: 20%;
   position: relative;
-  left: 40%;
+  left: 30%;
 }

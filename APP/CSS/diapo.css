@@ -1,6 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
 
-html, body { background: #010101 url("Media/slide1.png"); }
+html, body { background: white url("Media/slide1.png"); }
 
 .slides {
     padding: 0;

@@ -1,11 +1,16 @@
 
 /*layout du site*/
+hr{
+  width: auto;
+  color:#fefefe;
+}
+
 body {
   height: 100%; 
   width: 100%;
   margin: 0;
   padding: 0;
-  background-image: url("../Media/login.jpg");
+  background-color: white;
 }
 
 fieldset {
@@ -21,7 +26,7 @@ input {
 
 legend,fieldset{
   margin: 15px;
-  color:white;
+  color:black;
   font-size: 158%;
 }
 
