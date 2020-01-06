@@ -3,55 +3,49 @@
 <html>
 
 	<head>
-		<title>Psitech info utilisateur</title>
+		<title>Profil</title>
 		<link rel="stylesheet" href="CSS/profil.css">
 	</head>
 
-
-
 	<body>
-		<?php include("header.php"); ?>
+		<?php include("header.php"); 
+		
+		//Connexion à la BDD
+			
+		try
+		{
+			$bdd = new PDO('mysql:host=localhost;dbname=app;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+		}
+		catch(Exception $e)
+		{
+			die('erreur:'.$e -> getMessage()); //Affiche un message en cas d'erreur
+		}
+		
+		$req = $bdd -> prepare('SELECT nom,prenom,mail,adresse,phone FROM compte WHERE id=:id');
+		$req -> execute(array('id' => $_SESSION['id']));
+		$profil = $req->fetch();
 
+		?>
 		<div class="affichage">
 			<div class="menuProfil1">
 				<a href="profil.php">USER</a>
 				<a href="tests.php">TESTS</a>
 			</div>
 			<div class="infos">
-				<?php
-				try
-				{
-					$bdd = new PDO('mysql:host=localhost;dbname=app;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-				}
-				catch(Exception $e)
-				{
-					die('erreur:'.$e -> getMessage());
-				}
-				$req = $bdd -> prepare('SELECT nom,prenom,mail,phone,birthday,pays,ville,ZIP,adresse,adresse2 FROM compte WHERE mail=:mail');
-				$req -> execute(array('mail' => $_SESSION['mail']));
-				$infos = $req->fetch();
-				echo '<div class="info"><p> nom: </p><p>'.$infos['nom'].'</p></div>';
-				echo '<div class="info"><p> prenom: </p><p>'.$infos['prenom'].'</p></div>';
-				echo '<div class="info"><p> mail: </p><p>'.$infos['mail'].'</p></div>';
-				echo '<div class="info"><p> phone: </p><p>'.$infos['phone'].'</p></div>';
-				echo '<div class="info"><p> birthday: </p><p>'.$infos['birthday'].'</p></div>';
-				echo '<div class="info"><p> pays: </p><p>'.$infos['pays'].'</p></div>';
-				echo '<div class="info"><p> ville: </p><p>'.$infos['ville'].'</p></div>';
-				echo '<div class="info"><p> ZIP: </p><p>'.$infos['ZIP'].'</p></div>';
-				echo '<div class="info"><p> adresse: </p><p>'.$infos['adresse'].'</p></div>';
-				if (isset($infos['adresse2']) and $infos['adresse2']!="") {
-					echo '<div class="info"><p> complément d\'adresse: </p><p>'.$infos['adresse2'].'</p></div>';
-				}
-				else{
-					echo '<div class="info"><p> complément d\'adresse: </p><p>auncun</p></div>';
-				}
-				
-				?>
-
-							</div>
+				<div class="col-2-2">
+					<img id="profilephoto" src="Media/Emptyprofile.png">
+				</div>
+				<div>
+					<p><strong>Nom:</strong> <?php echo $profil['nom']?></p>
+					<p><strong>Prénom:</strong>  <?php echo $profil['prenom']?> </p>
+					<p><strong>Adresse Mail:</strong> <?php echo $profil['mail']?></p>
+					<p><strong>Adresse:</strong> <?php echo $profil['adresse']?></p>
+					<p><strong>Numéro:</strong> <?php echo $profil['phone']?></p>
+				</div>
+			</div>
 			<div class="menuProfil2">
-				<a href="modifINFO.php">MODIFIER INFOS</a>
-				<a href="modifMDP.php">MODIFIER MOT DE PASSE</a>
+				<a href="modifINFO.php">MODIFIER MES INFORMATIONS PERSONNELLES</a>
+				<a href="modifMDP.php">MODIFIER MON MOT DE PASSE</a>
 			</div>
 		</div>
 

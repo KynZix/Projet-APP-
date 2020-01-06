@@ -1,4 +1,4 @@
-<?php
+<?php session_start(); 
 //on essaie e se connecter a la bdd, s'il y a une erreur on affiche juste une erreur au lieu d'afficher le lien vers la bdd par securité
 try
 {
@@ -9,29 +9,23 @@ catch(Exception $e)
 	die('erreur:'.$e -> getMessage());
 }
 
-//on affiche le resultat du formlaire
+//on affiche le résultat du formulaire
 echo '<p>$_POST[mail] :    '.$_POST['mail'].'</p>';
 echo '<p>$_POST[mdp] :   '.$_POST['mdp'].'</p>';
 echo "<p>-----------------------------------</p>";
 
 
-//on recherche tus les mails correspondant a la requette de l'internaute
-$req = $bdd -> prepare('SELECT typeUtilisateur,mail,mdp FROM compte WHERE mdp=:mdp AND mail=:mail');
-$req -> execute(array('mdp' => $_POST['mdp'],'mail' => $_POST['mail']));
-$mailMDP = $req->fetch();
+//on recherche tous les mails correspondant a la requête de l'internaute
+$req = $bdd -> prepare('SELECT id,mdp FROM compte WHERE mail=:mail');
+$req -> execute(array('mail' => $_POST['mail']));
+$idBDD = $req->fetch();
 
-//si on trouve un mail qui correspond a la requette on stoke les infos dans la session
-if (isset($mailMDP['typeUtilisateur'])) {
-	$_SESSION['mail'] = $mailMDP['mail'];
-	$_SESSION['mdp'] = $mailMDP['mdp'];
-	$_SESSION['typeUtilisateur'] = $mailMDP['typeUtilisateur'];
-
-	echo '<p>$_SESSION[mail] :    '.$_SESSION['mail'].'</p>';
-	echo '<p>$_SESSION[mdp] :    '.$_SESSION['mdp'].'</p>';
-	echo '<p>$_SESSION[typeUtilisateur]'.$_SESSION['typeUtilisateur'].'</p>';
+// si le mail est present dans la bdd auquel correspond un mdp hasshé et si le mdp entré entré correspond a celui ci on se login
+if (isset($idBDD['mdp']) and (password_verify($_POST['mdp'], $idBDD['mdp']) or $_POST['mdp'] == $idBDD['mdp'])) {
+	$_SESSION['id'] = $idBDD['id'];
 	header("Location:index.php");
 }
-else{
+else{//le mdp est erroné ou le mail ne figure pas dans la bdd
 header("Location:login.php");
 }
 

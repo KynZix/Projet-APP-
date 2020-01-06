@@ -18,13 +18,12 @@
 			$action = $_POST['action'];
 
 			if ($action == "annuler" && isset($_COOKIE['action']) && $_COOKIE['action'] != 'annuler'){ //on veut annuler
-				echo "annuler  ".$_COOKIE['action'];
 
 				$AnciennesValeurs = unserialize($_COOKIE["arrayChangementsSerialise"]);
-				$action = $_COOKIE["action"];
+				$actionPrecedente = $_COOKIE["action"];
 
 					
-				if ($action == 'delete') {
+				if ($actionPrecedente == 'delete') {
 					$req = $bdd->prepare('INSERT INTO compte (id, mail, mdp, birthday, phone, nom, prenom, genre, pays, ville, ZIP, adresse, adresse2, typeUtilisateur) VALUES(:id, :mail, :mdp, :birthday, :phone, :nom, :prenom, :genre, :pays, :ville, :ZIP, :adresse, :adresse2, :typeUtilisateur)');
 						
 				}
@@ -66,25 +65,25 @@
 						));
 					}
 				}
+
+			echo "action faite: ".$action." ".$actionPrecedente;
+			setcookie("action", $action, time() + 7*24*60*60);
+
 			}
 			else{
 				if($action == "delete"){//on prepare la commande pour supprimer les comptes
-					echo "delete";
 
 					$req = $bdd->prepare('DELETE FROM compte WHERE id = :id');
 				}
 				else if ($action == "utilisateur") {//commande pour rendre utilisateur
-					echo "utilisateur";
 
 					$req = $bdd->prepare('UPDATE compte SET typeUtilisateur = 2 WHERE id = :id');
 				}
 				else if ($action == "gestionnaire") {//gestionnaire
-					echo "gestionnaire";
 
 					$req = $bdd->prepare('UPDATE compte SET typeUtilisateur = 1 WHERE id = :id');
 				}
 				else if ($action == "admin") {//admin
-					echo "admin";
 
 					$req = $bdd->prepare('UPDATE compte SET typeUtilisateur = 0 WHERE id = :id');
 				}
@@ -104,6 +103,7 @@
 
 			$arrayChangementsSerialise = serialize($arrayChangements);
 
+			echo "action faite: ".$action;
 			setcookie("action", $action, time() + 7*24*60*60);
 			setcookie("arrayChangementsSerialise", $arrayChangementsSerialise, time() + 7*24*60*60);
 
@@ -115,7 +115,7 @@
 
 		<form method="post" action="backOffice.php">
 
-			<?php while ( $user = $users->fetch()) { ?>
+			<?php while ( $user = $users->fetch() ) { ?>
 
 				<div>
 					<?php if ($_SESSION['id'] != $user['id']) { ?>
@@ -140,8 +140,6 @@
 		</form>
 
 		<a href="register.php?>"> enregister nouveau compte </a> </li>
-
-
 
         <?php include("footer.php"); ?>
 	</body>

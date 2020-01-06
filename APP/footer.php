@@ -13,11 +13,7 @@
             <div class="Company">
               <h1>Psitech</h1>
               <div class="Company_menu">
-                <a href="about.php"><p>A propos de nous</p></a>
-                <a href="components.php"><p></p></a>
-
-
-                
+                <a href="about.php"><p>A propos de nous</p></a>                
               </div>
             </div>
 
@@ -31,9 +27,9 @@
             </div>
 
             <div class="Other_stuff">
-              <h1>Other stuff</h1>
+              <h1>Autre</h1>
               <div class="Other_stuff_menu">
-                <a href="terms.php"><p>Conditions générales & mentions légales</p></a>
+                <a href="terms.php"><p>CGU & mentions légales</p></a>
                 <a href="privacy"><p>Politique de confidentialité</p></a>
                 <a href="language.php"><p>Changer de langue</p></a>
               </div>
@@ -42,7 +38,7 @@
           </div>
 
           <div class="footer_follow">
-            <h1>Follow us!</h1>
+            <h1>Nos réseaux sociaux</h1>
             <div class="follow_icons">
               <a href="#"><img src="Media\facebook.png" id="Follow"></a>
               <a href="#"><img src="Media\instagram.png" id="Follow"></a>

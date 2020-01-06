@@ -1,4 +1,4 @@
-<?php
+<?php session_start(); 
 
 // on rÃ©cupÃ¨re les requÃªtes gÃ©nÃ©riques
 include('requetes.generiques.php');

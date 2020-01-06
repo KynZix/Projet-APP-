@@ -5,72 +5,78 @@
 	<head>
 		<meta charset="utf-8"/>
 		<title>Connexion</title>
-		<link rel="stylesheet" href="CSS/login.css">
+		<link rel="stylesheet" href="CSS/modifNFO.css">
 	</head>
 
 	<body>
 		<?php include("header.php"); ?>
 
 
-	    <div class="group">
+	    <div id="modif">
 	  		<section>
 
 	  			<form action="modifINFOtest.php" id="login" method="post">
 	  				<legend>Modification infos</legend>
 		  			<fieldset>
 						<label>
-							nouveau nom <input type="text" name="nom" placeholder="Dupont"> 
+							Nouveau nom <input type="text" name="nom" placeholder="Dupont"> 
 						</label>
 					</fieldset>
 
 					<fieldset>
 						<label> 
-							nouveau prenom <input type="text" name="prenom" placeholder="tintin"> 
+							Nouveau prenom <input type="text" name="prenom" placeholder="tintin"> 
 						</label>
 					</fieldset>
 
 					<fieldset>
 						<label> 
-							nouveau mail <input type="text" name="mail" placeholder="tintin.dupont@yopmail.com"> 
+							Nouveau mail <input type="text" name="mail" placeholder="tintin.dupont@yopmail.com"> 
 						</label>
 					</fieldset>
 
 					<fieldset>
 						<label> 
-							nouveau telephone <input type="number" name="phone" placeholder="06"> 
+							Nouveau telephone <input type="number" name="phone" placeholder="06"> 
 						</label>
 					</fieldset>
 
 					<fieldset>
 						<label> 
-							nouveau pays <input type="text" name="pays" placeholder="france">
+							Nouveau pays <input type="text" name="pays" placeholder="france">
 						</label>
 					</fieldset>
 
 					<fieldset>
 						<label> 
-							nouvelle ville <input type="text" name="ville" placeholder="paris">
+							Nouvelle ville <input type="text" name="ville" placeholder="paris">
 						</label>
 					</fieldset>
 
 					<fieldset>
 						<label> 
-							code postal <input type="number" name="zip" placeholder="92">
+							Code postal <input type="number" name="zip" placeholder="92">
 						</label>
 					</fieldset>
 
 					<fieldset>
 						<label> 
-							nouvelle adresse <input type="text" name="adresse" placeholder="2 rue de la pompe"> 
+							Nouvelle adresse <input type="text" name="adresse" placeholder="2 rue de la pompe"> 
 						</label>
 					</fieldset>
+
+						<?php if (isset($_COOKIE['infos'])) {?>
+							<legend>
+								<?php echo $_COOKIE['infos']; ?>
+							</legend>
+						<?php setcookie("infos","",time()-200);} ?>
 
 					<fieldset class="validif">
-						<input type="submit" name="validation" value="changer">
+						<input type="submit" name="validation" value="Changer">
 					</fieldset>
 
 				</form>
-
+				
 	   		</section>
 		</div>
 
