@@ -46,7 +46,7 @@
 				<div class="col-2-2">
 					<img id="profilephoto" src="Media/Emptyprofile.png">
 				</div>
-				<div>
+				<div class="information">
 					<p><strong>Nom:</strong> <?php echo $profil['nom']?></p>
 					<p><strong>Prénom:</strong>  <?php echo $profil['prenom']?> </p>
 					<p><strong>Adresse Mail:</strong> <?php echo $profil['mail']?></p>

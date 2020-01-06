@@ -17,6 +17,7 @@
 
 	  			<form action="modifMDPtest.php" id="login" method="post">
 	  				<legend>Modification mot de passe</legend>
+	  				<hr/>
 		  			<fieldset>
 						<label>
 							ancien mot de passe <input type="password" name="mdp" id="mdp" placeholder="**********" 

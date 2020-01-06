@@ -17,6 +17,7 @@
 
 	  			<form action="modifINFOtest.php" id="login" method="post">
 	  				<legend>Modification infos</legend>
+	  				<hr/>
 		  			<fieldset>
 						<label>
 							Nouveau nom <input type="text" name="nom" placeholder="Dupont"> 

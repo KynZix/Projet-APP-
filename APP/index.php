@@ -61,8 +61,6 @@
             </div>
             		
 	</div>
-      
-      <p>f</p>
 	   	</section>
 		</div>
 		
