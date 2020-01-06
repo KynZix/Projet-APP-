@@ -104,6 +104,7 @@
 				echo "<a href = \"register.php\">le mail est deja lié a un autre compte</a>";
 				setcookie('nom',$nom,time() + 600);
 				setcookie('prenom',$prenom,time() + 600);
+				setcookie('mail',$mail,time() + 600);
 				setcookie('genre',$genre,time() + 600);
 				setcookie('birthday',$birthday,time() + 600);
 				setcookie('phone',$phone,time() + 600);
@@ -143,6 +144,7 @@
 
 				setcookie('nom',$nom,time() - 600);
 				setcookie('prenom',$prenom,time() - 600);
+				setcookie('mail',$mail,time() - 600);
 				setcookie('genre',$genre,time() - 600);
 				setcookie('birthday',$birthday,time() - 600);
 				setcookie('phone',$phone,time() - 600);

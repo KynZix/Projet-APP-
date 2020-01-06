@@ -114,14 +114,16 @@ catch(Exception $e)
 				}?>
 
 				<li class="menuDeroulant">
-						<?php 
-				  		//si on en a lautorisation on affiche le bouton pour creer un compte
-						if (isset($_SESSION['typeUtilisateur']) and $_SESSION['typeUtilisateur'] == 0) { ?>
-								<button class="menubtnsingle" id="rightbutton">
-  								<a href="backOffice.php">Back Office</a>
-							</button> 	
-						<?php 
-						}?>
+					<?php 
+			  		//si on en a lautorisation on affiche le bouton pour creer un compte
+					if (isset($_SESSION['typeUtilisateur']) and $_SESSION['typeUtilisateur'] == 0) { ?>
+							<button class="menubtn" id="leftbutton">Back Office</button>
+							<div class="contenuMenu">
+								<a href="backOfficeComptes.php">Comptes</a>
+								<a href="backOfficeFAQ.php">FAQ</a>
+							</div>
+					<?php 
+					}?>
 		  			</button> 	
 		  		</li>
 
