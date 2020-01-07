@@ -16,12 +16,12 @@ echo "<p>-----------------------------------</p>";
 
 
 //on recherche tous les mails correspondant a la requête de l'internaute
-$req = $bdd -> prepare('SELECT id,mdp FROM compte WHERE mail=:mail');
+$req = $bdd -> prepare('SELECT * FROM compte WHERE mail=:mail');
 $req -> execute(array('mail' => $_POST['mail']));
 $idBDD = $req->fetch();
 
 // si le mail est present dans la bdd auquel correspond un mdp hasshé et si le mdp entré entré correspond a celui ci on se login
-if (isset($idBDD['mdp']) and (password_verify($_POST['mdp'], $idBDD['mdp']) or $_POST['mdp'] == $idBDD['mdp'])) {
+if (isset($idBDD['mdp']) and ($idBDD['typeUtilisateur']  != 3) and ( (password_verify($_POST['mdp'], $idBDD['mdp']) or $_POST['mdp'] == $idBDD['mdp']) ) ) {
 	$_SESSION['id'] = $idBDD['id'];
 	header("Location:index.php");
 }
