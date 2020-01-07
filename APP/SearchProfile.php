@@ -29,6 +29,14 @@
 			}
 			?>
 
+			<div class="affichage">
+				<div class="menuProfil1">					
+					<form class="menuinput" action="SearchProfile.php">
+			  			<input type="search" name="searchtext" placeholder="Chercher un utilisateur" id ="search-bar-profile">	
+						<button type="submit" id="search-button"><i class="fa fa-search"></i></button>
+			  		</form>
+				</div>
+			</div>
 
 			<div id="conteneur">
 				<?php
