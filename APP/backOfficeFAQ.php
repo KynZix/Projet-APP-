@@ -28,7 +28,7 @@
 						
 				}
 				else {
-					$req = $bdd->prepare('UPDATE compte SET 
+					$req = $bdd->prepare('UPDATE FAQ SET 
 						id = :id,
 						question = :question,
 						reponse = :reponse
@@ -36,9 +36,12 @@
 				}
 				foreach ($AnciennesValeurs as $key => $value) {
 					if (!is_null($value['reponse'])) {
+
+						echo $value['id']."<br/>".$value['question']."<br/>".$value['reponse']."<br/>";
+
 						$req -> execute(array(
 							'id' => $value['id'],
-							'question' => $value['question'],
+							'question' => "zizi",
 							'reponse' => $value['reponse']
 						));
 					}
@@ -77,13 +80,16 @@
 				        while ($string[0]==" ") {
 				            $string = substr($string, 1, strlen($string));
 				        }
+				        while ($string[strlen($string)-1]==" ") {
+				            $string = substr($string, 0, strlen($string)-2);
+				        }
 				        return $string;
 				    }
 
 					$FAQmodification = $bdd->prepare('UPDATE Faq SET question = :question, reponse = :reponse WHERE id = :id');
 
 					$arrayChangements = array();
-					$infosActuelles =$bdd -> prepare('SELECT * FROM FAQ WHERE id = :id');
+					$infosActuelles = $bdd -> prepare('SELECT * FROM FAQ WHERE id = :id');
 					$ids = $bdd->query('SELECT id FROM faq ORDER BY id LIMIT 0,20');
 
 					while ($id = $ids -> fetch() ) {//on parcours les ids pour voir les questions selectionnées
@@ -95,6 +101,10 @@
 					 		if ($_POST['reponse'.$id][0] == " ") {//idem pour la reponse
 					 			$_POST['reponse'.$id] = supEspaces($_POST['reponse'.$id]);
 					 		}
+
+					 		$infosActuelles -> execute(array('id' => $id));
+							$arrayInfos = $infosActuelles -> fetch();
+							$arrayChangements[] = $arrayInfos;
 
 					 		$FAQmodification -> execute(array('id' =>$id, 'question' =>$_POST['question'.$id], 'reponse' =>$_POST['reponse'.$id]));
 					 	}

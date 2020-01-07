@@ -89,7 +89,7 @@
 					$req = $bdd->prepare('UPDATE compte SET typeUtilisateur = 0 WHERE id = :id');
 				}
 				else if ($action == "bannir") {//bannir
-					$req = $bdd->prepare('UPDATE compte SET typeUtilisateur = -1 WHERE id = :id');
+					$req = $bdd->prepare('UPDATE compte SET typeUtilisateur = 3 WHERE id = :id');
 				}
 				
 				$arrayChangements = array();
@@ -136,9 +136,13 @@
 							else if ($user['typeUtilisateur'] == 0) {
 								echo "Utilisateur";
 							}
-							else if ($user['typeUtilisateur'] == -1) {
+							else if ($user['typeUtilisateur'] == 3) {
 								echo "Banni";
-							}?>
+							}
+							else{
+								echo "???";
+							}
+								?>
 						</label>
 					<?php } ?>
 				</div>
