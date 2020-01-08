@@ -7,15 +7,15 @@
 		<link rel="stylesheet" href="CSS/faq.css">
 	</head>
 
-	<body>  
+	<body>
 		<!-- comment -->
-		
+
 
 		<body>
 			<header>
 				<?php include("header.php"); ?>
 			</header>
-			
+
 
 			<?php
 			//Connexion à la BDD
@@ -29,36 +29,27 @@
 			}
 			?>
 
-			<div class="affichage">
-				<div class="menuProfil1">					
-					<form class="menuinput" action="SearchProfile.php">
-			  			<input type="search" name="searchtext" placeholder="Chercher un utilisateur" id ="search-bar-profile">	
-						<button type="submit" id="search-button"><i class="fa fa-search"></i></button>
-			  		</form>
-				</div>
-			</div>
-
 			<div id="conteneur">
 				<?php
-				
+
 				if (isset($_GET['searchtext'])) {  //Si l'utilisateur a effectué une recherche
 					$searchquery = $_GET['searchtext'];
-					$questionsReponses = $bdd->query("SELECT * FROM compte WHERE nom LIKE '%$searchquery%' OR prenom LIKE '%$searchquery%' OR id LIKE '%$searchquery%'");	
-					if ($questionsReponses->rowCount() > 0) { //Si au moins 1 résultat a été trouvé	
+					$questionsReponses = $bdd->query("SELECT * FROM compte WHERE nom LIKE '%$searchquery%' OR prenom LIKE '%$searchquery%' OR id LIKE '%$searchquery%'");
+					if ($questionsReponses->rowCount() > 0) { //Si au moins 1 résultat a été trouvé
 						while ($donnees = $questionsReponses->fetch()){?>
 							<div class="element2">
 								<!-- question -->
 								<p>
 								<strong>Utilisateur n°<?php echo $donnees['id']?>:</strong> <a href="profil.php?profileid=<?php echo $donnees['id'] ?> "><?php echo $donnees['prenom'].' '.$donnees['nom']?></a>
 								</p>
-							
+
 							</div>
-<?php 
+<?php
 						}
 
-					} else { //Aucun résultat 	 ?>		
+					} else { //Aucun résultat 	 ?>
 						<p>Aucun résultat n'a été trouvé.</p>
-<?php				}  
+<?php				}
 
 				}
 
@@ -68,7 +59,7 @@
 				else {   //L'utilisateur n'a rien mis dans la barre de recherche
 					header("Location:profil.php");
 					}
-				
+
 				?>
 			</div>
 
@@ -77,8 +68,8 @@
 			</footer>
 
 		</body>
-	
-	    
+
+
 
 
 	</body>
