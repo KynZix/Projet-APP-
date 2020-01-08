@@ -120,9 +120,14 @@ catch(Exception $e)
 
 			</div>
 			<div class="menu2">
-		  		<form class="menuinput" action="FAQ.php">
-		  			<input type="search" name="searchtext" placeholder="Recherche..." id ="search-bar">
-					<button type="submit" id="search-button"><i class="fa fa-search"></i></button>
+		  		<form class="menuinput" action="search.php">
+						<select id="category" name="category">
+							<option value="0">FAQ</option>
+							<option value="1">Profil</option>
+							<option value="2">Test</option>
+						</select>
+		  			<input type="search" name="searchtext" placeholder="Recherche..." id ="search-bar" required>
+						<button type="submit" id="search-button"><i class="fa fa-search"></i></button>
 		  		</form>
 			</div>
 
