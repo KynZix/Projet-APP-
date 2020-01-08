@@ -16,7 +16,7 @@
 			</header>
 
 
-			<?php
+			<?php  
 			//Connexion à la BDD
 			try
 			{
