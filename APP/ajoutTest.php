@@ -7,10 +7,10 @@
 		<link rel="stylesheet" href="CSS/register.css">
 	</head>
 
-	<body> 
+	<body>
 
 		<?php include("header.php"); ?>
-		
+
 	    <div>
 	  		<section>
 	  			<form name="inscription" method="post" action="ajoutTestTest.php">
@@ -18,27 +18,27 @@
 
 			  			<fieldset>
 							<label>
-								<p>mail de la peronne examine</p>
-								<input type="text" name="mail" placeholder="mail" 
-								<?php 
+								<p>Mail</p>
+								<input type="text" name="mail" placeholder="mail"
+								<?php
 								if (isset($_COOKIE["mail"])) {
 								echo "value=".$_COOKIE["mail"];
 								} ?>
 								required>
 							</label>
-							<?php 
+							<?php
 							if (isset($_COOKIE["mail"])) {
 							echo "<legend>mail erroné</legend>";
 							} ?>
 
-							
+
 						</fieldset>
 
 						<fieldset>
 							<label>
-								<p>resultat</p>
+								<p>Résultat</p>
 								<input type="number" name="resultat" placeholder="resultat"
-								<?php 
+								<?php
 								if (isset($_COOKIE["resultat"])) {
 								echo "value=".$_COOKIE["resultat"];
 								} ?>
@@ -48,9 +48,9 @@
 
 			  			<fieldset>
 							<label>
-								<p>score</p>
+								<p>Score</p>
 								<input type="number" name="score" placeholder="score"
-								<?php 
+								<?php
 								if (isset($_COOKIE["score"])) {
 								echo "value=".$_COOKIE["score"];
 								} ?>
@@ -60,9 +60,9 @@
 
 						<fieldset>
 							<label>
-								<p>Date du test</p>
+								<p>Date</p>
 								<input type="date" name="date"
-								<?php 
+								<?php
 								if (isset($_COOKIE["date"])) {
 								echo "value=".$_COOKIE["date"];
 								}
@@ -70,7 +70,7 @@
 									echo "value=date('Y-m-d')";
 								}?>>
 							</label>
-						</fieldset>	
+						</fieldset>
 
 					<fieldset>
 						<input type="submit" name="submit" value="rajouter">
@@ -85,7 +85,7 @@
 		<footer>
 			<?php include("footer.php"); ?>
 		</footer>
-	  	
+
 
 	</body>
 
