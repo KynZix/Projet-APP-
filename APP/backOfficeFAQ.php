@@ -4,7 +4,7 @@
 
 	<head>
 		<title>Psitech</title>
-		<link rel="stylesheet" href="CSS/backOffice.css">
+		<link rel="stylesheet" href="CSS/backOfficeFAQ.css">
 	</head>
 
 	<body>
