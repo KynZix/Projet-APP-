@@ -76,11 +76,12 @@
 					if ($category == '2') {
 						$result = $bdd->query("SELECT * FROM tests WHERE id_test LIKE '%$searchquery%' ");
 						if ($result->rowCount() > 0) { //Si au moins 1 résultat a été trouvé
-							while ($donnees = $result->fetch()){?>
+							while ($donnees = $result->fetch()){
+								?>
 								<div class="element2">
 									<!-- tests -->
 									<p>
-									<strong>Test n°<?php echo $donnees['id']?>:</strong> <a href="profil.php?profileid=<?php echo $donnees['id_test'] ?> "><?php echo $donnees['prenom'].' '.$donnees['nom']?></a>
+									<strong>Test n°<?php echo $donnees['id_test']?>:</strong> <a href="profil.php?profileid=<?php echo $donnees['id_test'] ?> "><?php ?></a>
 									</p>
 
 								</div>

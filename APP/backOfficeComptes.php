@@ -10,7 +10,7 @@
 	<body>
 		<?php include("header.php");?>
 		<?php if ( !isset($_SESSION['typeUtilisateur']) || $_SESSION['typeUtilisateur'] != 0 ) { //on ne peut entrer sur le BO que si on en a lautoristion
-			header("Location: index.php"); 
+			header("Location: index.php");
 		} ?>
 
 		<?php if (isset($_POST['action'])) {//action demandée
@@ -22,13 +22,13 @@
 				$AnciennesValeurs = unserialize($_COOKIE["arrayChangementsSerialise"]);
 				$actionPrecedente = $_COOKIE["action"];
 
-					
+
 				if ($actionPrecedente == 'delete') {
 					$req = $bdd->prepare('INSERT INTO compte (id, mail, mdp, birthday, phone, nom, prenom, genre, pays, ville, ZIP, adresse, adresse2, typeUtilisateur) VALUES(:id, :mail, :mdp, :birthday, :phone, :nom, :prenom, :genre, :pays, :ville, :ZIP, :adresse, :adresse2, :typeUtilisateur)');
-						
+
 				}
 				else {
-					$req = $bdd->prepare('UPDATE compte SET 
+					$req = $bdd->prepare('UPDATE compte SET
 						id = :id,
 						mail = :mail,
 						mdp = :mdp,
@@ -91,7 +91,7 @@
 				else if ($action == "bannir") {//bannir
 					$req = $bdd->prepare('UPDATE compte SET typeUtilisateur = 3 WHERE id = :id');
 				}
-				
+
 				$arrayChangements = array();
 
 				$req2 =$bdd -> prepare('SELECT * FROM compte WHERE id = :id');
@@ -111,7 +111,7 @@
 			setcookie("action", $action, time() + 7*24*60*60);
 			setcookie("arrayChangementsSerialise", $arrayChangementsSerialise, time() + 7*24*60*60);
 
-			} 
+			}
 		}?>
 
 		<?php $users = $bdd->query('SELECT * FROM compte ORDER BY id DESC LIMIT 0,20') ?>
@@ -126,14 +126,14 @@
 						<input type="checkbox" <?= 'name='.$user['id'];?> >
 						<label> <?=$user['nom']?> <?=$user['prenom']?> </label>
 						<label>
-							<?php 
-							if ($user['typeUtilisateur'] == 2) {
+							<?php
+							if ($user['typeUtilisateur'] == 0) {
 								echo "Admin";
 							}
 							else if ($user['typeUtilisateur'] == 1) {
 								echo "Gestionnaire";
 							}
-							else if ($user['typeUtilisateur'] == 0) {
+							else if ($user['typeUtilisateur'] == 2) {
 								echo "Utilisateur";
 							}
 							else if ($user['typeUtilisateur'] == 3) {
@@ -148,7 +148,7 @@
 				</div>
 			<?php } ?>
 
-					
+
 
 
 			<br/>

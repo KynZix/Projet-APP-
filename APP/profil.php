@@ -8,10 +8,10 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<body>
-		<?php include("header.php"); 
-		
+		<?php include("header.php");
+
 		//Connexion à la BDD
-			
+
 		try
 		{
 			$bdd = new PDO('mysql:host=localhost;dbname=app;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
@@ -33,13 +33,8 @@
 		?>
 		<div class="affichage">
 			<div class="menuProfil1">
-				<a href="profil.php?profileid=<?php echo $_SESSION['id'] ?>">USER</a>
-				<a href="tests.php">TESTS</a>
-				
-				<form class="menuinput" action="SearchProfile.php">
-		  			<input type="search" name="searchtext" placeholder="Recherche..." id ="search-bar-profile">	
-					<button type="submit" id="search-button"><i class="fa fa-search"></i></button>
-		  		</form>
+				<a href="profil.php?profileid=<?php echo $currentid ?>">Profil</a>
+				<a href="tests.php?profileid=<?php echo $currentid ?>">Tests</a>
 			</div>
 			<?php if ($req->rowCount() > 0) {  ?>
 			<div class="infos">
@@ -71,7 +66,7 @@
 		</div>
 
 
-		<?php include("footer.php"); ?>  	
+		<?php include("footer.php"); ?>
 	</body>
 
 </html>
