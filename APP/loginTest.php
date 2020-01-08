@@ -15,13 +15,13 @@ echo '<p>$_POST[mdp] :   '.$_POST['mdp'].'</p>';
 echo "<p>-----------------------------------</p>";
 
 
-//on recherche tous les mails correspondant a la requête de l'internaute
-$req = $bdd -> prepare('SELECT id FROM compte WHERE mdp=:mdp AND mail=:mail');
-$req -> execute(array('mdp' => $_POST['mdp'],'mail' => $_POST['mail']));
+//on recupere le mdp associé au mail (s'il existe)
+$req = $bdd -> prepare('SELECT id,mdp FROM compte WHERE mail=:mail');
+$req -> execute(array('mail' => $_POST['mail']));
 $idBDD = $req->fetch();
 
-//si on trouve un mail qui correspond a la requête on stocke les infos dans la session
-if (isset($idBDD['id'])) {
+//si on a trouvé un compte on verifie que le mdp entré est le bon et on le connecte
+if (isset($idBDD['id']) && password_verify($_POST['mdp'], $idBDD['mdp'])) {
 	$_SESSION['id'] = $idBDD['id'];
 	header("Location:index.php");
 }
