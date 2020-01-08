@@ -25,6 +25,7 @@ if (isset($_POST['prenom']) and $_POST['prenom']!="") {
 } 
 
 //on test si le champ mail a ete remplie
+$mailInvalide=0;
 if (isset($_POST['mail']) and $_POST['mail']!="") {
 	//on test si le mail est deja present dans la bdd
 	$req = $bdd -> prepare('SELECT mail FROM compte WHERE mail=:mail');
@@ -37,10 +38,20 @@ if (isset($_POST['mail']) and $_POST['mail']!="") {
 	}
 	//sil nest pas present on modifie
 	else{
-		$req = $bdd -> prepare('UPDATE compte SET mail = :nouveauMail WHERE mail = :ancienMail');
-		$req -> execute(array('ancienMail' => $_SESSION['mail'],'nouveauMail' => $_POST['mail']));
-		echo "<p>le mail a bien ete changé</p>";
-		$mailPris=0;
+		// on regarde si le format est correct cad : caractère@caractère.caractère
+		 $_POST['mail'] = htmlspecialchars($_POST['mail']);
+		if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#i", $_POST['mail']))
+        {
+          		$req = $bdd -> prepare('UPDATE compte SET mail = :nouveauMail WHERE mail = :ancienMail');
+				$req -> execute(array('ancienMail' => $_SESSION['mail'],'nouveauMail' => $_POST['mail']));
+				echo "<p>le mail a bien ete changé</p>";
+				$mailPris=0;
+				$mailInvalide=0;
+        }
+      else
+        {
+          $mailInvalide=1;
+        }
 		
 	}
 
@@ -76,7 +87,7 @@ if (isset($_POST['adresse']) and $_POST['adresse']!="") {
 
 if (isset($mailPris)) {
 	if ($mailPris==1) {
-		setcookie("infos","veuillez entrer un autre mail",time()+200);
+		setcookie("infos","Veuillez entrer un autre mail",time()+200);
 		echo "mail faux";
 		header("Location:modifINFO.php");
 	}
@@ -86,6 +97,20 @@ if (isset($mailPris)) {
 	header("Location:profil.php");
 	}
 }
+
+else if (isset($mailInvalide)){
+	if ($mailInvalide==1) {
+		setcookie("infos","Cet adresse mail est invalide",time()+200);
+		echo "mail faux";
+		header("Location:modifINFO.php");
+	}
+	else{
+	setcookie("infos","les infos on bien été mises a jour",time()+200);
+	echo "ok";
+	header("Location:profil.php");
+	}
+}
+
 else{
 	setcookie("infos","les infos on bien été mises a jour",time()+200);
 	echo "ok";

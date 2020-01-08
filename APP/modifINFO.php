@@ -31,7 +31,7 @@
 
 					<fieldset>
 						<label> 
-							Nouveau mail <input type="text" name="mail" placeholder="tintin.dupont@yopmail.com"> 
+							Nouveau mail <input type="text" name="mail" placeholder="tintin.dupont@yopmail.com">
 						</label>
 					</fieldset>
 
