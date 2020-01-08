@@ -39,7 +39,7 @@
 						$result = $bdd->query("SELECT * FROM faq WHERE question LIKE '%$searchquery%' OR reponse LIKE '%$searchquery%' ");
 						if ($result->rowCount() > 0) { //Si au moins 1 résultat a été trouvé
 							while ($donnees = $result->fetch()){?>
-								<div class="element2">
+								<div>
 									<!-- question -->
 									<p>
 									<strong>Question <?php echo $donnees['id']?>:</strong> <?php echo $donnees['question']?>
@@ -60,7 +60,7 @@
 						$result = $bdd->query("SELECT * FROM compte WHERE nom LIKE '%$searchquery%' OR prenom LIKE '%$searchquery%' ");
 						if ($result->rowCount() > 0) { //Si au moins 1 résultat a été trouvé
 							while ($donnees = $result->fetch()){?>
-								<div class="element2">
+								<div>
 									<!-- comptes -->
 									<p>
 									<strong>Utilisateur n°<?php echo $donnees['id']?>:</strong> <a href="profil.php?profileid=<?php echo $donnees['id'] ?> "><?php echo $donnees['prenom'].' '.$donnees['nom']?></a>
@@ -79,10 +79,10 @@
 						if ($result->rowCount() > 0) { //Si au moins 1 résultat a été trouvé
 							while ($donnees = $result->fetch()){
 								?>
-								<div class="element2">
+								<div>
 									<!-- tests -->
 									<p>
-									<strong>Test n°<?php echo $donnees['id_test']?>:</strong> <a href="profil.php?profileid=<?php echo $donnees['id_test'] ?> "><?php echo $donnees['prenom'].' '.$donnees['nom']?></a>
+									<a href="tests.php?profileid=<?php echo $donnees['id_test'] ?> "><strong>Test n°<?php echo $donnees['id_test']?>:</strong></a> <a href="profil.php?profileid=<?php echo $donnees['id'] ?> "><?php echo $donnees['prenom'].' '.$donnees['nom']?></a>
 									</p>
 
 								</div>
