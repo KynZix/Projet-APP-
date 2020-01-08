@@ -13,6 +13,15 @@
 			header("Location: index.php"); 
 		} ?>
 
+		<?php if (isset($_POST['ajouter']) && $_POST['ajouter']) {
+
+			$req = $bdd->prepare('INSERT INTO FAQ (question, reponse) VALUES(:question, :reponse)');
+			$req -> execute(array(
+							'question' => $_POST['ajouterQ'],
+							'reponse' => $_POST['ajouterR']
+						));
+		} ?>
+
 		<?php if (isset($_POST['action'])) {//action demandée
 
 			$action = $_POST['action'];
@@ -37,11 +46,9 @@
 				foreach ($AnciennesValeurs as $key => $value) {
 					if (!is_null($value['reponse'])) {
 
-						echo $value['id']."<br/>".$value['question']."<br/>".$value['reponse']."<br/>";
-
 						$req -> execute(array(
 							'id' => $value['id'],
-							'question' => "zizi",
+							'question' => $value['question'],
 							'reponse' => $value['reponse']
 						));
 					}
@@ -119,8 +126,17 @@
 			} 
 		}?>
 
+<!-- affichages des questions et de la barre de navigation -->
+		<?php 
+		if ( isset($_GET['nav']) ) {
+			$premiereQuestion = $_GET['nav'];
+		}
+		else{
+			$premiereQuestion = 0;
+		}
 
-		<?php $FAQ = $bdd->query('SELECT * FROM faq ORDER BY id LIMIT 0,20') ?>
+		echo "premiereQuestion= ".$premiereQuestion;
+		$FAQ = $bdd->query('SELECT * FROM faq ORDER BY id LIMIT '.$premiereQuestion.',5') ?>
 
 		<form method="post" action="backOfficeFAQ.php">
 
@@ -128,22 +144,43 @@
 
 				<div>
 					<input type="checkbox" <?= 'name='.$QR['id'];?> >
-					<textarea rows="1" cols="60" <?= 'name=question'.$QR['id'];?> > <?= $QR['question']; ?> </textarea> 
-					<textarea rows="1" cols="60" <?= 'name=reponse'.$QR['id'];?> > <?= $QR['reponse']; ?> </textarea> 
+					<textarea rows="1" cols="60" <?= 'name=question'.$QR['id'];?> > <?= $QR['question']; ?> </textarea>
+					<textarea rows="1" cols="60" <?= 'name=reponse'.$QR['id'];?> > <?= $QR['reponse']; ?> </textarea>
 				</div>
 
 			<?php } ?>
+
+			<div>
+				<legend>ajouter une question</legend>
+				<input type="checkbox" name="ajouter">
+				<textarea rows="1" cols="60" name="ajouterQ" > Rajouter une question? </textarea>
+				<textarea rows="1" cols="60" name="ajouterR" > Rajouter la question  </textarea>
+			</div>
 
 
 			<br/>
 	       	<select name="action">
 	           	<option value="delete">Supprimer</option>
-	           	<option value="modifier">Modifier</option>
+	           	<option value="modifier">Modifier</option>	           	
 	           	<option value="annuler">Annuler</option>
 	       	</select>
 
 			<input type="submit" value="envoyer" />
 		</form>
+
+		<?php 
+		$nbrQuestions = $bdd->query ('SELECT COUNT(*) as nbq FROM FAQ');
+		$nbrQuestions = $nbrQuestions ->fetch();
+		$nbrQuestions = $nbrQuestions['nbq'];
+		?>
+
+		<div>
+			<?php 
+			for ($i=0; $i < $nbrQuestions ; $i+=5) {?>
+				<a href="backOfficeFAQ.php?<?="nav=".$i ?> " > <?= $i ?></a>
+			<?php } ?>
+		</div>
+		
 
         <?php include("footer.php"); ?>
 	</body>
