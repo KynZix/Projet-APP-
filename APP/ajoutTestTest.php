@@ -20,7 +20,7 @@
 			die('erreur:'.$e -> getMessage());
 		}
 		?>
-		<?php 
+		<?php
 
 		//on remplis les infos
 		$mail = $_POST['mail'];
@@ -62,29 +62,29 @@
 			header("Location:ajoutTest.php");
 	    }
 
-			
+
 
 			/*
    			ini_set( 'display_errors', 1 );
     		error_reporting( E_ALL );
- 
+
    			$motPasseProvisoire = "Xa123§wY";
- 
+
     		$subject = "Votre mot de passe provisoire pour vous connecter sur Psitech";
  			$message = "Vous venez de vous inscrire sur le site de Psitech. Voici votre mot de passe provisoire : ".$motPasseProvisoire." \n Vous devrez le changer lors de la première connexion. \n L'équipe Psitech";
 
     		mail($mail,$subject,$message);
- 
+
    			echo "L'email a été envoyé.";
 
 			//on redirige
 			header("Location: index.php");
-			
+
 			*/
 
 			?>
 			</p>
 		</section>
 	<?php include("footer.php"); ?>
-		
+
 </body>

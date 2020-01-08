@@ -27,7 +27,7 @@ catch(Exception $e)
 			</div>
 			<div>
 				<p id="user">
-		          <strong> 
+		          <strong>
 		            <?php
 		            if (isset($_SESSION['id'])) {
 		            	$req = $bdd -> prepare('SELECT * FROM compte WHERE id=:id');
@@ -51,17 +51,17 @@ catch(Exception $e)
 		            ?>
 		          </strong>
 		        </p>
-			</div>	
-				
+			</div>
+
 		</div>
 
-		
-		<div>
-			
-		
 
-		<ul class="menuoptions"> 
-			<div class="menu1">	   
+		<div>
+
+
+
+		<ul class="menuoptions">
+			<div class="menu1">
 				<li class="menuDeroulant">
 					<button class="menubtn" id="leftbutton">À propos</button>
 		  			<div class="contenuMenu">
@@ -78,10 +78,10 @@ catch(Exception $e)
 		 				<a href="contactus.php">Nous Contactez</a>
 		  			</div>
 		  		</li>
-		  		
+
 
 				<li class="menuDeroulant">
-		  				<?php 
+		  				<?php
 				  		//on affiche les variables de session deja existants
 						if (isset($_SESSION['id'])) { ?>
 								<button class="menubtn" id="leftbutton">Mon Compte</button>
@@ -89,53 +89,43 @@ catch(Exception $e)
 		 							<a href="profil.php">Profil</a>
 									<a href="logout.php">Se déconnecter</a>
 		  						</div>
-						<?php 
+						<?php
 						}
 						else{ ?>
   							<button class="menubtnsingle" id="rightbutton">
   								<a href="login.php">Se connecter</a>
-							</button> 	
-						<?php 
+							</button>
+						<?php
 						}
 						?>
-		  				
-		  			</button> 	
+
+		  			</button>
 		  		</li>
 
-		  		
-  				<?php 
-		  		//si on en a lautorisation on affiche le bouton pour creer un compte
-				if (isset($_SESSION['typeUtilisateur']) and $_SESSION['typeUtilisateur']<=1) {
-					echo "<li class='menuDeroulant'>";
-						echo "<button class='menubtnsingle'>";
-							echo "<a href='register.php'>Créer un compte</a>";
-						echo "</button>"; 	
-				  	echo "</li>";
-				}?>
-
 				<li class="menuDeroulant">
-					<?php 
-			  		//si on en a lautorisation on affiche le bouton pour creer un compte
+					<?php
+			  		//si on en a l'autorisation on affiche le bouton pour le back office
 					if (isset($_SESSION['typeUtilisateur']) and $_SESSION['typeUtilisateur'] == 0) { ?>
 							<button class="menubtn" id="leftbutton">Back Office</button>
 							<div class="contenuMenu">
-								<a href="backOfficeComptes.php">Comptes</a>
-								<a href="backOfficeFAQ.php">FAQ</a>
+								<a href='register.php'>Créer un compte</a>
+								<a href="backOfficeComptes.php">Gestion comptes</a>
+								<a href="backOfficeFAQ.php">Gestion FAQ</a>
 							</div>
-					<?php 
+					<?php
 					}?>
-		  			</button> 	
+		  			</button>
 		  		</li>
 
 			</div>
 			<div class="menu2">
 		  		<form class="menuinput" action="FAQ.php">
-		  			<input type="search" name="searchtext" placeholder="Recherche..." id ="search-bar">	
+		  			<input type="search" name="searchtext" placeholder="Recherche..." id ="search-bar">
 					<button type="submit" id="search-button"><i class="fa fa-search"></i></button>
 		  		</form>
 			</div>
 
-			
+
 		</ul>
 	</nav>
 </header>
