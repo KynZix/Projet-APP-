@@ -87,6 +87,7 @@ catch(Exception $e)
 								<button class="menubtn" id="leftbutton">Mon Compte</button>
 								<div class="contenuMenu">
 		 							<a href="profil.php">Profil</a>
+									<a href="tests.php">Tests</a>
 									<a href="logout.php">Se déconnecter</a>
 		  						</div>
 						<?php
