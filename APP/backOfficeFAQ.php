@@ -135,7 +135,6 @@
 			$premiereQuestion = 0;
 		}
 
-		echo "premiereQuestion= ".$premiereQuestion;
 		$FAQ = $bdd->query('SELECT * FROM faq ORDER BY id LIMIT '.$premiereQuestion.',5') ?>
 
 		<form method="post" action="backOfficeFAQ.php">
