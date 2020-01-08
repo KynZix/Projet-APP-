@@ -3,6 +3,7 @@ html, body {
   margin: 0;
   padding; 0;
   background-color: white;	/* Couleur similaire à celle de l'image About */
+  font-family: Arial;
 }
 
 .titre p{
