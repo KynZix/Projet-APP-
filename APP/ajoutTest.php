@@ -18,7 +18,7 @@
 
 			  			<fieldset>
 							<label>
-								<p>mail de la peronne examine</p>
+								<p>Mail de la personne examine</p>
 								<input type="text" name="mail" placeholder="mail" 
 								<?php 
 								if (isset($_COOKIE["mail"])) {

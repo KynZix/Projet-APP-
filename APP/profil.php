@@ -25,7 +25,7 @@
 		} else {
 			header("Location:profil.php?profileid=".urlencode($_SESSION['id']));
 		}
-		$req = $bdd -> query("SELECT id,nom,prenom,mail,adresse,phone FROM compte WHERE id='$currentid'");
+		$req = $bdd -> query("SELECT id,nom,prenom,mail,adresse,phone,ZIP FROM compte WHERE id='$currentid'");
 		$req -> execute(array('id' => $_SESSION['id']));
 		$profil = $req->fetch();
 
@@ -51,7 +51,8 @@
 					<p><strong>Prénom:</strong>  <?php echo $profil['prenom']?> </p>
 					<p><strong>Adresse Mail:</strong> <?php echo $profil['mail']?></p>
 					<p><strong>Adresse:</strong> <?php echo $profil['adresse']?></p>
-					<p><strong>Numéro:</strong> <?php echo $profil['phone']?></p>
+					<p><strong>Code Postal:</strong> <?php echo $profil['ZIP']?></p>
+					<p><strong>Numéro tel:</strong> <?php echo $profil['phone']?></p>
 				</div>
 			</div>
 			<?php } else { //L'utilisateur a tapé l'ID d'un utilisateur qui n'existe pas ?>

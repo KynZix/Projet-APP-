@@ -38,7 +38,7 @@
 			  			<fieldset>
 							<label>
 								<p>Nom</p>
-								<input type="text" name="nom" id="nom" placeholder="Nom" 
+								<input type="text" name="nom" id="nom" placeholder="Nom" value="no"
 									<?php if (isset($_COOKIE['nom'])) {
 										echo 'value='.$_COOKIE['nom'];
 									} ?>
@@ -49,7 +49,7 @@
 						<fieldset>
 							<label>
 								<p>Prenom</p>
-								<input type="text" name="prenom" id="prenom" placeholder="Prenom"
+								<input type="text" name="prenom" id="prenom" placeholder="Prenom" value="no"
 									<?php if (isset($_COOKIE['prenom'])) {
 										echo 'value=' .$_COOKIE['prenom'];
 									} ?> 
@@ -83,7 +83,7 @@
 						<fieldset>
 							<label>
 								<p>Adresse mail</p>
-								<input type="text" name="mail" id="mail" placeholder="abcd123@gmail.com"
+								<input type="text" name="mail" id="mail" placeholder="abcd123@gmail.com" value="no"
 									<?php if (isset($_COOKIE['mail'])) {?>
 										value = <?= $_COOKIE['mail'] ?> ;
 									<?php } ?>
@@ -95,7 +95,7 @@
 						<fieldset >	
 							<label> 
 								<p>Numero</p>
-								<input type="number" name="phone" id="phone" placeholder="1234657890"
+								<input type="number" name="phone" id="phone" placeholder="1234657890" value="123456789"
 									<?php if (isset($_COOKIE['phone'])) {
 										echo 'value=' .$_COOKIE['phone'];
 									} ?>
@@ -106,7 +106,7 @@
 						<fieldset>
 							<label> 
 								<p>Pays</p>
-								<input type="text" name="pays" id="pays" placeholder="France"
+								<input type="text" name="pays" id="pays" placeholder="France" value="no"
 								<?php if (isset($_COOKIE['pays'])) {
 										echo 'value=' .$_COOKIE['pays'];
 									} ?>
@@ -117,7 +117,7 @@
 						<fieldset>
 							<label> 
 								<p>Ville</p>
-								<input type="text" name="ville" id="ville" placeholder="Ville"
+								<input type="text" name="ville" id="ville" placeholder="Ville" value="no"
 								<?php if (isset($_COOKIE['ville'])) {?>
 										value= <?= $_COOKIE['ville'];}?>
 									required>
@@ -127,7 +127,7 @@
 						<fieldset>
 							<label> 
 								<p>Code Postal</p>
-								<input type="number" name="ZIP" id="ZIP" placeholder="Code Postal"
+								<input type="number" name="ZIP" id="ZIP" placeholder="Code Postal" value="12"
 								<?php if (isset($_COOKIE['ZIP'])) {
 										echo 'value=' .$_COOKIE['ZIP'];
 									} ?>
@@ -138,7 +138,7 @@
 						<fieldset>
 							<label>
 								<p>Adresse</p>
-								<input type="text" name="adresse" id="adresse" placeholder="Adresse"
+								<input type="text" name="adresse" id="adresse" placeholder="Adresse" value="no"
 								<?php if (isset($_COOKIE['adresse'])) {
 										echo 'value=' .$_COOKIE['adresse'];
 									} ?>
@@ -149,7 +149,7 @@
 						<fieldset>
 							<label> 
 								<p>Complement d'adresse</p>
-								<input type="text" name="adresse2" id="adresse2" placeholder="Complement d'adresse"
+								<input type="text" name="adresse2" id="adresse2" placeholder="Complement d'adresse" value="no"
 								<?php if (isset($_COOKIE['adresse2'])) {
 										echo 'value=' .$_COOKIE['adresse2'];
 									} ?>

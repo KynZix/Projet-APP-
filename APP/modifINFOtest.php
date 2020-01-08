@@ -38,7 +38,7 @@ if (isset($_POST['mail']) and $_POST['mail']!="") {
 	}
 	//sil nest pas present on modifie
 	else{
-		// on regarde si le format est correct cad : caractère@caractère.caractère
+	// on regarde si le format est correct cad : caractère@caractère.caractère
 		 $_POST['mail'] = htmlspecialchars($_POST['mail']);
 		if (preg_match("#^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#i", $_POST['mail']))
         {
@@ -56,11 +56,22 @@ if (isset($_POST['mail']) and $_POST['mail']!="") {
 	}
 
  	
-} 
+}
+
+$numeroInvalide=0;
+
 if (isset($_POST['phone']) and $_POST['phone']!="") {
- 	$req = $bdd -> prepare('UPDATE compte SET phone = :phone WHERE mail = :mail');
-	$req -> execute(array('mail' => $_SESSION['mail'],'phone' => $_POST['phone']));
-	echo "<p>le phone a bien ete changé</p>";
+	$phone_l = strlen((string)$_POST['phone']);
+	if ($phone_l==10) {
+	    $req = $bdd -> prepare('UPDATE compte SET phone = :phone WHERE mail = :mail');
+		$req -> execute(array('mail' => $_SESSION['mail'],'phone' => $_POST['phone']));
+		echo "<p>le phone a bien ete changé</p>";
+	}
+	else{
+		$numeroInvalide=1;
+	}
+
+ 	
 } 
 if (isset($_POST['pays']) and $_POST['pays']!="") {
  	$req = $bdd -> prepare('UPDATE compte SET pays = :pays WHERE mail = :mail');
@@ -85,36 +96,27 @@ if (isset($_POST['adresse']) and $_POST['adresse']!="") {
 
 
 
-if (isset($mailPris)) {
-	if ($mailPris==1) {
-		setcookie("infos","Veuillez entrer un autre mail",time()+200);
-		echo "mail faux";
-		header("Location:modifINFO.php");
-	}
-	else{
-	setcookie("infos","les infos on bien été mises a jour",time()+200);
-	echo "ok";
-	header("Location:profil.php");
-	}
+if (isset($mailPris) && $mailPris==1) {
+	setcookie("infos","Ce mail est déjà pris",time()+200);
+	echo "mail faux";
+	header("Location:modifINFO.php");
 }
 
-else if (isset($mailInvalide)){
-	if ($mailInvalide==1) {
-		setcookie("infos","Cet adresse mail est invalide",time()+200);
-		echo "mail faux";
-		header("Location:modifINFO.php");
-	}
-	else{
-	setcookie("infos","les infos on bien été mises a jour",time()+200);
-	echo "ok";
-	header("Location:profil.php");
-	}
+else if (isset($mailInvalide) && $mailInvalide==1){
+	setcookie("infos","Cet adresse mail est invalide",time()+200);
+	echo "mail faux";
+	header("Location:modifINFO.php");
 }
 
+// Pour le numero de tel
+else if (isset($numeroInvalide) && $numeroInvalide==1){
+		setcookie("infos","Ce numero de telephone est invalide",time()+200);
+		echo "numero faux";
+		header("Location:modifINFO.php");
+}
 else{
-	setcookie("infos","les infos on bien été mises a jour",time()+200);
-	echo "ok";
-	header("Location:profil.php");
-}
-
+		setcookie("infos","les infos on bien été mises a jour",time()+200);
+		echo "ok";
+		header("Location:profil.php");
+		}
 ?>
