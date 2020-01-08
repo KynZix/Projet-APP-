@@ -78,15 +78,18 @@ if (isset($mailPris)) {
 	if ($mailPris==1) {
 		setcookie("infos","veuillez entrer un autre mail",time()+200);
 		echo "mail faux";
+		header("Location:modifINFO.php");
 	}
 	else{
 	setcookie("infos","les infos on bien été mises a jour",time()+200);
 	echo "ok";
+	header("Location:profil.php");
 	}
 }
 else{
 	setcookie("infos","les infos on bien été mises a jour",time()+200);
 	echo "ok";
+	header("Location:profil.php");
 }
-header("Location:modifINFO.php")
+
 ?>

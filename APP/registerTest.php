@@ -47,6 +47,8 @@
 			$ville = $_POST['ville'];
 			$ZIP = $_POST['ZIP'];
 			$adresse = $_POST['adresse'];
+				$mdp = RandomString(10);
+				setcookie("mdp",$mdp,time()+1000);
 
 			if(isset($_POST['adresse2']))
 			{
@@ -102,6 +104,7 @@
 				echo "<a href = \"register.php\">le mail est deja lié a un autre compte</a>";
 				setcookie('nom',$nom,time() + 600);
 				setcookie('prenom',$prenom,time() + 600);
+				setcookie('mail',$mail,time() + 600);
 				setcookie('genre',$genre,time() + 600);
 				setcookie('birthday',$birthday,time() + 600);
 				setcookie('phone',$phone,time() + 600);
@@ -134,10 +137,28 @@
 			'adresse'=> $adresse,
 			'adresse2'=> $adresse2,
 			'typeUtilisateur'=> $typeUtilisateur,		  
-		    'mdp'=> RandomString(10)));
+		    'mdp'=> password_hash($mdp, PASSWORD_DEFAULT)));
 
 			echo "<br>";
 			echo 'Votre compte a été créé avec succès!';
+
+				setcookie('nom',$nom,time() - 600);
+				setcookie('prenom',$prenom,time() - 600);
+				setcookie('mail',$mail,time() - 600);
+				setcookie('genre',$genre,time() - 600);
+				setcookie('birthday',$birthday,time() - 600);
+				setcookie('phone',$phone,time() - 600);
+				setcookie('pays',$pays,time() - 600);
+				setcookie('ville',$ville,time() - 600);
+				setcookie('ZIP',$ZIP,time() - 600);
+				setcookie('adresse',$adresse,time() - 600);
+				setcookie('typeUtilisateur',$typeUtilisateur,time() - 600);
+				if(isset($adresse2))
+				{
+					setcookie('adresse2',$adresse2,time() - 600);
+				}
+				header('Location: register.php');
+
 			header("Location: index.php");
 
 			/*
@@ -157,7 +178,7 @@
 			header("Location: index.php");
 			}
 			*/
-			?>
+		} ?>
 			</p>
 		</section>
 	<?php include("footer.php"); ?>

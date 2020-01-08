@@ -4,6 +4,7 @@
 try
 {
 	$bdd = new PDO('mysql:host=localhost;dbname=app;charset=utf8', 'root', '',array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+	$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 }
 catch(Exception $e)
 {
@@ -106,24 +107,23 @@ catch(Exception $e)
 		  		//si on en a lautorisation on affiche le bouton pour creer un compte
 				if (isset($_SESSION['typeUtilisateur']) and $_SESSION['typeUtilisateur']<=1) {
 					echo "<li class='menuDeroulant'>";
-						echo "<button class='boutonCreerCompte'>";
+						echo "<button class='menubtnsingle'>";
 							echo "<a href='register.php'>Créer un compte</a>";
 						echo "</button>"; 	
 				  	echo "</li>";
 				}?>
 
 				<li class="menuDeroulant">
-						<?php 
-				  		//si on en a lautorisation on affiche le bouton pour creer un compte
-						if (isset($_SESSION['typeUtilisateur']) and $_SESSION['typeUtilisateur'] == 0) { ?>
-								<button class="menubtn" id="leftbutton">Back Office</button>
-								<div class="contenuMenu">
-		 							<a href="BOComptes.php">Comptes</a>
-									<a href="BOFAQ.php">FAQ</a>
-									<a href="BOTests.p hp">Tests</a>
-		  						</div>
-						<?php 
-						}?>
+					<?php 
+			  		//si on en a lautorisation on affiche le bouton pour creer un compte
+					if (isset($_SESSION['typeUtilisateur']) and $_SESSION['typeUtilisateur'] == 0) { ?>
+							<button class="menubtn" id="leftbutton">Back Office</button>
+							<div class="contenuMenu">
+								<a href="backOfficeComptes.php">Comptes</a>
+								<a href="backOfficeFAQ.php">FAQ</a>
+							</div>
+					<?php 
+					}?>
 		  			</button> 	
 		  		</li>
 

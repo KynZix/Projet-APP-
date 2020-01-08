@@ -17,7 +17,7 @@
 
 			$action = $_POST['action'];
 
-			if ($action == "annuler" && isset($_COOKIE['action']) && $_COOKIE['action'] != 'annuler'){ //on veut annuler
+			if ($action == "annuler" && isset($_COOKIE['action']) && isset($_COOKIE["arrayChangementsSerialise"])  && $_COOKIE['action'] != 'annuler'){ //on veut annuler
 
 				$AnciennesValeurs = unserialize($_COOKIE["arrayChangementsSerialise"]);
 				$actionPrecedente = $_COOKIE["action"];
@@ -70,7 +70,8 @@
 			setcookie("action", $action, time() + 7*24*60*60);
 
 			}
-			else{
+			else if ($action == "delete" || $action == "utilisateur" || $action == "gestionnaire" || $action == "admin" || $action == "bannir") {//si autre action que annuler tests pour eviter erreurs
+
 				if($action == "delete"){//on prepare la commande pour supprimer les comptes
 
 					$req = $bdd->prepare('DELETE FROM compte WHERE id = :id');
@@ -86,6 +87,9 @@
 				else if ($action == "admin") {//admin
 
 					$req = $bdd->prepare('UPDATE compte SET typeUtilisateur = 0 WHERE id = :id');
+				}
+				else if ($action == "bannir") {//bannir
+					$req = $bdd->prepare('UPDATE compte SET typeUtilisateur = 3 WHERE id = :id');
 				}
 				
 				$arrayChangements = array();
@@ -113,18 +117,38 @@
 		<?php $users = $bdd->query('SELECT * FROM compte ORDER BY id DESC LIMIT 0,20') ?>
 
 
-		<form method="post" action="backOffice.php">
+		<form method="post" action="backOfficeComptes.php">
 
 			<?php while ( $user = $users->fetch() ) { ?>
 
 				<div>
 					<?php if ($_SESSION['id'] != $user['id']) { ?>
-						<input type="checkbox" <?= 'name='.$user['id'];?> > <label> <?=$user['nom']?> <?=$user['prenom']?> <?=$user['typeUtilisateur']?> </label>
+						<input type="checkbox" <?= 'name='.$user['id'];?> >
+						<label> <?=$user['nom']?> <?=$user['prenom']?> </label>
+						<label>
+							<?php 
+							if ($user['typeUtilisateur'] == 2) {
+								echo "Admin";
+							}
+							else if ($user['typeUtilisateur'] == 1) {
+								echo "Gestionnaire";
+							}
+							else if ($user['typeUtilisateur'] == 0) {
+								echo "Utilisateur";
+							}
+							else if ($user['typeUtilisateur'] == 3) {
+								echo "Banni";
+							}
+							else{
+								echo "???";
+							}
+								?>
+						</label>
 					<?php } ?>
-					
 				</div>
-
 			<?php } ?>
+
+					
 
 
 			<br/>
@@ -132,6 +156,7 @@
 	           	<option value="utilisateur">Rendre utilisateur</option>
 	           	<option value="gestionnaire">Rendre gestionnaire</option>
 	           	<option value="admin">Rendre admin</option>
+	           	<option value="bannir">Bannir</option>
 	           	<option value="annuler">Annuler</option>
 	           	<option value="delete">Supprimer</option>
 	       	</select>
