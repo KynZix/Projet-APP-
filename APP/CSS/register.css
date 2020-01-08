@@ -1,34 +1,53 @@
 
 /*layout du site*/
+.title h2{
+  text-align: center;
+  font-size: 30px;
+}
+
+.title hr{
+  width: auto;
+  color: #f3f3f3;
+}
+
 body {
   height: 100%; 
   width: 100%;
   margin: 0;
   padding: 0;
-  background: black;
-  color: white;
+  background: white;
+  color: black;
 }
 
-
-
-input {
-  border-radius: 4px;
-  margin: 0;
+section{
+  display: flex;
+  justify-content: center;
 }
 
 form
 {
-  text-align: center;
-}
-
-fieldset
-{
-  
   border: 0;
   display: flex;
-  justify-content:  space-evenly;
+  flex-direction: column;
+}
+
+fieldset{
+  border: 0px;
+ 
+}
+#radios
+{
+  display: flex;
+  flex-direction: column;
+}
+
+input{
+  border-radius: 4px;
+  width: 100%;
+}
+#radio{
+  width: 1%;
 }
 
 
-}
 

@@ -2,7 +2,7 @@ html, body {
   height: 100%; width; 100%;
   margin: 0;
   padding; 0;
-  background-color: #fffde6;
+  background-color: white;
 }
 
 #conteneur{
@@ -10,6 +10,11 @@ html, body {
 	flex-direction: column;	
 }
 
+hr{
+	display: block;
+	width: 800px;
+	color: #f3f3f3;
+}
 .terms{							
 	display: flex;
 	flex-direction: column;

@@ -12,13 +12,15 @@ body {
   justify-content:  space-between;
   flex-direction: column;
   flex-wrap:  wrap;
-  border: solid 2px;
+  margin-bottom: 1%;
+  
 }
 
 .menuProfil1
 {
   display:  flex;
-  flex-direction: row;  
+  flex-direction: row; 
+  margin-bottom: 1%; 
 }
 .menuProfil1 a
 {
@@ -28,14 +30,13 @@ body {
 .infos
 {
   display: flex;
-  flex-direction: column;
   flex: 1;
-  border: solid;
+  
   
 }
 .infos p
 {
-  text-align: center;
+	margin-left: 2px;
 }
 
 .menuProfil2
@@ -43,6 +44,7 @@ body {
   display:  flex;
   flex-direction: row;
   justify-content:  space-around;
+  margin-top: 2%;
 }
 .menuProfil2 a
 {
@@ -51,3 +53,22 @@ body {
   
 }
 
+.col-1-2,
+.col-2-2 {
+	width: 33%;
+	display: inline-block;
+   text-align: center;
+	border-right: 1px solid #949599;
+}
+
+
+#errorimage {
+	margin: 5px;
+	width: 5%;
+	height: 10%;
+}
+
+
+.information{
+  margin-left: 5%;
+}

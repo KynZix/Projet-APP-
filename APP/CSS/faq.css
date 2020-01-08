@@ -2,7 +2,6 @@ html, body {
   height: 100%; width; 100%;
   margin: 0;
   padding; 0;
-  background-image: url('../Media/faqfond.jpg');
 
 }
 /* Va nous permettre d'avoir des flex et de les gérer de façon à ce que ça ressemble à une page de FAQ */
