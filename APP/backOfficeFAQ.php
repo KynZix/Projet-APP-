@@ -10,34 +10,34 @@
 	<body>
 		<?php include("header.php");?>
 		<?php if ( !isset($_SESSION['typeUtilisateur']) || $_SESSION['typeUtilisateur'] != 0 ) { //on ne peut entrer sur le BO que si on en a lautoristion
-			header("Location: index.php"); 
+			header("Location: index.php");
 		} ?>
 
-		<?php if (isset($_POST['ajouter']) && $_POST['ajouter']) {
-
-			$req = $bdd->prepare('INSERT INTO FAQ (question, reponse) VALUES(:question, :reponse)');
-			$req -> execute(array(
-							'question' => $_POST['ajouterQ'],
-							'reponse' => $_POST['ajouterR']
-						));
-		} ?>
-
-		<?php if (isset($_POST['action'])) {//action demandée
+		<?php if (isset($_POST['action'])) { //action demandée
 
 			$action = $_POST['action'];
+			if ($action == "ajouter") {
+				$req = $bdd->prepare('INSERT INTO FAQ (question, reponse) VALUES(:question, :reponse)');
+				$req -> execute(array(
+					'question' => $_POST['ajouterQ'],
+					'reponse' => $_POST['ajouterR']
+					));
 
+					?>
+						<p>La question a été ajoutée</p> <?php
+			}
 			if ($action == "annuler" && isset($_COOKIE['action']) && isset($_COOKIE["arrayChangementsSerialise"]) && $_COOKIE['action'] != 'annuler'){ //on veut annuler
 
 				$AnciennesValeurs = unserialize($_COOKIE["arrayChangementsSerialise"]);
 				$actionPrecedente = $_COOKIE["action"];
 
-					
-				if ($actionPrecedente == 'delete') {
+
+				if ($actionPrecedente == 'supprimer') {
 					$req = $bdd->prepare('INSERT INTO FAQ (id, question, reponse) VALUES(:id, :question, :reponse)');
-						
+
 				}
 				else {
-					$req = $bdd->prepare('UPDATE FAQ SET 
+					$req = $bdd->prepare('UPDATE FAQ SET
 						id = :id,
 						question = :question,
 						reponse = :reponse
@@ -53,11 +53,12 @@
 						));
 					}
 				}
-			echo "action faite: ".$action . " " . $actionPrecedente;
 			setcookie("action", $action, time() + 7*24*60*60);
-			}
+					?>
+						<p>Modifications annulées</p> <?php
+					}
 			else{
-				if($action == "delete"){//on prepare la commande pour supprimer les comptes
+				if($action == "supprimer"){//on prepare la commande pour supprimer les comptes
 
 					$FAQsuppression = $bdd->prepare('DELETE FROM Faq WHERE id = :id');
 
@@ -74,13 +75,14 @@
 					}
 
 				$arrayChangementsSerialise = serialize($arrayChangements);
-				
-				echo "action faite: ".$action;
+
+				?>
+					<p>Les questions sélectionnées ont été supprimées</p> <?php
 				setcookie("action", $action, time() + 7*24*60*60);
 				setcookie("arrayChangementsSerialise", $arrayChangementsSerialise, time() + 7*24*60*60);
 
 				}
-				else if($action == "modifier"){//on prepare la commande pour supprimer les comptes
+			if($action == "modifier"){//on prepare la commande pour supprimer les comptes
 
 					function supEspaces(string $string)
 				    {//créer une chaine de caractère aléatoir avec minuscules, majuscules, chiffres (parfait pour des mdp aléatoire)
@@ -119,15 +121,16 @@
 
 				$arrayChangementsSerialise = serialize($arrayChangements);
 
-				echo "action faite: ".$action;
+				 ?>
+					<p>Modifications réalisées</p> <?php
 				setcookie("action", $action, time() + 7*24*60*60);
 				setcookie("arrayChangementsSerialise", $arrayChangementsSerialise, time() + 7*24*60*60);
 				}
-			} 
+			}
 		}?>
 
 <!-- affichages des questions et de la barre de navigation -->
-		<?php 
+		<?php
 		if ( isset($_GET['nav']) ) {
 			$premiereQuestion = $_GET['nav'];
 		}
@@ -135,7 +138,6 @@
 			$premiereQuestion = 0;
 		}
 
-		echo "<p class = \"titre\">Premiere Question = $premiereQuestion</p>";
 		$FAQ = $bdd->query('SELECT * FROM faq ORDER BY id LIMIT '.$premiereQuestion.',5') ?>
 
 		<form method="post" action="backOfficeFAQ.php">
@@ -149,38 +151,34 @@
 				</div>
 
 			<?php } ?>
-
-			<div>
-				<legend class="titre">Ajouter une question</legend>
-				<input type="checkbox" name="ajouter">
-				<textarea rows="1" cols="60" name="ajouterQ" > Rajouter une question? </textarea>
-				<textarea rows="1" cols="60" name="ajouterR" > Rajouter la question  </textarea>
-			</div>
-
-
 			<br/>
-	       	<select name="action">
-	           	<option value="delete">Supprimer</option>
-	           	<option value="modifier">Modifier</option>	           	
-	           	<option value="annuler">Annuler</option>
-	       	</select>
-
-			<input type="submit" value="envoyer" />
+			<button name="action" type="submit" value="modifier">Modifier</button>
+			<button name="action" type="submit" value="supprimer">Supprimer</button>
+			<button name="action" type="submit" value="annuler">Annuler</button>
 		</form>
 
-		<?php 
+		<form method="post" action="backOfficeFAQ.php">
+				<label>
+					<p><h2>Ajouter une question</h2></p>
+					<input type="text" name="ajouterQ" id="prenom" placeholder="Question" required>
+					<input type="text" name="ajouterR" id="prenom" placeholder="Réponse" required>
+				</label>
+				<button name="action" type="submit" value="ajouter">Ajouter</button>
+		</form>
+
+		<?php
 		$nbrQuestions = $bdd->query ('SELECT COUNT(*) as nbq FROM FAQ');
 		$nbrQuestions = $nbrQuestions ->fetch();
 		$nbrQuestions = $nbrQuestions['nbq'];
 		?>
 
 		<div>
-			<?php 
+			<?php
 			for ($i=0; $i < $nbrQuestions ; $i+=5) {?>
 				<a href="backOfficeFAQ.php?<?="nav=".$i ?> " > <?= $i ?></a>
 			<?php } ?>
 		</div>
-		
+
 
         <?php include("footer.php"); ?>
 	</body>
