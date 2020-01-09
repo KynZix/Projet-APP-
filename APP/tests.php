@@ -21,7 +21,7 @@
 			die('erreur:'.$e -> getMessage()); //Affiche un message en cas d'erreur
 		}
 		if (isset($_GET['profileid'])) {  //Si l'utilisateur a taper une ID dans l'url
-			$currentid = $_GET['profileid'];
+			$currentid = htmlspecialchars($_GET['profileid']);
 		} else {
 			header("Location:tests.php?profileid=".urlencode($_SESSION['id']));
 		}
@@ -41,17 +41,19 @@
 				</div>
 				<div class="liste_tests">
 					<?php
-					if ($currentid == $_SESSION['id']){ ?>
+					if ($currentid == $_SESSION['id']){ //sur son profil?>
 						<legend><p>Mes tests<p></legend>
-<?php			} else {
-						$utilisateur = $bdd->query("SELECT * FROM compte WHERE id = $currentid")->fetch(); ?>
+<?php			} else { //sur le profil de qqun dautre
+						$utilisateur = $bdd->prepare("SELECT * FROM compte WHERE id = :id");
+						$utilisateur -> execute(array("id" => $currentid));
+						$utilisateur = $utilisateur -> fetch(); ?>
 						<legend><p>Liste des tests de <?php echo $utilisateur['prenom'].' '.$utilisateur['nom']?><p></legend>
 <?php			}
 					?>
 					<?php
-						$req = $bdd -> prepare("SELECT * FROM tests INNER JOIN compte ON compte.id = tests.id_examine WHERE id = $currentid");
+						$req = $bdd -> prepare("SELECT * FROM tests INNER JOIN compte ON compte.id = tests.id_examine WHERE id_examine = :id_examine OR id_examinateur = :id_examinateur");
 
-						$req -> execute(array('id' => $_SESSION['id']));
+						$req -> execute(array('id_examine' => $currentid,'id_examinateur' => $currentid));
 						while ($test = $req->fetch()) {
 							echo "<div>";
 								echo "<p>(".$test['id_test'].") test du ".$test['date'].": ".$test['score']."</p>";
