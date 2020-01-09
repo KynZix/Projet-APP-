@@ -12,7 +12,7 @@
 		<?php include("header.php"); ?>
 
 		<?php
-		if (!isset($_SESSION['typeUtilisateur']) || $_SESSION['typeUtilisateur'] == 2) {
+		if ( !( isset($_SESSION['typeUtilisateur']) && ($_SESSION['typeUtilisateur'] = 1 ||  $_SESSION['typeUtilisateur'] = 0) ) ) {
 			header("Location: index.php");
 		}
 		?>

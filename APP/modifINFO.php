@@ -11,6 +11,9 @@
 	<body>
 		<?php include("header.php"); ?>
 
+		<?php if ( !( isset($_SESSION['typeUtilisateur']) && ($_SESSION['typeUtilisateur'] = 1 ||  $_SESSION['typeUtilisateur'] = 0 || $_SESSION['typeUtilisateur'] = 2) ) ) { //on ne peut entrer sur le BO que si on en a lautoristion
+			header("Location: index.php");
+		} ?>
 
 	    <div id="modif">
 	  		<section>

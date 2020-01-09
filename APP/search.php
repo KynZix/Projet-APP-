@@ -4,7 +4,7 @@
 
 	<head>
 		<title>Recherche</title>
-		<link rel="stylesheet" href="CSS/index.css">
+		<link rel="stylesheet" href="CSS/search.css">
 	</head>
 
 	<body>
@@ -35,15 +35,23 @@
 				if (isset($_GET['searchtext'])) {  //Si l'utilisateur a effectué une recherche
 					$searchquery = $_GET['searchtext'];
 					$category = $_GET['category'];
-					if ($category == '0') {
+					if ($category == '0') {	//FAQ
 						$result = $bdd->query("SELECT * FROM faq WHERE question LIKE '%$searchquery%' OR reponse LIKE '%$searchquery%' ");
 						if ($result->rowCount() > 0) { //Si au moins 1 résultat a été trouvé
-							while ($donnees = $result->fetch()){?>
+							$numero=0;
+							while ($donnees = $result->fetch()){
+								$numero += 1;?>
 								<div>
+
+									<legend>
+										<strong>Question <?php echo $numero?>:</strong>
+									</legend>
+
 									<!-- question -->
 									<p>
-									<strong>Question <?php echo $donnees['id']?>:</strong> <?php echo $donnees['question']?>
+										<?php echo $donnees['question']?>
 									</p>
+									
 
 									<!-- reponses-->
 									<p>
@@ -56,7 +64,7 @@
 								<p>Aucun résultat.</p>
 		<?php		}
 					}
-					if ($category == '1') {
+					if ($category == '1') {	//profil
 						$result = $bdd->query("SELECT * FROM compte WHERE nom LIKE '%$searchquery%' OR prenom LIKE '%$searchquery%' ");
 						if ($result->rowCount() > 0) { //Si au moins 1 résultat a été trouvé
 							while ($donnees = $result->fetch()){?>
@@ -73,7 +81,7 @@
 								<p>Aucun résultat.</p>
 		<?php		}
 					}
-					if ($category == '2') {
+					if ($category == '2') {	//test
 
 						$result = $bdd->query("SELECT * FROM tests INNER JOIN compte WHERE (compte.id = tests.id_examine) AND (compte.nom LIKE '%$searchquery%' OR compte.prenom LIKE '%$searchquery%')  ");
 						if ($result->rowCount() > 0) { //Si au moins 1 résultat a été trouvé

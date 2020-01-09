@@ -9,7 +9,8 @@
 
 	<body>
 		<?php include("header.php");?>
-		<?php if ( !isset($_SESSION['typeUtilisateur']) || $_SESSION['typeUtilisateur'] != 0 ) { //on ne peut entrer sur le BO que si on en a lautoristion
+		
+		<?php if ( !( isset($_SESSION['typeUtilisateur']) && ($_SESSION['typeUtilisateur'] = 1 ||  $_SESSION['typeUtilisateur'] = 0) ) ) { //on ne peut entrer sur le BO que si on en a lautoristion
 			header("Location: index.php");
 		} ?>
 
@@ -151,6 +152,7 @@
 				</div>
 
 			<?php } ?>
+			
 			<br/>
 			<button name="action" type="submit" value="modifier">Modifier</button>
 			<button name="action" type="submit" value="supprimer">Supprimer</button>

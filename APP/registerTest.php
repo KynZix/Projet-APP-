@@ -7,6 +7,11 @@
 <body>
 	<?php include("header.php"); ?>
 	<section>
+
+		<?php if ( !( isset($_SESSION['typeUtilisateur']) && ($_SESSION['typeUtilisateur'] = 1 ||  $_SESSION['typeUtilisateur'] = 0) ) ) { //on ne peut entrer sur le BO que si on en a lautoristion
+			header("Location: index.php");
+		} ?>
+
 		<h1> Cr&eacute;ation du compte </h1>
 		<p> Voici les informations saisies : </p>
 		<p>
@@ -36,22 +41,23 @@
 		        return $randstring;
 		    }
 
-			//on remplis les infos
-			$nom = $_POST['nom'];
-			$prenom = $_POST['prenom'];
-			$genre = $_POST['genre'];
-			$birthday = $_POST['birthday'];
-			$mail = $_POST['mail'];
-			$phone = $_POST['phone'];
-			$pays = $_POST['pays'];
-			$ville = $_POST['ville'];
-			$ZIP = $_POST['ZIP'];
-			$adresse = $_POST['adresse'];
+			//on remplis les infos + eviter injection sql
+			$nom = htmlspecialchars($_POST['nom']);
+			$prenom = htmlspecialchars($_POST['prenom']);
+			$genre = htmlspecialchars($_POST['genre']);
+			$birthday = htmlspecialchars($_POST['birthday']);
+			$mail = htmlspecialchars($_POST['mail']);
+			$phone = htmlspecialchars($_POST['phone']);
+			$pays = htmlspecialchars($_POST['pays']);
+			$ville = htmlspecialchars($_POST['ville']);
+			$ZIP = htmlspecialchars($_POST['ZIP']);
+			$adresse = htmlspecialchars($_POST['adresse']);
 			$mdp = RandomString(10);
+			$mdpHash = password_hash($mdp, PASSWORD_DEFAULT);
 
 			if(isset($_POST['adresse2']))
 			{
-				$adresse2 = $_POST['adresse2'];
+				$adresse2 = htmlspecialchars($_POST['adresse2']);
 			}
 			else
 			{
@@ -60,7 +66,7 @@
 
 			if(isset($_POST['typeUtilisateur']))
 			{
-				$typeUtilisateur = $_POST['typeUtilisateur'];
+				$typeUtilisateur = htmlspecialchars($_POST['typeUtilisateur']);
 			}
 			else
 			{
@@ -92,6 +98,8 @@
 			echo "<br>";
 			echo 'typeUtilisateur =', $typeUtilisateur, '='; 
 			echo "<br>";
+			echo 'MDP =', $mdp, '='; 
+			echo "<br>";
 
 			//on cherche le mail dans la base de donné
 			$req1 = $bdd->prepare('SELECT mail FROM compte WHERE mail=:mail');
@@ -120,56 +128,55 @@
 				
 			}
 			//s'il n'est pas present on ajoute les infos et on redirige a lindex
-			else
-			{
-			$req = $bdd->prepare(' INSERT INTO compte(mail, mdp, birthday, phone, nom, prenom, genre, pays, ville, ZIP, adresse, adresse2, typeUtilisateur) VALUES (:mail, :mdp, :birthday, :phone, :nom, :prenom, :genre, :pays, :ville, :ZIP, :adresse, :adresse2, :typeUtilisateur) ');
-			$req -> execute(array(
-			'mail' => $mail,
-			'birthday'=> $birthday,
-			'phone'=> $phone,
-			'nom'=> $nom,
-			'prenom'=> $prenom,
-			'genre'=> $genre,
-			'pays'=> $pays,
-			'ville'=> $ville,
-			'ZIP'=> $ZIP,
-			'adresse'=> $adresse,
-			'adresse2'=> $adresse2,
-			'typeUtilisateur'=> $typeUtilisateur,		  
-		    'mdp'=> password_hash($mdp, PASSWORD_DEFAULT)));
+			else{
 
-			echo "<br>";
-			echo 'Votre compte a été créé avec succès!';
+				//envoie de mail
+	   			ini_set( 'display_errors', 1 );
+	    		error_reporting( E_ALL );
 
-			setcookie('nom',$nom,time() - 600);
-			setcookie('prenom',$prenom,time() - 600);
-			setcookie('mail',$mail,time() - 600);
-			setcookie('genre',$genre,time() - 600);
-			setcookie('birthday',$birthday,time() - 600);
-			setcookie('phone',$phone,time() - 600);
-			setcookie('pays',$pays,time() - 600);
-			setcookie('ville',$ville,time() - 600);
-			setcookie('ZIP',$ZIP,time() - 600);
-			setcookie('adresse',$adresse,time() - 600);
-			setcookie('typeUtilisateur',$typeUtilisateur,time() - 600);
-			if(isset($adresse2))
-			{
-				setcookie('adresse2',$adresse2,time() - 600);
-			}
+				$motPasseProvisoire = $mdp;
+	    		$subject = "Votre mot de passe provisoire pour vous connecter sur Psitech";
+	 			$message = "Vous venez de vous inscrire sur le site de Psitech. Voici votre mot de passe provisoire : ".$motPasseProvisoire." \n Vous devrez le changer lors de la première connexion. \n L'équipe Psitech";
 
-			//envoie de mail
+				if (mail($mail,$subject,$message)) {
+					echo "L'email a été envoyé.";
 
-   			ini_set( 'display_errors', 1 );
-    		error_reporting( E_ALL );
- 
-   			$motPasseProvisoire = $mdp;
- 
-    		$subject = "Votre mot de passe provisoire pour vous connecter sur Psitech";
- 			$message = "Vous venez de vous inscrire sur le site de Psitech. Voici votre mot de passe provisoire : ".$motPasseProvisoire." \n Vous devrez le changer lors de la première connexion. \n L'équipe Psitech";
+					$req = $bdd->prepare(' INSERT INTO compte(mail, mdp, birthday, phone, nom, prenom, genre, pays, ville, ZIP, adresse, adresse2, typeUtilisateur) VALUES (:mail, :mdp, :birthday, :phone, :nom, :prenom, :genre, :pays, :ville, :ZIP, :adresse, :adresse2, :typeUtilisateur) ');
 
-    		mail($mail,$subject,$message);
- 
-   			echo "L'email a été envoyé.";
+					$req -> execute(array(
+					'mail' => $mail,
+					'birthday'=> $birthday,
+					'phone'=> $phone,
+					'nom'=> $nom,
+					'prenom'=> $prenom,
+					'genre'=> $genre,
+					'pays'=> $pays,
+					'ville'=> $ville,
+					'ZIP'=> $ZIP,
+					'adresse'=> $adresse,
+					'adresse2'=> $adresse2,
+					'typeUtilisateur'=> $typeUtilisateur,		  
+				    'mdp'=> $mdpHash));
+
+					echo "<br>";
+					echo 'Votre compte a été créé avec succès!';
+
+					setcookie('nom',$nom,time() - 600);
+					setcookie('prenom',$prenom,time() - 600);
+					setcookie('mail',$mail,time() - 600);
+					setcookie('genre',$genre,time() - 600);
+					setcookie('birthday',$birthday,time() - 600);
+					setcookie('phone',$phone,time() - 600);
+					setcookie('pays',$pays,time() - 600);
+					setcookie('ville',$ville,time() - 600);
+					setcookie('ZIP',$ZIP,time() - 600);
+					setcookie('adresse',$adresse,time() - 600);
+					setcookie('typeUtilisateur',$typeUtilisateur,time() - 600);
+					if(isset($adresse2))
+					{
+						setcookie('adresse2',$adresse2,time() - 600);
+					}
+				}
 			} ?>
 
 			</p>

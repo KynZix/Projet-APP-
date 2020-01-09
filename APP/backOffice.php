@@ -4,32 +4,31 @@
 
 	<head>
 		<title>Psitech</title>
-		<link rel="stylesheet" href="CSS/backOfficeComptes.css">
+		<link rel="stylesheet" href="CSS/backOffice.css">
 	</head>
 
 	<body>
 		<?php include("header.php");?>
-		
-		<?php if ( !( isset($_SESSION['typeUtilisateur']) && ($_SESSION['typeUtilisateur'] = 1 ||  $_SESSION['typeUtilisateur'] = 0) ) ) { //on ne peut entrer sur le BO que si on en a lautoristion
-			header("Location: index.php");
+		<?php if ( !isset($_SESSION['typeUtilisateur']) || $_SESSION['typeUtilisateur'] != 0 ) { //on ne peut entrer sur le BO que si on en a lautoristion
+			header("Location: index.php"); 
 		} ?>
 
 		<?php if (isset($_POST['action'])) {//action demandée
 
 			$action = $_POST['action'];
 
-			if ($action == "annuler" && isset($_COOKIE['action']) && isset($_COOKIE["arrayChangementsSerialise"])  && $_COOKIE['action'] != 'annuler'){ //on veut annuler
+			if ($action == "annuler" && isset($_COOKIE['action']) && $_COOKIE['action'] != 'annuler'){ //on veut annuler
 
 				$AnciennesValeurs = unserialize($_COOKIE["arrayChangementsSerialise"]);
 				$actionPrecedente = $_COOKIE["action"];
 
-
+					
 				if ($actionPrecedente == 'delete') {
 					$req = $bdd->prepare('INSERT INTO compte (id, mail, mdp, birthday, phone, nom, prenom, genre, pays, ville, ZIP, adresse, adresse2, typeUtilisateur) VALUES(:id, :mail, :mdp, :birthday, :phone, :nom, :prenom, :genre, :pays, :ville, :ZIP, :adresse, :adresse2, :typeUtilisateur)');
-
+						
 				}
 				else {
-					$req = $bdd->prepare('UPDATE compte SET
+					$req = $bdd->prepare('UPDATE compte SET 
 						id = :id,
 						mail = :mail,
 						mdp = :mdp,
@@ -71,8 +70,7 @@
 			setcookie("action", $action, time() + 7*24*60*60);
 
 			}
-			else if ($action == "delete" || $action == "utilisateur" || $action == "gestionnaire" || $action == "admin" || $action == "bannir" ) {//si autre action que annuler tests pour eviter erreurs
-
+			else{
 				if($action == "delete"){//on prepare la commande pour supprimer les comptes
 
 					$req = $bdd->prepare('DELETE FROM compte WHERE id = :id');
@@ -89,10 +87,7 @@
 
 					$req = $bdd->prepare('UPDATE compte SET typeUtilisateur = 0 WHERE id = :id');
 				}
-				else if ($action == "bannir") {//bannir
-					$req = $bdd->prepare('UPDATE compte SET typeUtilisateur = 3 WHERE id = :id');
-				}
-
+				
 				$arrayChangements = array();
 
 				$req2 =$bdd -> prepare('SELECT * FROM compte WHERE id = :id');
@@ -112,99 +107,33 @@
 			setcookie("action", $action, time() + 7*24*60*60);
 			setcookie("arrayChangementsSerialise", $arrayChangementsSerialise, time() + 7*24*60*60);
 
-			}
-			else if ( $action == "mailMDP") {
-
-				function RandomString(int $nbrcaracteres)
-			    {//créer une chaine de caractère aléatoir avec minuscules, majuscules, chiffres (parfait pour des mdp aléatoire)
-			        $characters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-			        $randstring = "";
-			        for ($i = 0; $i < $nbrcaracteres; $i++) {
-			            $randstring .= $characters[rand(0, strlen($characters)-1)];
-			        }
-			        return $randstring;
-			    }
-				
-
-				foreach ($_POST as $idKey => $value) {
-
-					$nouveauMDP = RandomString(10);
-					$nouveauMDPhash = password_hash($nouveauMDP, PASSWORD_DEFAULT);
-
-					$mailMDP = $bdd->prepare('SELECT mail FROM compte WHERE id = :id');
-					$mailMDP -> execute(array('id' => $idKey));
-					$mailMDP = $mailMDP -> fetch();
-					$mailMDP = $mailMDP['mail'];
-
-					if (filter_var($mailMDP, FILTER_VALIDATE_EMAIL)) {
-
-						$modifMDP = $bdd->prepare('UPDATE compte SET mdp = :nouveauMDPhash WHERE id = :id');
-						$modifMDP -> execute(array('nouveauMDPhash' => $nouveauMDPhash,'id' => $idKey));
-
-						if (mail($mailMDP, " Votre nouveau mot de passe ", "votre nouveau mot de passe est: ".$nouveauMDP)) {
-							echo "<p> mail envoyé pour: ".$mailMDP."</p>";
-						}else{
-							echo "<p> mail non envoyé pour: ".$mailMDP."</p>";
-					}
-					}
-
-					
-
-
-
-					
-				}
-			}
+			} 
 		}?>
 
 		<?php $users = $bdd->query('SELECT * FROM compte ORDER BY id DESC LIMIT 0,20') ?>
 
 
-		<form method="post" action="backOfficeComptes.php">
+		<form method="post" action="backOffice.php">
 
 			<?php while ( $user = $users->fetch() ) { ?>
 
 				<div>
 					<?php if ($_SESSION['id'] != $user['id']) { ?>
-						<input type="checkbox" <?= 'name='.$user['id'];?> >
-						<label> <?=$user['nom']?> <?=$user['prenom']?> <?=$user['mail']?> </label>
-						<label>
-							<?php
-							if ($user['typeUtilisateur'] == 0) {
-								echo "Admin";
-							}
-							else if ($user['typeUtilisateur'] == 1) {
-								echo "Gestionnaire";
-							}
-							else if ($user['typeUtilisateur'] == 2) {
-								echo "Utilisateur";
-							}
-							else if ($user['typeUtilisateur'] == 3) {
-								echo "Banni";
-							}
-							else{
-								echo "???";
-							}
-								?>
-						</label>
+						<input type="checkbox" <?= 'name='.$user['id'];?> > <label> <?=$user['nom']?> <?=$user['prenom']?> <?=$user['typeUtilisateur']?> </label>
 					<?php } ?>
+					
 				</div>
+
 			<?php } ?>
-
-
 
 
 			<br/>
 	       	<select name="action">
-
 	           	<option value="utilisateur">Rendre utilisateur</option>
 	           	<option value="gestionnaire">Rendre gestionnaire</option>
 	           	<option value="admin">Rendre admin</option>
-	           	<option value="bannir">Bannir</option>
 	           	<option value="annuler">Annuler</option>
 	           	<option value="delete">Supprimer</option>
-	           	<option value="mailMDP">Reinitialiser mot de passe</option>
-
 	       	</select>
 
 			<input type="submit" value="envoyer" />
