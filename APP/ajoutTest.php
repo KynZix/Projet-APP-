@@ -22,7 +22,7 @@
 
 			  			<fieldset>
 							<label>
-								<p>Mail</p>
+								<p>Mail de la personne éxaminée</p>
 								<input type="text" name="mail" placeholder="mail"
 								<?php
 								if (isset($_COOKIE["mail"])) {
