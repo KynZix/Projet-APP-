@@ -38,7 +38,8 @@
 					$category = htmlspecialchars($_GET['category']);
 
 					if ($category == '0') {	//FAQ
-						$result = $bdd->query("SELECT * FROM faq WHERE question LIKE '%$searchquery%' OR reponse LIKE '%$searchquery%' ");
+						$result = $bdd->prepare("SELECT * FROM faq WHERE question LIKE :searchquery OR reponse LIKE :searchquery ");
+						$result -> execute(array('searchquery' => '%'.$searchquery.'%','searchquery' => '%'.$searchquery.'%'));
 						if ($result->rowCount() > 0) { //Si au moins 1 résultat a été trouvé
 							while ($donnees = $result->fetch()){?>
 								<div>
