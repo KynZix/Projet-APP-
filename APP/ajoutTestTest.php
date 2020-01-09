@@ -28,11 +28,11 @@
 		<?php
 
 		//on remplis les infos
-		$mail = $_POST['mail'];
-		$resultat = $_POST['resultat'];
-		$score = $_POST['score'];
-		$date = $_POST['date'];
-		$id_examinateur=$_SESSION['id'];
+		$mail = htmlspecialchars($_POST['mail']);
+		$resultat = htmlspecialchars($_POST['resultat']);
+		$score = htmlspecialchars($_POST['score']);
+		$date = htmlspecialchars($_POST['date']);
+		$id_examinateur = htmlspecialchars($_SESSION['id']);
 
 		//on cherche le mail dans la base de donné pour recuperer l'id de la personne examinée
 		$req = $bdd->prepare('SELECT id FROM compte WHERE mail=:mail');
@@ -53,7 +53,7 @@
 			'resultat'=> $resultat,
 			'score'=> $score));
 			echo "<br>";
-			echo 'Votre compte a été créé avec succès!';
+			echo 'Votre test a été ajouté avec succès!';
 			header("Location:tests.php");
 		}
 		//s'il n'est pas present, le mail est erroné
