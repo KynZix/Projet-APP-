@@ -33,18 +33,18 @@
 				<?php
 
 				if (isset($_GET['searchtext'])) {  //Si l'utilisateur a effectué une recherche
-					$searchquery = $_GET['searchtext'];
-					$category = $_GET['category'];
+
+					$searchquery = htmlspecialchars($_GET['searchtext']);
+					$category = htmlspecialchars($_GET['category']);
+
 					if ($category == '0') {	//FAQ
 						$result = $bdd->query("SELECT * FROM faq WHERE question LIKE '%$searchquery%' OR reponse LIKE '%$searchquery%' ");
 						if ($result->rowCount() > 0) { //Si au moins 1 résultat a été trouvé
-							$numero=0;
-							while ($donnees = $result->fetch()){
-								$numero += 1;?>
+							while ($donnees = $result->fetch()){?>
 								<div>
 
 									<legend>
-										<strong>Question <?php echo $numero?>:</strong>
+										<strong>Question <?php echo $donnees['id']?>:</strong>
 									</legend>
 
 									<!-- question -->
