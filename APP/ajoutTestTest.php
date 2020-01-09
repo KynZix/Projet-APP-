@@ -54,6 +54,7 @@
 			'score'=> $score));
 			echo "<br>";
 			echo 'Votre test a été ajouté avec succès!';
+			mail($mail, "resultat du test", "resultat:".$resultat." score: ".$score);
 			header("Location:tests.php");
 		}
 		//s'il n'est pas present, le mail est erroné
