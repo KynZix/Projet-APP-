@@ -73,9 +73,10 @@
 
 				  </div>
 
-				  <button type="submit">Envoyer le message</button>
+				  <button class ="button" type="submit">Envoyer le message</button>
 
 				</form>
+				
 			</div>
 			<footer>
 				<?php include("footer.php"); ?>

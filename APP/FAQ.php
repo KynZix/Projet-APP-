@@ -16,6 +16,10 @@
 				<?php include("header.php"); ?>
 			</header>
 
+			<h1 class="faqLel">
+				Foire aux questions
+			</h1>
+
 
 			<?php
 			//Connexion à la BDD
@@ -35,18 +39,17 @@
 
 				$questionsReponses = $bdd->query("SELECT * FROM faq ORDER BY ID DESC"); //Affiche toutes les questions dans la BDD, par ordre décroissant
 					while ($donnees = $questionsReponses->fetch()){?>
-						<div class="element2">
+						<div class="shape">
 							<!-- question -->
-							<span class="span1" tabindex="0">
-								<p>
+							<a href="#">
 								<strong>Question <?php echo $donnees['id']?>:</strong> <?php echo $donnees['question']?>
-								</p>
-							</span>
+							</a>
 
 							<!-- reponses-->
-							<p class="text1">
+							<span class="over">
 								<?php echo $donnees['reponse']?>
-							</p>
+							</span>
+								
 
 						</div>
 				<?php
