@@ -12,6 +12,7 @@ header {
   display: flex;
   align-items: flex-end;
   position:sticky;
+  max-height: 120px;
   margin-bottom: 0px;
   border-bottom: 1px solid;
   border-color: #e4e4e4;
@@ -28,6 +29,8 @@ header {
 {
   margin: 10px 10px 0px 10px;
   width: 80px;
+  position: relative;
+  top: 25px;
 }
 
 #user
@@ -46,6 +49,8 @@ header {
 .menu1,.menu2
 {
   display: flex;
+
+
 }
 
 li{
@@ -107,6 +112,8 @@ li{
 .menuDeroulant {
   display: inline-block;
   position: relative;
+  bottom: 20px;
+  left: 100px;
 }
 
 
@@ -150,6 +157,8 @@ nav {
 	background: transparent;
 	color: white;
 	padding: 5px;
+  position: relative;
+  bottom: 16px;
 }
 
 .menubtnsingle{
