@@ -17,7 +17,7 @@ html, body {
    	flex-direction: column;
       width: 70%;
       height:150px;
-      background: #e8e8e8;
+      background-image: url("../Media/faqBack.jpg");
       position: relative;
       left: 15%;
       -moz-border-radius: 10px;
@@ -32,11 +32,11 @@ html, body {
       content: "";
       position: absolute;
       right: 100%;
-      top: 26px;
+      top: 58px;
       width: 0;
       height: 0;
       border-top: 13px solid transparent;
-      border-right: 26px solid #e8e8e8;
+      border-right: 26px solid #d8d8d8;
       border-bottom: 13px solid transparent;
     }
 /* -----------------------------------------------------------------------------
@@ -115,7 +115,6 @@ article {
   font-size:0px;	
   overflow:hidden;
   transition:0.5s ;
-  background:#e8e8e8;
 }
 
 .faqhelp:focus + span {
