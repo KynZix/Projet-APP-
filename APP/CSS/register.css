@@ -21,18 +21,19 @@ form
 
 fieldset{
   border: 0px;
-
+  text-align: center;
+}
+input{
+  width: 100%;
+  border-radius: 4px;
 }
 #radios
 {
   display: flex;
   flex-direction: column;
+  text-align:  start;
 }
 
-#input-register{
-  border-radius: 4px;
-  width: 100%;
-}
 #radio{
   width: 1%;
 }
