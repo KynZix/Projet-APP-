@@ -21,57 +21,64 @@
 	  			<form action="modifINFOtest.php" id="login" method="post">
 	  				<legend>Modification infos</legend>
 		  			<fieldset>
-						<label>
-							Nouveau nom <input type="text" name="nom" placeholder="Dupont"> 
-						</label>
+
+		  				<div class="labelInput">
+
+		  					<label> Nouveau nom </label>
+							<input type="text" name="nom" placeholder="Dupont">
+
+						</div>
+
+						<div class="labelInput">
+
+							<label> Nouveau prenom </label>
+							<input type="text" name="prenom" placeholder="tintin"> 
+		  					
+		  				</div>
+							
 					</fieldset>
 
 					<fieldset>
-						<label> 
-							Nouveau prenom <input type="text" name="prenom" placeholder="tintin"> 
-						</label>
+
+						<div class="labelInput">
+							<label> Nouveau mail </label>
+							<input type="text" name="mail" placeholder="tintin.dupont@yopmail.com">
+						</div>
+						
+						<div class="labelInput">
+							<label> Nouveau telephone </label>
+							<input type="number" name="phone" placeholder="06">
+						</div>
+
 					</fieldset>
 
 					<fieldset>
-						<label> 
-							Nouveau mail <input type="text" name="mail" placeholder="tintin.dupont@yopmail.com">
-						</label>
-					</fieldset>
 
-					<fieldset>
-						<label> 
-							Nouveau telephone <input type="number" name="phone" placeholder="06"> 
-						</label>
-					</fieldset>
+						<div class="labelInput">
+							<label> Nouveau pays </label>
+							<input type="text" name="pays" placeholder="france">
+						</div>
 
-					<fieldset>
-						<label> 
-							Nouveau pays <input type="text" name="pays" placeholder="france">
-						</label>
-					</fieldset>
+						<div class="labelInput">
+							<label> Nouvelle ville </label>
+							<input type="text" name="ville" placeholder="paris">
+						</div>
 
-					<fieldset>
-						<label> 
-							Nouvelle ville <input type="text" name="ville" placeholder="paris">
-						</label>
-					</fieldset>
+						<div class="labelInput">
+							<label> Code postal </label>
+							<input type="number" name="zip" placeholder="92">
+						</div>
 
-					<fieldset>
-						<label> 
-							Code postal <input type="number" name="zip" placeholder="92">
-						</label>
-					</fieldset>
-
-					<fieldset>
-						<label> 
-							Nouvelle adresse <input type="text" name="adresse" placeholder="2 rue de la pompe"> 
-						</label>
+						<div class="labelInput">
+							<label> Nouvelle adresse </label>
+							<input type="text" name="adresse" placeholder="2 rue de la pompe">
+						</div> 
+						
 					</fieldset>
 
 						<?php if (isset($_COOKIE['infos'])) {?>
-							<legend>
-								<?php echo $_COOKIE['infos']; ?>
-							</legend>
+							<legend><?= $_COOKIE['infos']; ?> </legend>
+							
 						<?php setcookie("infos","",time()-200);} ?>
 
 					<fieldset class="validif">

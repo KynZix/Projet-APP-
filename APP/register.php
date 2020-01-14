@@ -21,17 +21,19 @@
 	  		<section>
 
 	  			<form name="inscription" method="post" action="registerTest.php">
+
 	  				<?php
-		  			if (isset($_COOKIE['mail'])) {
+		  			if (isset($_COOKIE['mail'])) {//
 
 		  				$mail = $bdd->prepare("SELECT * FROM compte WHERE mail = :mail");
-		  				$mail -> execute(array('mail' => $_COOKIE['mail'] ));
+		  				$mail -> execute( array( 'mail' => htmlspecialchars($_COOKIE['mail'] ) ) );
 		  				$mail = $mail -> fetch();
 		  				if (isset($mail['mail'])) {?>
 		  					<p> adresse deja prise</p>
 		  				<?php }
 		  			}
 	  				?>
+
 			  		<legend><p>Creation d'un nouveau compte</p></legend>
 			  			<fieldset>
 							<label>
