@@ -1,4 +1,5 @@
 
+
 /*layout du site*/
 body {
   height: 100%; 
@@ -34,7 +35,34 @@ td {
   border: 1px solid black;
 }
 
+.saut{
+	margin-bottom: 180px;
+}
 
+.bottomDescr {
+margin-top: 1%;
+margin-left: 33%;
+}
+.bottomDescr input{
+	margin-left: 15px;
+  border-radius: 10px;
+}
 
+.bottomDescr input:hover{
+	color:white;
+	background-color: black;
+}
 
+.enregistrer{
+	margin-top: 30px;
+}
+.enregistrer a{
+	margin-left: 39%;
+	text-decoration: none;
+}
 
+.positionEcho{
+	position: relative;
+	left: 500px;
+	top: 200px;
+}

@@ -41,4 +41,8 @@ html, body {
 
 .button{
   margin-bottom: 15px;
+  border-radius: 20px;
+}
+.saut{
+  margin-top: 68px;
 }
