@@ -9,7 +9,7 @@
 
 	<body>
 		<?php include("header.php");?>
-		
+
 		<?php if ( !( isset($_SESSION['typeUtilisateur']) && ($_SESSION['typeUtilisateur'] = 1 ||  $_SESSION['typeUtilisateur'] = 0) ) ) { //on ne peut entrer sur le BO que si on en a lautoristion
 			header("Location: index.php");
 		} ?>
@@ -25,7 +25,9 @@
 					));
 
 					?>
-						<p>La question a été ajoutée</p> <?php
+					<script type="text/javascript">
+						alert("Question ajoutée")
+					</script> <?php
 			}
 			if ($action == "annuler" && isset($_COOKIE['action']) && isset($_COOKIE["arrayChangementsSerialise"]) && $_COOKIE['action'] != 'annuler'){ //on veut annuler
 
@@ -56,7 +58,10 @@
 				}
 			setcookie("action", $action, time() + 7*24*60*60);
 					?>
-						<p>Modifications annulées</p> <?php
+					<script type="text/javascript">
+						alert("Modifications annulées")
+					</script>
+					<?php
 					}
 			else{
 				if($action == "supprimer"){//on prepare la commande pour supprimer les comptes
@@ -78,19 +83,22 @@
 				$arrayChangementsSerialise = serialize($arrayChangements);
 
 				?>
-					<p>Les questions sélectionnées ont été supprimées</p> <?php
+				<script type="text/javascript">
+					alert("Questions supprimées")
+				</script>
+				<?php
 				setcookie("action", $action, time() + 7*24*60*60);
 				setcookie("arrayChangementsSerialise", $arrayChangementsSerialise, time() + 7*24*60*60);
 
 				}
-			if($action == "modifier"){//on prepare la commande pour supprimer les comptes
+			if($action == "modifier"){
 
 					function supEspaces(string $string)
 				    {//créer une chaine de caractère aléatoir avec minuscules, majuscules, chiffres (parfait pour des mdp aléatoire)
 				        while ($string[0]==" ") {
 				            $string = substr($string, 1, strlen($string));
 				        }
-				        while ($string[strlen($string)-1]==" ") {
+				        while ($string[strlen($string)-1]==' ') {
 				            $string = substr($string, 0, strlen($string)-2);
 				        }
 				        return $string;
@@ -123,7 +131,9 @@
 				$arrayChangementsSerialise = serialize($arrayChangements);
 
 				 ?>
-					<p>Modifications réalisées</p> <?php
+				 <script type="text/javascript">
+					 alert("Les questions ont été modifiées")
+				 </script><?php
 				setcookie("action", $action, time() + 7*24*60*60);
 				setcookie("arrayChangementsSerialise", $arrayChangementsSerialise, time() + 7*24*60*60);
 				}
@@ -152,20 +162,11 @@
 				</div>
 
 			<?php } ?>
-			
+
 			<br/>
 			<button name="action" type="submit" value="modifier">Modifier</button>
 			<button name="action" type="submit" value="supprimer">Supprimer</button>
 			<button name="action" type="submit" value="annuler">Annuler</button>
-		</form>
-
-		<form method="post" action="backOfficeFAQ.php">
-				<label>
-					<p><h2>Ajouter une question</h2></p>
-					<input type="text" name="ajouterQ" id="prenom" placeholder="Question" required>
-					<input type="text" name="ajouterR" id="prenom" placeholder="Réponse" required>
-				</label>
-				<button name="action" type="submit" value="ajouter">Ajouter</button>
 		</form>
 
 		<?php
@@ -174,12 +175,24 @@
 		$nbrQuestions = $nbrQuestions['nbq'];
 		?>
 
-		<div>
+		<div style="margin-top:2px;">
+			<b>Pages :</b>
 			<?php
 			for ($i=0; $i < $nbrQuestions ; $i+=5) {?>
-				<a href="backOfficeFAQ.php?<?="nav=".$i ?> " > <?= $i ?></a>
+				<a href="backOfficeFAQ.php?<?="nav=".$i ?> " > <?= ($i/5)+1 ?></a>
 			<?php } ?>
 		</div>
+
+		<form method="post" action="backOfficeFAQ.php" style="margin-bottom:25px;">
+				<label>
+					<h2 style="margin-bottom: 9px; margin-top: 9px;">Ajouter une question</h2>
+					<input type="text" name="ajouterQ" id="prenom" placeholder="Question" required>
+					<input type="text" name="ajouterR" id="prenom" placeholder="Réponse" required>
+				</label>
+				<button name="action" type="submit" value="ajouter">Ajouter</button>
+		</form>
+
+
 
 
         <?php include("footer.php"); ?>
