@@ -20,6 +20,9 @@ table {
   width: 50%;
   text-align: left;
 }
+tr:hover{
+  background-color: silver;
+}
 th{
   text-align: center;
   background-color: whitesmoke;
