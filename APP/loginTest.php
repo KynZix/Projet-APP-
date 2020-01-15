@@ -1,4 +1,4 @@
-<?php session_start(); 
+<?php session_start();
 //on essaie e se connecter a la bdd, s'il y a une erreur on affiche juste une erreur au lieu d'afficher le lien vers la bdd par securité
 try
 {
@@ -26,7 +26,7 @@ if (isset($idBDD['id']) && password_verify($_POST['mdp'], $idBDD['mdp'])) {
 	header("Location:index.php");
 }
 else{
-header("Location:login.php");
+	header("Location:login.php?error=1");
 }
 
 

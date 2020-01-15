@@ -19,6 +19,10 @@
 
 					<h1>Bienvenue ! Connectez-vous ici </h1>
 
+
+<?php 		if (isset($_GET['error']) && ($_GET['error']) == 1) { //Message d'erreur ?>
+					<h4 style="color:red;">Mot de passe ou email erronés</h4>
+<?php			}?>
 	  		<section>
 
 	  			<form action="loginTest.php" id="login" method="post">

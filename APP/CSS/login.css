@@ -1,7 +1,7 @@
 
 /*layout du site*/
 body {
-  height: 100%; 
+  height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -33,13 +33,13 @@ section{
   flex-direction: column;
 }
 
-.login h1{
+.login h1, .login h4{
   margin-left: auto;
   margin-right: auto;
   color:black;
 }
 
-.login label,legend{  
+.login label,legend{
   position: relative;
   right: 50px;
   color:black;
@@ -75,4 +75,3 @@ section{
   left: 25%;
   width: 60%;
 }
-
