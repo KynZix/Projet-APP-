@@ -86,7 +86,7 @@
 
 		<h2>Contact Us</h2>
 
-		<p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to <a href="contact.php">contact us here.</a>.</p>
+		<p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to <a href="contactus.php">contact us here.</a>.</p>
 	  	</div>
 	</div>
 
