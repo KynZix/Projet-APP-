@@ -56,8 +56,8 @@
 			</div>
 			<?php } else { //L'utilisateur a tapé l'ID d'un utilisateur qui n'existe pas ?>
 			<div class="infos">
-				<img src="Media/error.jpg" id="errorimage">
-				<h1>ERREUR: Cet utilisateur n'existe pas</h1>
+				<img src="Media/errorimage.jpg" id="errorimage">
+				<h1 id="errormessage">Cet utilisateur n'existe pas</h1>
 			</div>
 			<?php } ?>
 			<?php
