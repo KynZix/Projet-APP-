@@ -2,10 +2,6 @@
 session_start();
 // On s amuse à créer quelques variables de session dans $_SESSION
 
-if ( !( isset($_SESSION['typeUtilisateur']) && ($_SESSION['typeUtilisateur'] = 1 ||  $_SESSION['typeUtilisateur'] = 0 || $_SESSION['typeUtilisateur'] = 2) ) ) { //on ne peut entrer sur le BO que si on en a lautoristion
-	header("Location: index.php");
-}
-
 //on essaie e se connecter a la bdd, s'il y a une erreur on affiche juste une erreur au lieu d'afficher le lien vers la bdd par securité
 try
 {
