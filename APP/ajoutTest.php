@@ -15,11 +15,15 @@
 			header("Location: index.php");
 		} ?>
 
-	    <div>
+<p class="retour">
+	<a href="profil.php">Retour</a>
+</p>
+
+	    <div class="modifTest">
 	  		<section>
 	  			<form name="inscription" method="post" action="ajoutTestTest.php">
 			  		<legend><p>Ajout d'un test</p></legend>
-
+			  		<div class="inputPos">
 			  			<fieldset>
 							<label>
 								<p>Mail de la personne éxaminée</p>
@@ -61,7 +65,8 @@
 								required>
 							</label>
 						</fieldset>
-
+					</div>
+						<div class="datePos">
 						<fieldset>
 							<label>
 								<p>Date</p>
@@ -75,11 +80,14 @@
 								}?>>
 							</label>
 						</fieldset>
-
-					<fieldset>
-						<input type="submit" name="submit" value="rajouter">
-					</fieldset>
-
+					</div>
+					<div class="submitButton">
+						<span>
+							<input type="submit" name="submit" value="rajouter">
+						</span>
+					</div>
+					<div class="saut">
+					</div>
 				</form>
 
 	   		</section>

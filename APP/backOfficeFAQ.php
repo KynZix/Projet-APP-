@@ -9,6 +9,10 @@
 
 	<body>
 		<?php include("header.php");?>
+
+		<div class="backOfficeFAQ">
+			
+		
 		
 		<?php if ( !( isset($_SESSION['typeUtilisateur']) && ($_SESSION['typeUtilisateur'] = 1 ||  $_SESSION['typeUtilisateur'] = 0) ) ) { //on ne peut entrer sur le BO que si on en a lautoristion
 			header("Location: index.php");
@@ -180,8 +184,10 @@
 				<a href="backOfficeFAQ.php?<?="nav=".$i ?> " > <?= $i ?></a>
 			<?php } ?>
 		</div>
-
-
+		<div class="saut">
+			
+		</div>
+	</div>
         <?php include("footer.php"); ?>
 	</body>
 

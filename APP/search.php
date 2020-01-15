@@ -38,16 +38,14 @@
 					$category = htmlspecialchars($_GET['category']);
 
 					if ($category == '0') {	//FAQ
-
-						$result = $bdd->prepare("SELECT * FROM faq WHERE question LIKE :searchquery OR reponse LIKE :searchquery ORDER BY ID DESC ");
+						$result = $bdd->prepare("SELECT * FROM faq WHERE question LIKE :searchquery OR reponse LIKE :searchquery ");
 						$result -> execute(array('searchquery' => '%'.$searchquery.'%','searchquery' => '%'.$searchquery.'%'));
-
 						if ($result->rowCount() > 0) { //Si au moins 1 résultat a été trouvé
 							while ($donnees = $result->fetch()){?>
 								<div>
 
 									<legend>
-										<strong> Question <?php echo $donnees['id']?>: </strong>
+										<strong>Question <?php echo $donnees['id']?>:</strong>
 									</legend>
 
 									<!-- question -->
@@ -61,18 +59,14 @@
 										<?php echo $donnees['reponse']?>
 									</p>
 								</div>
-						<?php
+								<?php
 							}
 						} else { //Aucun résultat 	 ?>
 								<p>Aucun résultat.</p>
-					<?php
-						}
+		<?php		}
 					}
 					if ($category == '1') {	//profil
-
-						$result = $bdd->prepare("SELECT * FROM compte WHERE nom LIKE :searchquery OR prenom LIKE :searchquery ORDER BY ID DESC");
-						$result -> execute(array('searchquery' => '%'.$searchquery.'%','searchquery' => '%'.$searchquery.'%'));
-
+						$result = $bdd->query("SELECT * FROM compte WHERE nom LIKE '%$searchquery%' OR prenom LIKE '%$searchquery%' ");
 						if ($result->rowCount() > 0) { //Si au moins 1 résultat a été trouvé
 							while ($donnees = $result->fetch()){?>
 								<div>
@@ -90,9 +84,7 @@
 					}
 					if ($category == '2') {	//test
 
-						$result = $bdd->prepare("SELECT * FROM tests INNER JOIN compte WHERE (compte.id = tests.id_examine) AND (compte.nom LIKE :searchquery OR compte.prenom LIKE :searchquery) ORDER BY ID DESC ");
-						$result -> execute(array('searchquery' => '%'.$searchquery.'%','searchquery' => '%'.$searchquery.'%'));
-						
+						$result = $bdd->query("SELECT * FROM tests INNER JOIN compte WHERE (compte.id = tests.id_examine) AND (compte.nom LIKE '%$searchquery%' OR compte.prenom LIKE '%$searchquery%')  ");
 						if ($result->rowCount() > 0) { //Si au moins 1 résultat a été trouvé
 							while ($donnees = $result->fetch()){
 								?>
@@ -110,6 +102,10 @@
 		<?php		}
 					}
 				} ?>
+			</div>
+
+			<div class="saut">
+					<p></p>
 			</div>
 
 			<footer>

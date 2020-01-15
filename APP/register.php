@@ -21,19 +21,17 @@
 	  		<section>
 
 	  			<form name="inscription" method="post" action="registerTest.php">
-
 	  				<?php
-		  			if (isset($_COOKIE['mail'])) {//
+		  			if (isset($_COOKIE['mail'])) {
 
 		  				$mail = $bdd->prepare("SELECT * FROM compte WHERE mail = :mail");
-		  				$mail -> execute( array( 'mail' => htmlspecialchars($_COOKIE['mail'] ) ) );
+		  				$mail -> execute(array('mail' => $_COOKIE['mail'] ));
 		  				$mail = $mail -> fetch();
 		  				if (isset($mail['mail'])) {?>
 		  					<p> adresse deja prise</p>
 		  				<?php }
 		  			}
 	  				?>
-
 			  		<legend><p>Creation d'un nouveau compte</p></legend>
 			  			<fieldset>
 							<label>
@@ -43,7 +41,7 @@
 										echo 'value='.$_COOKIE['nom'];
 									}
 									else{?>
-										
+										value="Nom"
 									<?php } ?>
 									required>
 							</label>
@@ -57,7 +55,7 @@
 										echo 'value=' .$_COOKIE['prenom'];
 									}
 									else{?>
-										
+										value="Prenom"
 									<?php } ?>
 									required>
 							</label>
@@ -83,7 +81,7 @@
 										echo 'value=' .$_COOKIE['birthday'];
 									}
 									else{?>
-						
+										value="2000-01-01"
 									<?php } ?>
 									required>
 							</label>
@@ -97,7 +95,7 @@
 										value = <?= $_COOKIE['mail'] ?> ;
 									<?php }
 									else{?>
-										
+										value="abcd123@gmail.com"
 									<?php } ?>
 								required>
 
@@ -112,7 +110,7 @@
 										echo 'value=' .$_COOKIE['phone'];
 									}
 									else{?>
-										
+										value="0123456789"
 									<?php } ?>
 									required>
 							</label>
@@ -126,7 +124,7 @@
 										echo 'value='.$_COOKIE['pays'];
 									}
 									else{?>
-										
+										value="France"
 									<?php } ?>
 									required>
 							</label>
@@ -140,7 +138,7 @@
 										echo "value=".$_COOKIE['ville'];
 									}
 									else{?>
-										
+										value="Paris"
 									<?php } ?>
 									required>
 							</label>
@@ -154,7 +152,7 @@
 										echo 'value=' .$_COOKIE['ZIP'];
 									}
 									else{?>
-										
+										value="12"
 									<?php } ?>
 									required>
 							</label>
@@ -168,7 +166,7 @@
 										echo 'value=' .$_COOKIE['adresse'];
 									}
 									else{?>
-										
+										value="6rue"
 									<?php } ?>
 									required>
 							</label>
@@ -193,8 +191,8 @@
 							</fieldset>
 						<?php } ?>
 
-					<fieldset>
-						<input class="input-register" type="submit" name="submit" value="S'inscrire">
+					<fieldset class="submitButton" >
+						<input type="submit" name="submit" value="S'inscrire">
 					</fieldset>
 
 				</form>

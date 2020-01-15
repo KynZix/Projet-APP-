@@ -20,7 +20,6 @@
             <div class="Support">
               <h1>Support</h1>
               <div class="Support_menu">
-                <a href="instructions.php"><p>Instructions</p></a>
                 <a href="FAQ.php"><p>FAQ</p></a>
                 <a href="contactus.php"><p>Nous contacter @:</p></a>
               </div>
@@ -31,7 +30,6 @@
               <div class="Other_stuff_menu">
                 <a href="terms.php"><p>CGU & mentions légales</p></a>
                 <a href="privacy"><p>Politique de confidentialité</p></a>
-                <a href="language.php"><p>Changer de langue</p></a>
               </div>
             </div>
 

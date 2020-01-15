@@ -108,7 +108,7 @@
 
 			$arrayChangementsSerialise = serialize($arrayChangements);
 
-			echo "action faite: ".$action;
+			echo "Action faite : ".$action ; 
 			setcookie("action", $action, time() + 7*24*60*60);
 			setcookie("arrayChangementsSerialise", $arrayChangementsSerialise, time() + 7*24*60*60);
 
@@ -213,6 +213,9 @@
 
 
 			<br/>
+			<div class="bottomDescr">
+				
+			
 	       	<select name="action">
 
 	           	<option value="utilisateur">Rendre utilisateur</option>
@@ -227,8 +230,15 @@
 
 			<input type="submit" value="envoyer" />
 		</form>
+		</div>
 
-		<a href="register.php?>"> enregister nouveau compte </a> </li>
+		<div class="enregistrer">
+			<a href="register.php?>"> Enregister nouveau compte </a> </li>
+		</div>
+		
+		
+		<div class="saut">
+		</div>
 
         <?php include("footer.php"); ?>
 	</body>
