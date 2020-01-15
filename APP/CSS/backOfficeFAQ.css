@@ -1,5 +1,6 @@
 /*layout du site*/
 body {
+  font-family: Arial;
   height: 100%; 
   width: 100%;
   margin: 0;
@@ -15,4 +16,11 @@ body {
 }
 .titre legend{
 	margin-bottom: 2%;
+}
+
+.backOfficeFAQ{
+	margin-top: 20px;
+}
+.saut{
+  margin-bottom: 100px;
 }

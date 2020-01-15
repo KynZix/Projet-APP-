@@ -34,9 +34,12 @@ section{
 }
 
 .login h1, .login h4{
+  margin-top: 55px;
   margin-left: auto;
   margin-right: auto;
   color:black;
+  position: relative;
+  left: 2%;
 }
 
 .login label,legend{
@@ -49,6 +52,7 @@ section{
 #loginquestion{
   display: flex;
   flex-direction: column;
+  margin-bottom: 22px;
 }
 
 #loginquestion p{
@@ -56,6 +60,8 @@ section{
   margin-left: auto;
   margin-right: auto;
   font-size: 100%;
+  position: relative;
+  left: 1%;
 }
 
 #loginquestion a{

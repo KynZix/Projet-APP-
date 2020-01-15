@@ -36,3 +36,23 @@ float: left;
 	margin-right: auto;
 	margin-left: auto;
 }
+
+.topDesc{
+	text-align: center;
+	font-size: 18px;
+}
+
+.botDesc{
+	text-align: center;
+	font-size: 18px;
+}
+
+hr {
+	max-width: 30%;
+	color:red;
+}
+.botDesc h2{
+	font-weight: normal;
+	font-size: 18px;
+	font-style: italic;
+}

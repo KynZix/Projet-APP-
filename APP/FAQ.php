@@ -41,12 +41,12 @@
 					while ($donnees = $questionsReponses->fetch()){?>
 						<div class="shape">
 							<!-- question -->
-							<a href="#">
+							<a href="#" class="faqhelp">
 								<strong>Question <?php echo $donnees['id']?>:</strong> <?php echo $donnees['question']?>
 							</a>
 
 							<!-- reponses-->
-							<span class="over">
+							<span class="faqhelp">
 								<?php echo $donnees['reponse']?>
 							</span>
 								

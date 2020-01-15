@@ -21,12 +21,11 @@
 	  		<section>
 
 	  			<form name="inscription" method="post" action="registerTest.php">
-
 	  				<?php
-		  			if (isset($_COOKIE['mail'])) {//
+		  			if (isset($_COOKIE['mail'])) {
 
 		  				$mail = $bdd->prepare("SELECT * FROM compte WHERE mail = :mail");
-		  				$mail -> execute( array( 'mail' => htmlspecialchars($_COOKIE['mail'] ) ) );
+		  				$mail -> execute(array('mail' => $_COOKIE['mail'] ));
 		  				$mail = $mail -> fetch();
 		  				if (isset($mail['mail'])) {?>
 		  					<p> adresse deja prise</p>
@@ -42,7 +41,7 @@
 							</label>
 
 							<label>
-								<p>Prenom</p>
+								<p>Prénom</p>
 								<input class="input-register" type="text" name="prenom" id="prenom" placeholder="Prenom" required>
 							</label>
 						</fieldset>
@@ -75,7 +74,7 @@
 
 						<fieldset >
 							<label>
-								<p>Numero</p>
+								<p>Numéro</p>
 								<input class="input-register" type="number" name="phone" id="phone" placeholder="1234657890" required>
 							</label>
 						</fieldset>
@@ -118,8 +117,8 @@
 							</fieldset>
 						<?php } ?>
 
-					<fieldset>
-						<input class="input-register" type="submit" name="submit" value="S'inscrire">
+					<fieldset class="submitButton" >
+						<input type="submit" name="submit" value="S'inscrire">
 					</fieldset>
 
 				</form>

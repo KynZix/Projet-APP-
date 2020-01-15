@@ -16,12 +16,12 @@ echo "<p>-----------------------------------</p>";
 
 
 //on recupere le mdp associé au mail (s'il existe)
-$req = $bdd -> prepare('SELECT id,mdp FROM compte WHERE mail=:mail');
+$req = $bdd -> prepare('SELECT * FROM compte WHERE mail=:mail');
 $req -> execute(array('mail' => $_POST['mail']));
 $idBDD = $req->fetch();
 
 //si on a trouvé un compte on verifie que le mdp entré est le bon et on le connecte
-if (isset($idBDD['id']) && password_verify($_POST['mdp'], $idBDD['mdp'])) {
+if (isset($idBDD['id']) && (password_verify($_POST['mdp'], $idBDD['mdp']) || $_POST['mdp'] == $idBDD['mdp'])) {
 	$_SESSION['id'] = $idBDD['id'];
 	header("Location:index.php");
 }
