@@ -70,43 +70,48 @@
 			echo "action faite: ".$action." ".$actionPrecedente;
 			setcookie("action", $action, time() + 7*24*60*60);
 
-			}
-			else if ($action == "supprimer" || $action == "utilisateur" || $action == "modifier" ) {//si autre action que annuler tests pour eviter erreurs
+			} else if ($action == "supprimer" || $action == "utilisateur" || $action == "modifier" ) {//si autre action que annuler tests pour eviter erreurs
 
 				if($action == "supprimer"){//on prepare la commande pour supprimer les comptes
-
 					$req = $bdd->prepare('DELETE FROM compte WHERE id = :id');
-				}
-				else if ($action == "modifier") {//commande pour rendre utilisateur
+					$arrayChangements = array();
+					$req2 =$bdd -> prepare('SELECT * FROM compte WHERE id = :id');
+					foreach ($_POST as $idKey => $value) {
+						$req2 -> execute(array('id' => $idKey));
+						$arrayChangement = $req2 -> fetch();
+						$arrayChangements[] = $arrayChangement;
+						$req -> execute(array('id' => $idKey));
+					}
+					$arrayChangementsSerialise = serialize($arrayChangements);
+				} else if ($action == "modifier") {//commande pour rendre utilisateur
 					$Comptemodification = $bdd->prepare('UPDATE Compte SET typeUtilisateur = :typeUtilisateur WHERE id = :id');
 
 					$arrayChangements = array();
 					$infosActuelles = $bdd -> prepare('SELECT * FROM Compte WHERE id = :id');
-					$ids = $bdd->query('SELECT id FROM Compte ORDER BY id LIMIT 0,20');
+					$ids = $bdd->query('SELECT id, typeUtilisateur FROM Compte ORDER BY id LIMIT 0,20');
+
+					while ($id = $ids -> fetch() ) {//on parcours les ids pour voir les comptes selectionnés
+						$id = $id['id'];
+						if (isset($_POST[$id]) && $_POST[$id]) {//On met à jour les comptes sélectionné
+							$infosActuelles -> execute(array('id' => $id));
+							$arrayInfos = $infosActuelles -> fetch();
+							$arrayChangements[] = $arrayInfos;
+							echo $_POST['typeCompte'];
+							echo $id;
+						}
+					}
+
+					$arrayChangementsSerialise = serialize($arrayChangements);
+
 
 				}
 
-				$arrayChangements = array();
-
-				$req2 =$bdd -> prepare('SELECT * FROM compte WHERE id = :id');
-
-				foreach ($_POST as $idKey => $value) {
-
-					$req2 -> execute(array('id' => $idKey));
-					$arrayChangement = $req2 -> fetch();
-					$arrayChangements[] = $arrayChangement;
-
-					$req -> execute(array('id' => $idKey));
-				}
-
-			$arrayChangementsSerialise = serialize($arrayChangements);
 
 			echo "Action faite : ".$action ;
 			setcookie("action", $action, time() + 7*24*60*60);
 			setcookie("arrayChangementsSerialise", $arrayChangementsSerialise, time() + 7*24*60*60);
 
-			}
-			else if ( $action == "mailMDP") {
+			} else if ($action == "mailMDP") {
 
 				function RandomString(int $nbrcaracteres)
 			    {//créer une chaine de caractère aléatoir avec minuscules, majuscules, chiffres (parfait pour des mdp aléatoire)
@@ -128,18 +133,15 @@
 					$mailMDP -> execute(array('id' => $idKey));
 					$mailMDP = $mailMDP -> fetch();
 					$mailMDP = $mailMDP['mail'];
-
 					if (filter_var($mailMDP, FILTER_VALIDATE_EMAIL)) {
-
-						$modifMDP = $bdd->prepare('UPDATE compte SET mdp = :nouveauMDPhash WHERE id = :id');
-						$modifMDP -> execute(array('nouveauMDPhash' => $nouveauMDPhash,'id' => $idKey));
-
 						if (mail($mailMDP, " Votre nouveau mot de passe ", "votre nouveau mot de passe est: ".$nouveauMDP)) {
 							echo "<p> mail envoyé pour: ".$mailMDP."</p>";
-						}else{
+							$modifMDP = $bdd->prepare('UPDATE compte SET mdp = :nouveauMDPhash WHERE id = :id');
+							$modifMDP -> execute(array('nouveauMDPhash' => $nouveauMDPhash,'id' => $idKey));
+						} else{
 							echo "<p> mail non envoyé pour: ".$mailMDP."</p>";
-					}
-					}
+					  }
+				}
 
 
 
@@ -161,9 +163,9 @@
 			   <tr>
 			   		<th></th>
 			      <th>Nom</th>
-			      <th>Prenom</th>
+			      <th>Prénom</th>
 			      <th>Mail</th>
-			      <th>Type utilisteur</th>
+			      <th>Type</th>
 			   </tr>
 
 
@@ -177,7 +179,8 @@
 					        <td> <?=$user['mail']?> </td>
 
 						    <td>
-									<select>
+									<input type="hidden" <?= 'name='.$user['typeUtilisateur'];?> value="typeCompte">
+									<select name="typeCompte">
 									<option value="0" <?php if ($user['typeUtilisateur'] == 0) {
 																		echo "selected";
 																		} ?> >Admin</option>
@@ -191,7 +194,7 @@
 																		echo "selected";
 																		} ?> >Banni</option>
 								 </select>
-					       </td>
+					      </td>
 					   </tr>
 
 					<?php } ?>
