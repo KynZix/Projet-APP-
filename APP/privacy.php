@@ -3,14 +3,17 @@
 <html>
 
 	<head>
+		<meta charset="utf-8">
 		<title>Terms</title>
 		<link rel="stylesheet" href="CSS/privacy.css">
+
 	</head>
 
 	<body>  
 		<header>
 			 <?php include("header.php"); ?>
 		</header>
+		<script type="text/javascript" src="javascript/privacy.js"></script>
 	  <div id="conteneur">
 	  	<div class="terms">
 	  		<h1>Privacy Policy of Psitech</h1>
