@@ -9,7 +9,7 @@
 
 	<body>
 		<?php include("header.php");?>
-		
+
 		<?php if ( !( isset($_SESSION['typeUtilisateur']) && ($_SESSION['typeUtilisateur'] = 1 ||  $_SESSION['typeUtilisateur'] = 0) ) ) { //on ne peut entrer sur le BO que si on en a lautoristion
 			header("Location: index.php");
 		} ?>
@@ -24,7 +24,7 @@
 				$actionPrecedente = $_COOKIE["action"];
 
 
-				if ($actionPrecedente == 'delete') {
+				if ($actionPrecedente == 'supprimer') {
 					$req = $bdd->prepare('INSERT INTO compte (id, mail, mdp, birthday, phone, nom, prenom, genre, pays, ville, ZIP, adresse, adresse2, typeUtilisateur) VALUES(:id, :mail, :mdp, :birthday, :phone, :nom, :prenom, :genre, :pays, :ville, :ZIP, :adresse, :adresse2, :typeUtilisateur)');
 
 				}
@@ -71,26 +71,19 @@
 			setcookie("action", $action, time() + 7*24*60*60);
 
 			}
-			else if ($action == "delete" || $action == "utilisateur" || $action == "gestionnaire" || $action == "admin" || $action == "bannir" ) {//si autre action que annuler tests pour eviter erreurs
+			else if ($action == "supprimer" || $action == "utilisateur" || $action == "modifier" ) {//si autre action que annuler tests pour eviter erreurs
 
-				if($action == "delete"){//on prepare la commande pour supprimer les comptes
+				if($action == "supprimer"){//on prepare la commande pour supprimer les comptes
 
 					$req = $bdd->prepare('DELETE FROM compte WHERE id = :id');
 				}
-				else if ($action == "utilisateur") {//commande pour rendre utilisateur
+				else if ($action == "modifier") {//commande pour rendre utilisateur
+					$Comptemodification = $bdd->prepare('UPDATE Compte SET typeUtilisateur = :typeUtilisateur WHERE id = :id');
 
-					$req = $bdd->prepare('UPDATE compte SET typeUtilisateur = 2 WHERE id = :id');
-				}
-				else if ($action == "gestionnaire") {//gestionnaire
+					$arrayChangements = array();
+					$infosActuelles = $bdd -> prepare('SELECT * FROM Compte WHERE id = :id');
+					$ids = $bdd->query('SELECT id FROM Compte ORDER BY id LIMIT 0,20');
 
-					$req = $bdd->prepare('UPDATE compte SET typeUtilisateur = 1 WHERE id = :id');
-				}
-				else if ($action == "admin") {//admin
-
-					$req = $bdd->prepare('UPDATE compte SET typeUtilisateur = 0 WHERE id = :id');
-				}
-				else if ($action == "bannir") {//bannir
-					$req = $bdd->prepare('UPDATE compte SET typeUtilisateur = 3 WHERE id = :id');
 				}
 
 				$arrayChangements = array();
@@ -108,7 +101,7 @@
 
 			$arrayChangementsSerialise = serialize($arrayChangements);
 
-			echo "Action faite : ".$action ; 
+			echo "Action faite : ".$action ;
 			setcookie("action", $action, time() + 7*24*60*60);
 			setcookie("arrayChangementsSerialise", $arrayChangementsSerialise, time() + 7*24*60*60);
 
@@ -124,7 +117,7 @@
 			        }
 			        return $randstring;
 			    }
-				
+
 
 				foreach ($_POST as $idKey => $value) {
 
@@ -148,11 +141,11 @@
 					}
 					}
 
-					
 
 
 
-					
+
+
 				}
 			}
 		}?>
@@ -160,23 +153,23 @@
 		<?php $users = $bdd->query('SELECT * FROM compte ORDER BY id DESC LIMIT 0,20') ?>
 
 
+		<h3>Gestion des comptes</h3>
 		<form method="post" action="backOfficeComptes.php">
 			<table>
 
-				<caption> <h3> Back office comptes </h3> </caption>
 
 			   <tr>
-			   		<th>modifier</th>
-			        <th>Nom</th>
-			        <th>Prenom</th>
-			        <th>Mail</th>
-			        <th>Type utilisteur</th>
+			   		<th></th>
+			      <th>Nom</th>
+			      <th>Prenom</th>
+			      <th>Mail</th>
+			      <th>Type utilisteur</th>
 			   </tr>
-					   
+
 
 			<?php while ( $user = $users->fetch() ) { ?>
 					<?php if ($_SESSION['id'] != $user['id']) { ?>
-						
+
 						<tr>
 							<td> <input type="checkbox" <?= 'name='.$user['id'];?> ></td>
 					        <td> <?=$user['nom']?> </td>
@@ -184,23 +177,20 @@
 					        <td> <?=$user['mail']?> </td>
 
 						    <td>
-							    <?php
-								if ($user['typeUtilisateur'] == 0) {
-									echo "Admin";
-								}
-								else if ($user['typeUtilisateur'] == 1) {
-									echo "Gestionnaire";
-								}
-								else if ($user['typeUtilisateur'] == 2) {
-									echo "Utilisateur";
-								}
-								else if ($user['typeUtilisateur'] == 3) {
-									echo "Banni";
-								}
-								else{
-									echo "???";
-								}
-									?>
+									<select>
+									<option value="0" <?php if ($user['typeUtilisateur'] == 0) {
+																		echo "selected";
+																		} ?> >Admin</option>
+									<option value="1" <?php if ($user['typeUtilisateur'] == 1) {
+																		echo "selected";
+																		} ?> >Gestionnaire</option>
+									<option value="2" <?php if ($user['typeUtilisateur'] == 2) {
+																		echo "selected";
+																		} ?> >Utilisateur</option>
+									<option value="3" <?php if ($user['typeUtilisateur'] == 3) {
+																		echo "selected";
+																		} ?> >Banni</option>
+								 </select>
 					       </td>
 					   </tr>
 
@@ -214,29 +204,19 @@
 
 			<br/>
 			<div class="bottomDescr">
-				
-			
-	       	<select name="action">
 
-	           	<option value="utilisateur">Rendre utilisateur</option>
-	           	<option value="gestionnaire">Rendre gestionnaire</option>
-	           	<option value="admin">Rendre admin</option>
-	           	<option value="bannir">Bannir</option>
-	           	<option value="annuler">Annuler</option>
-	           	<option value="delete">Supprimer</option>
-	           	<option value="mailMDP">Reinitialiser mot de passe</option>
-
-	       	</select>
-
-			<input type="submit" value="envoyer" />
+			<button name="action" type="submit" value="modifier">Modifier</button>
+			<button name="action" type="submit" value="mailMDP">Reinitialiser MDP</button>
+			<button name="action" type="submit" value="supprimer">Supprimer</button>
+			<button name="action" type="submit" value="annuler">Annuler</button>
 		</form>
 		</div>
 
 		<div class="enregistrer">
 			<a href="register.php?>"> Enregister nouveau compte </a> </li>
 		</div>
-		
-		
+
+
 		<div class="saut">
 		</div>
 

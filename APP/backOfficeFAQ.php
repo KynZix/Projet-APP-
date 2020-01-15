@@ -94,7 +94,7 @@
 			if($action == "modifier"){
 
 					function supEspaces(string $string)
-				    {//créer une chaine de caractère aléatoir avec minuscules, majuscules, chiffres (parfait pour des mdp aléatoire)
+				    {//créer une chaine de caractère aléatoire avec minuscules, majuscules, chiffres (parfait pour des mdp aléatoire)
 				        while ($string[0]==" ") {
 				            $string = substr($string, 1, strlen($string));
 				        }
@@ -139,7 +139,7 @@
 				}
 			}
 		}?>
-
+		<h3>Gestion FAQ</h3>
 <!-- affichages des questions et de la barre de navigation -->
 		<?php
 		if ( isset($_GET['nav']) ) {
