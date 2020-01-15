@@ -32,7 +32,7 @@
 		  				<?php }
 		  			}
 	  				?>
-			  		<legend><p>Creation d'un nouveau compte</p></legend>
+			  		<legend><p>Création d'un nouveau compte</p></legend>
 			  			<fieldset>
 							<label>
 								<p>Nom</p>
@@ -49,7 +49,7 @@
 
 						<fieldset>
 							<label>
-								<p>Prenom</p>
+								<p>Prénom</p>
 								<input class="input-register" type="text" name="prenom" id="prenom" placeholder="Prenom" 
 									<?php if (isset($_COOKIE['prenom'])) {
 										echo 'value=' .$_COOKIE['prenom'];
@@ -104,7 +104,7 @@
 
 						<fieldset >
 							<label>
-								<p>Numero</p>
+								<p>Numéro</p>
 								<input class="input-register" type="number" name="phone" id="phone" placeholder="1234657890" value="123456789"
 									<?php if (isset($_COOKIE['phone'])) {
 										echo 'value=' .$_COOKIE['phone'];
@@ -174,7 +174,7 @@
 
 						<fieldset>
 							<label>
-								<p>Complement d'adresse</p>
+								<p>Complément d'adresse</p>
 								<input class="input-register" type="text" name="adresse2" id="adresse2" placeholder="Complement d'adresse"
 								<?php if (isset($_COOKIE['adresse2'])) {
 										echo 'value=' .$_COOKIE['adresse2'];
