@@ -161,35 +161,53 @@
 
 
 		<form method="post" action="backOfficeComptes.php">
+			<table>
+
+				<caption> <h3> Back office comptes </h3> </caption>
+
+			   <tr>
+			   		<th>modifier</th>
+			        <th>Nom</th>
+			        <th>Prenom</th>
+			        <th>Mail</th>
+			        <th>Type utilisteur</th>
+			   </tr>
+					   
 
 			<?php while ( $user = $users->fetch() ) { ?>
-
-				<div>
 					<?php if ($_SESSION['id'] != $user['id']) { ?>
-						<input type="checkbox" <?= 'name='.$user['id'];?> >
-						<label> <?=$user['nom']?> <?=$user['prenom']?> <?=$user['mail']?> </label>
-						<label>
-							<?php
-							if ($user['typeUtilisateur'] == 0) {
-								echo "Admin";
-							}
-							else if ($user['typeUtilisateur'] == 1) {
-								echo "Gestionnaire";
-							}
-							else if ($user['typeUtilisateur'] == 2) {
-								echo "Utilisateur";
-							}
-							else if ($user['typeUtilisateur'] == 3) {
-								echo "Banni";
-							}
-							else{
-								echo "???";
-							}
-								?>
-						</label>
+						
+						<tr>
+							<td> <input type="checkbox" <?= 'name='.$user['id'];?> ></td>
+					        <td> <?=$user['nom']?> </td>
+					        <td> <?=$user['prenom']?> </td>
+					        <td> <?=$user['mail']?> </td>
+
+						    <td>
+							    <?php
+								if ($user['typeUtilisateur'] == 0) {
+									echo "Admin";
+								}
+								else if ($user['typeUtilisateur'] == 1) {
+									echo "Gestionnaire";
+								}
+								else if ($user['typeUtilisateur'] == 2) {
+									echo "Utilisateur";
+								}
+								else if ($user['typeUtilisateur'] == 3) {
+									echo "Banni";
+								}
+								else{
+									echo "???";
+								}
+									?>
+					       </td>
+					   </tr>
+
 					<?php } ?>
-				</div>
 			<?php } ?>
+
+			</table>
 
 
 

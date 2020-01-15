@@ -43,7 +43,7 @@
 										echo 'value='.$_COOKIE['nom'];
 									}
 									else{?>
-										value="Nom"
+										
 									<?php } ?>
 									required>
 							</label>
@@ -57,7 +57,7 @@
 										echo 'value=' .$_COOKIE['prenom'];
 									}
 									else{?>
-										value="Prenom"
+										
 									<?php } ?>
 									required>
 							</label>
@@ -83,7 +83,7 @@
 										echo 'value=' .$_COOKIE['birthday'];
 									}
 									else{?>
-										value="2000-01-01"
+						
 									<?php } ?>
 									required>
 							</label>
@@ -97,7 +97,7 @@
 										value = <?= $_COOKIE['mail'] ?> ;
 									<?php }
 									else{?>
-										value="abcd123@gmail.com"
+										
 									<?php } ?>
 								required>
 
@@ -112,7 +112,7 @@
 										echo 'value=' .$_COOKIE['phone'];
 									}
 									else{?>
-										value="0123456789"
+										
 									<?php } ?>
 									required>
 							</label>
@@ -126,7 +126,7 @@
 										echo 'value='.$_COOKIE['pays'];
 									}
 									else{?>
-										value="France"
+										
 									<?php } ?>
 									required>
 							</label>
@@ -140,7 +140,7 @@
 										echo "value=".$_COOKIE['ville'];
 									}
 									else{?>
-										value="Paris"
+										
 									<?php } ?>
 									required>
 							</label>
@@ -154,7 +154,7 @@
 										echo 'value=' .$_COOKIE['ZIP'];
 									}
 									else{?>
-										value="12"
+										
 									<?php } ?>
 									required>
 							</label>
@@ -168,7 +168,7 @@
 										echo 'value=' .$_COOKIE['adresse'];
 									}
 									else{?>
-										value="6rue"
+										
 									<?php } ?>
 									required>
 							</label>
