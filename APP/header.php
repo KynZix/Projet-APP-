@@ -75,7 +75,7 @@ catch(Exception $e)
 		  			<div class="contenuMenu">
 		 				<a href="privacy.php">Règlement</a>
 		 				<a href="FAQ.php">FAQ</a>
-		 				<a href="contactus.php">Nous Contactez</a>
+		 				<a href="contactus.php">Nous Contacter</a>
 		  			</div>
 		  		</li>
 
