@@ -7,7 +7,29 @@ body {
   padding: 0;
 }
 
+h3{
+  margin: 4px;
+}
 
+form{
+  margin: 10px;
+}
+
+table {
+  border-collapse: collapse;
+  width: 50%;
+  text-align: left;
+}
+th{
+  text-align: center;
+  background-color: whitesmoke;
+  border: 1px solid black;
+}
+td {
+  padding: 5px;
+  text-align: left;
+  border: 1px solid black;
+}
 
 
 
