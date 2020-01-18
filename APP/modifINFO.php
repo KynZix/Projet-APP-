@@ -17,24 +17,26 @@
 
 	    <div id="modif">
 	  		<section>
+	  			<script type="text/javascript" src="js/modifInfoJS.js"></script>
 
 	  			<form action="modifINFOtest.php" id="login" method="post">
 	  				<legend>Modification infos</legend>
 		  			<fieldset>
-
 		  				<div class="labelInput">
 
 		  					<label> Nouveau nom </label>
-							<input type="text" name="nom" placeholder="Dupont">
+							<input type="text" name="nom" placeholder="Dupont" onblur="verifRempliLettre(this)">
 
 						</div>
+						<span class="tooltip"> Nom incorrect </span>
 
 						<div class="labelInput">
 
 							<label> Nouveau prenom </label>
-							<input type="text" name="prenom" placeholder="tintin"> 
+							<input type="text" name="prenom" placeholder="tintin" onblur="verifRempliLettre(this)"> 
 		  					
 		  				</div>
+		  				<span class="tooltip"> Prenom incorrect </span>
 							
 					</fieldset>
 
@@ -42,13 +44,15 @@
 
 						<div class="labelInput">
 							<label> Nouveau mail </label>
-							<input type="text" name="mail" placeholder="tintin.dupont@yopmail.com">
+							<input type="text" name="mail" placeholder="tintin.dupont@yopmail.com" onblur="verifMail(this)">
 						</div>
+						<span class="tooltip"> Mail incorect </span>
 						
 						<div class="labelInput">
 							<label> Nouveau telephone </label>
-							<input type="number" name="phone" placeholder="06">
+							<input type="number" name="phone" placeholder="06" onblur="verifTel(this)">
 						</div>
+						<span class="tooltip"> Telephone incorect </span>
 
 					</fieldset>
 
@@ -56,30 +60,32 @@
 
 						<div class="labelInput">
 							<label> Nouveau pays </label>
-							<input type="text" name="pays" placeholder="france">
+							<input type="text" name="pays" placeholder="france" onblur="verifRempliLettre(this)">
 						</div>
 
 						<div class="labelInput">
 							<label> Nouvelle ville </label>
-							<input type="text" name="ville" placeholder="paris">
+							<input type="text" name="ville" placeholder="paris" onblur="verifRempliLettre(this)">
 						</div>
 
 						<div class="labelInput">
 							<label> Code postal </label>
-							<input type="number" name="zip" placeholder="92">
+							<input type="number" name="zip" placeholder="92" onblur="verifZIP(this)">
 						</div>
+						<span class="tooltip"> code postal de 5 chiffres svp </span>
 
 						<div class="labelInput">
 							<label> Nouvelle adresse </label>
-							<input type="text" name="adresse" placeholder="2 rue de la pompe">
+							<input type="text" name="adresse" placeholder="2 rue de la pompe" onblur="verifAdresse(this)">
 						</div> 
+						<span class="tooltip"> adresse incorect </span>
 						
 					</fieldset>
 
 						<?php if (isset($_COOKIE['infos'])) {?>
 							<legend><?= $_COOKIE['infos']; ?> </legend>
 							
-						<?php setcookie("infos","",time()-200);} ?>
+						<?php } ?>
 
 					<fieldset class="validif">
 						<input type="submit" name="validation" value="Changer">
