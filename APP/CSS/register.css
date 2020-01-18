@@ -24,6 +24,13 @@ fieldset{
   border: 0px;
 
 }
+
+span{
+  color: red;
+  visibility: collapse;
+  font-size: 80%;
+}
+
 #radios
 {
   display: flex;
@@ -70,3 +77,20 @@ fieldset{
 .saut{
 	margin-bottom: 10px;
 }
+
+.correct {
+  border-color: rgba(0, 256, 0, 0.75);
+  background: rgba(0, 256, 0, 0.1);
+}
+
+.correct:focus {
+  box-shadow: 0 0 8px rgba(68, 191, 68, 0.5);
+}
+
+.incorrect {
+  border-color: rgba(256, 0, 0, 0.60);
+  background: rgba(256, 0, 0, 0.10);
+}
+
+.incorrect:focus {
+  box-shadow: 0 0 8px rgba(191, 68, 68, 0.5);
