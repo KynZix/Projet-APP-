@@ -20,6 +20,8 @@
 	    <div>
 	  		<section>
 
+	  			<script type="text/javascript" src="javascript/register.js"></script>
+
 	  			<form name="inscription" method="post" action="registerTest.php">
 	  				<?php
 		  			if (isset($_COOKIE['mail'])) {
@@ -35,15 +37,16 @@
 
 			  		<legend><h3>Création d'un nouveau compte</h3></legend>
 			  			<fieldset>
-							<label>
-								<p>Nom</p>
-								<input class="input-register" type="text" name="nom" id="nom" placeholder="Nom" required>
-							</label>
-
-							<label>
-								<p>Prénom</p>
-								<input class="input-register" type="text" name="prenom" id="prenom" placeholder="Prenom" required>
-							</label>
+			  			<div class="labelInput">
+							<label>Nom</label>
+								<input class="input-register" type="text" name="nom" id="nom" placeholder="Nom" onblur="verifRempliLettre(this)" required>
+						</div>
+							<span class="tooltip">Un nom ne peut pas faire moins de 2 caractères</span>
+						<div class="labelInput">
+							<label>Prénom</label>
+								<input class="input-register" type="text" name="prenom" id="prenom" placeholder="Prenom" onblur="verifRempliLettre(this)" required>							
+						</div>
+							<span class="tooltip">Un prénom ne peut pas faire moins de 2 caractères</span>
 						</fieldset>
 
 						<fieldset id="radios">
@@ -59,54 +62,61 @@
 						</fieldset>
 
 						<fieldset>
-							<label>
-								<p>Date de naissance</p>
+						<div class="labelInput">
+							<label>Date de naissance</label>
 								<input class="input-register" type="date" name="birthday" id="birthday" placeholder="01/01/2000" required>
-							</label>
+						</div>
+							<span class="tooltip">Vous devez remplir votre date de naissance</span>
 						</fieldset>
 
 						<fieldset>
-							<label>
-								<p>Adresse mail</p>
-								<input class="input-register" type="text" name="mail" id="mail" placeholder="abcd123@gmail.com" required>
-							</label>
+						<div class="labelInput">
+							<label>Adresse mail</label>
+								<input class="input-register" type="text" name="mail" id="mail" placeholder="abcd123@gmail.com" onblur="verifMail(this)" required>
+						</div>
+							<span class="tooltip">Mail incorrect</span>
 						</fieldset>
 
 						<fieldset >
-							<label>
-								<p>Numéro</p>
-								<input class="input-register" type="number" name="phone" id="phone" placeholder="1234657890" required>
-							</label>
+						<div class="labelInput">
+							<label>Numéro</label>
+								<input class="input-register" type="number" name="phone" id="phone" placeholder="1234657890" onblur="verifTel(this)" required>
+						</div>
+								<span class="tooltip"> Numéro au format incorect ou non rempli </span>
 						</fieldset>
 
 						<fieldset>
-							<label>
-								<p>Pays</p>
-								<input class="input-register" type="text" name="pays" id="pays" placeholder="France" required>
-							</label>
+						<div class="labelInput">
+							<label>Pays</label>
+								<input class="input-register" type="text" name="pays" id="pays" placeholder="France" onblur="verifRempliLettre(this)" required>
+						</div>
+							<span class="tooltip">Vous devez noter votre pays de résidence</span>
 						</fieldset>
 
 						<fieldset>
-							<label>
-								<p>Ville</p>
-								<input class="input-register" type="text" name="ville" id="ville" placeholder="Ville" required>
-							</label>
-							<label>
-								<p>Code Postal</p>
-								<input class="input-register" type="number" name="ZIP" id="ZIP" placeholder="Code Postal" required>
-							</label>
+						<div class="labelInput">
+							<label>Ville</label>
+								<input class="input-register" type="text" name="ville" id="ville" placeholder="Ville" onblur="verifRempliLettre(this)" required>
+						</div>
+							<span class="tooltip">Vous devez noter votre ville de résidence</span>
+						<div class="labelInput">
+							<label>Code Postal</label>
+								<input class="input-register" type="number" name="ZIP" id="ZIP" placeholder="Code Postal" onblur="verifZIP(this)" required>
+						</div>
+							<span class="tooltip"> Code postal de 5 chiffres svp </span>
 						</fieldset>
 
 
 						<fieldset>
-							<label>
-								<p>Adresse</p>
-								<input class="input-register" type="text" name="adresse" id="adresse" placeholder="Adresse" required>
-							</label>
-							<label>
-								<p>Complement d'adresse</p>
+						<div class="labelInput">
+							<label>Adresse</label>
+								<input class="input-register" type="text" name="adresse" id="adresse" placeholder="Adresse" onblur="verifAdresse(this)" required>
+						</div>
+							<span class="tooltip"> Adresse invalide </span>
+							
+							<label>Complement d'adresse</label>
 								<input class="input-register" type="text" name="adresse2" id="adresse2" placeholder="Complement d'adresse">
-							</label>
+
 						</fieldset>
 
 						<?php if ($_SESSION['typeUtilisateur']==2) {?>
