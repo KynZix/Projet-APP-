@@ -17,7 +17,7 @@
 
 	    <div id="modif">
 	  		<section>
-	  			<script type="text/javascript" src="js/modifInfoJS.js"></script>
+	  			<script type="text/javascript" src="javascript/modifInfoJS.js"></script>
 
 	  			<form action="modifINFOtest.php" id="login" method="post">
 	  				<legend>Modification infos</legend>
