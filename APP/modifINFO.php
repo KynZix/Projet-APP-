@@ -17,8 +17,6 @@
 
 	    <div id="modif">
 	  		<section>
-	  			<script type="text/javascript" src="javascript/modifInfoJS.js"></script>
-
 	  			<form action="modifINFOtest.php" id="login" method="post">
 	  				<legend>Modification infos</legend>
 		  			<fieldset>
@@ -62,11 +60,13 @@
 							<label> Nouveau pays </label>
 							<input type="text" name="pays" placeholder="france" onblur="verifRempliLettre(this)">
 						</div>
+						<span class="tooltip"> Pays incorrect </span>
 
 						<div class="labelInput">
 							<label> Nouvelle ville </label>
 							<input type="text" name="ville" placeholder="paris" onblur="verifRempliLettre(this)">
 						</div>
+						<span class="tooltip"> Ville incorrecte </span>
 
 						<div class="labelInput">
 							<label> Code postal </label>
@@ -94,6 +94,7 @@
 				</form>
 				
 	   		</section>
+	   		<script type="text/javascript" src="javascript/verifForm.js"></script>
 		</div>
 
 	    <?php include("footer.php"); ?>
