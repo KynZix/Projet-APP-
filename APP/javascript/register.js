@@ -1,16 +1,16 @@
-function afficherSpan(htmlintput) {
+function afficherSpan(htmlinput) {
 
-    htmlintput.className = 'incorrect';
-	var div = htmlintput.parentNode;
+    htmlinput.className = 'incorrect';
+	var div = htmlinput.parentNode;
 	var span = div.nextElementSibling;
 	span.style.visibility = "visible";
 
 }
 
-function correct(htmlintput) {
-    htmlintput.className = 'correct';
+function correct(htmlinput) {
+    htmlinput.className = 'correct';
 
-    var div = htmlintput.parentNode;
+    var div = htmlinput.parentNode;
     var span = div.nextElementSibling;
     span.style.visibility = "collapse";
 }
@@ -40,7 +40,7 @@ function verifZIP(input)
 
 function verifRempliLettre(input)
 { 
-    var regex = /^[a-z]{2,}$/;
+    var regex = /^[a-zA-Z]{2,}$/;
     if(!regex.test(input.value)){
         afficherSpan(input);
    }
