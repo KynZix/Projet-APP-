@@ -1,97 +1,91 @@
 
 /*layout du site*/
+
 body {
-  font-family: Arial;
-  height: 100%;
+  height: 100%; 
   width: 100%;
   margin: 0;
   padding: 0;
+  background-color: white;
+  font-family: Arial;
 }
-
-section{
+.form{
   display: flex;
   justify-content: center;
 }
+section{
+  width: 40%;
+}
 
-form
-{
+fieldset {
   border: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
+  text-align: right;
+  
+  margin: 20px 0px 20px 0px;
+  color:black;
+  font-size: 130%;
+}
+.radios{
+  flex-direction: row;
+}
+.radiosUtilisateur{
+  flex-direction: column;
+}
+.radio{
+  width: 100%;
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+}
+.labelInput{
+  display: flex;
+  justify-content:  space-between;
 }
 
-fieldset{
-  border: 0px;
-
+input {
+  border-radius: 4px;
+  margin: 0;
+  width: 50%;
+  margin: 10px 0px 10px 0px;
 }
 
-span{
+legend{
+  margin: 15px;
+  color:black;
+  font-size: 150%;
+  text-align: center;
+}
+
+.tooltip{
   color: red;
-  visibility: collapse;
   font-size: 80%;
 }
 
-#radios
-{
+.submitButton{
   display: flex;
-  flex-direction: column;
-}
-
-.input-register{
-  border-radius: 4px;
+  flex-direction: row;
+  justify-content: center;
   width: 100%;
-}
-#radio{
-  width: 10%;
-}
-
-.retour{
-  margin-left: 1%;
-  font-size: 110%;
-}
-
-.modifTest p{
-  text-align: center;
-  font-size: 18px;
-}
-.inputPos input{
-  position: relative;
-  left: 12%;
-  border-radius: 5px;
-}
-.datePos input{
-  position: relative;
-  left: 20%;
-  border-radius: 5px;
-}
-.submitButton input{
-  margin-top: 10px;
-  margin-left: 35%;
-  border-radius: 10px;
-}
-
-.submitButton input:hover{
-	color:white;
-	background-color: black;
-}
-.saut{
-	margin-bottom: 10px;
+  
 }
 
 .correct {
-  border-color: rgba(0, 256, 0, 0.75);
+	border-color: rgba(0, 256, 0, 0.75);
   background: rgba(0, 256, 0, 0.1);
 }
-
+	
 .correct:focus {
-  box-shadow: 0 0 8px rgba(68, 191, 68, 0.5);
+	box-shadow: 0 0 8px rgba(68, 191, 68, 0.5);
 }
-
+	
 .incorrect {
-  border-color: rgba(256, 0, 0, 0.60);
+	border-color: rgba(256, 0, 0, 0.60);
   background: rgba(256, 0, 0, 0.10);
 }
-
+	
 .incorrect:focus {
-  box-shadow: 0 0 8px rgba(191, 68, 68, 0.5);
+	box-shadow: 0 0 8px rgba(191, 68, 68, 0.5);
 }

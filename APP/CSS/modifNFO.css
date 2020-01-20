@@ -49,13 +49,7 @@ legend{
 
 span{
   color: red;
-  visibility: collapse;
   font-size: 80%;
-}
-
-.validif {
-  position: relative;
-  left: 37%;
 }
 
 .correct {
