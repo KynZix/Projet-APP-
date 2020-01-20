@@ -40,7 +40,7 @@ function verifZIP(input)
 
 function verifRempliLettre(input)
 { 
-    var regex = /^[a-z]{2,}$/;
+    var regex = /^[a-zA-Z]{2,}$/;
     if(!regex.test(input.value)){
         afficherSpan(input);
    }
