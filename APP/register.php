@@ -41,12 +41,12 @@
 							<label>Nom</label>
 								<input class="input-register" type="text" name="nom" id="nom" placeholder="Nom" onblur="verifRempliLettre(this)" required>
 						</div>
-							<span class="tooltip">Un nom ne peut pas faire moins de 2 caractères</span>
+							<span class="tooltip">Nom incorrect</span>
 						<div class="labelInput">
 							<label>Prénom</label>
 								<input class="input-register" type="text" name="prenom" id="prenom" placeholder="Prenom" onblur="verifRempliLettre(this)" required>							
 						</div>
-							<span class="tooltip">Un prénom ne peut pas faire moins de 2 caractères</span>
+							<span class="tooltip">Prénom incorrect</span>
 						</fieldset>
 
 						<fieldset id="radios">
@@ -113,10 +113,10 @@
 								<input class="input-register" type="text" name="adresse" id="adresse" placeholder="Adresse" onblur="verifAdresse(this)" required>
 						</div>
 							<span class="tooltip"> Adresse invalide </span>
-							
-							<label>Complement d'adresse</label>
+						<div class="labelInput">	
+							<label>Complément d'adresse</label>
 								<input class="input-register" type="text" name="adresse2" id="adresse2" placeholder="Complement d'adresse">
-
+						</div>
 						</fieldset>
 
 						<?php if ($_SESSION['typeUtilisateur']==2) {?>
