@@ -29,7 +29,7 @@
 		} else {
 			header("Location:profil.php?profileid=".urlencode($_SESSION['id']));
 		}
-		$req = $bdd -> query("SELECT id,nom,prenom,mail,adresse,phone,ZIP FROM compte WHERE id='$currentid'");
+		$req = $bdd -> query("SELECT id,nom,prenom,mail,adresse,phone,ZIP,imageProfile FROM compte WHERE id='$currentid'");
 		$req -> execute(array('id' => $_SESSION['id']));
 		$profil = $req->fetch();
 
@@ -43,7 +43,18 @@
 			<?php if ($req->rowCount() > 0) {  ?>
 			<div class="infos">
 				<div class="col-2-2">
-					<img id="profilephoto" src="Media/Emptyprofile.png">
+					<?php
+					if($profil['imageProfile']==''){
+						echo "<img width='280' height='280' src='imageProfile/Emptyprofile.png'>";
+					}
+					else{
+						echo "<img width='280' height='280' src='imageProfile/".$profil['imageProfile']."' alt='Profile Pic'>";
+					}
+					?>
+					<form action="" method="post" enctype="multipart/form-data">
+						<input type="file" name="file">
+						<input type="submit" name="submit" value="confirmer">
+					</form>
 				</div>
 				<div>
 					<p><strong>Nom:</strong> <?php echo $profil['nom']?></p>
@@ -67,6 +78,20 @@
 			</div>
 			<?php } ?>
 		</div>
+
+		<?php
+        if(isset($_POST['submit'])){
+        	if ($_FILES['file']['name']=="") {
+        		header("Refresh:0");
+        	}
+        	else{
+        		move_uploaded_file($_FILES['file']['tmp_name'],"imageProfile/".$_FILES['file']['name']);
+                $req = $bdd -> query("UPDATE compte SET imageProfile = '".$_FILES['file']['name']."' WHERE id = '".$_SESSION['id']."'");
+                header("Refresh:0");
+        	}
+        }
+		?>
+
 
 		<div class="saut">
 			
