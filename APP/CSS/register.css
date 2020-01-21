@@ -1,8 +1,7 @@
 
 /*layout du site*/
 
-body {
-  height: 100%; 
+body { 
   width: 100%;
   margin: 0;
   padding: 0;
@@ -31,21 +30,25 @@ fieldset {
 .radios{
   flex-direction: row;
 }
-.radiosUtilisateur{
-  flex-direction: column;
-}
 .radio{
   width: 100%;
-  text-align: left;
   display: flex;
   flex-direction: row;
+}
+.radiosUtilisateur{
+  width: 100%;
+  display: flex;
+  align-items: left;
+}
+.inputRadio{
+  width: 50%;
 }
 .labelInput{
   display: flex;
   justify-content:  space-between;
 }
 
-input {
+.textInputs {
   border-radius: 4px;
   margin: 0;
   width: 50%;
@@ -59,11 +62,19 @@ legend{
   text-align: center;
 }
 
+.infosMalRemplies{
+  width: 100%;
+  color: red;
+  text-align: center;
+  font-size: 90%;
+  text-decoration: underline;
+  margin: 0% 0% 4% 0%;
+}
+
 .tooltip{
   color: red;
   font-size: 80%;
 }
-
 .submitButton{
   display: flex;
   flex-direction: row;
@@ -89,3 +100,4 @@ legend{
 .incorrect:focus {
 	box-shadow: 0 0 8px rgba(191, 68, 68, 0.5);
 }
+
