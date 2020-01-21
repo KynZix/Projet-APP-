@@ -38,7 +38,17 @@
 				</div>
 				<div class="infos">
 					<div class="col-2-2">
-						<img id="profilephoto" src="Media/Emptyprofile.png">
+						<?php
+						$req = $bdd -> query("SELECT imageProfile FROM compte WHERE id='$currentid'");
+						$req -> execute(array('id' => $_SESSION['id']));
+						$profil = $req->fetch();
+							if($profil['imageProfile']==''){
+								echo "<img width='280' height='280' src='imageProfile/Emptyprofile.png'>";
+							}
+							else{
+								echo "<img width='280' height='280' src='imageProfile/".$profil['imageProfile']."' alt='Profile Pic'>";
+							}
+						?>
 					</div>
 					<div class="liste_tests">
 						<?php
