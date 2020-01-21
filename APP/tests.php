@@ -39,7 +39,7 @@
 				<div class="infos">
 					<div class="col-2-2">
 						<?php
-						$req = $bdd -> query("SELECT imageProfile FROM compte WHERE id='$currentid'");
+						$req = $bdd -> query("SELECT 	imageProfile FROM compte WHERE id='$currentid'");
 						$req -> execute(array('id' => $_SESSION['id']));
 						$profil = $req->fetch();
 							if($profil['imageProfile']==''){
@@ -91,9 +91,13 @@
 </div>
 					</div>
 
+					<div class="sautTest">
+					</div>
 
-			<?php include("footer.php"); ?>
+
+			
 		</div>
+		<?php include("footer.php"); ?>
 	</body>
 
 </html>
