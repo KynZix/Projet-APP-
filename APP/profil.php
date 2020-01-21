@@ -43,6 +43,7 @@
 			<?php if ($req->rowCount() > 0) {  ?>
 			<div class="infos">
 				<div class="col-2-2">
+					<!-- C'est pour afficher l'image de l'utilisateur -->
 					<?php
 					if($profil['imageProfile']==''){
 						echo "<img width='280' height='280' src='imageProfile/Emptyprofile.png'>";
@@ -51,10 +52,13 @@
 						echo "<img width='280' height='280' src='imageProfile/".$profil['imageProfile']."' alt='Profile Pic'>";
 					}
 					?>
+					<?php
+							if (($profil['id'] == $_SESSION['id'])) {	?>
 					<form action="" method="post" enctype="multipart/form-data">
 						<input type="file" name="file">
 						<input type="submit" name="submit" value="confirmer">
 					</form>
+				<?php } ?>
 				</div>
 				<div>
 					<p><strong>Nom:</strong> <?php echo $profil['nom']?></p>
@@ -91,11 +95,20 @@
         	}
         }
 		?>
-
-
+		<!-- Gère les sauts de ligne en fonction des profils -->
+		<?php if (($profil['id'] == $_SESSION['id'])) {	?>
 		<div class="saut">
 			
 		</div>
+		<?php
+		}
+		?>
+		<?php if(($profil['id'] != $_SESSION['id'])){?>
+		<div class ="sautAutre">
+		</div>
+		<?php
+		}
+		?>
 
 
 		<?php include("footer.php"); ?>

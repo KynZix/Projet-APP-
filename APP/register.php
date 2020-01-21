@@ -105,7 +105,7 @@
 
 						<div class="labelInput">
 							<label> Code postal </label>
-							<input type="number" name="zip" placeholder="92" onblur="verifZIP(this)">
+							<input type="number" name="ZIP" placeholder="92" onblur="verifZIP(this)">
 						</div>
 						<span class="tooltip"> code postal de 5 chiffres svp </span>
 
