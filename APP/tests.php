@@ -5,6 +5,7 @@
 	<head>
 		<title>Profil</title>
 		<link rel="stylesheet" href="CSS/profil.css">
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 	</head>
 
 	<body>
@@ -38,6 +39,7 @@
 				</div>
 				<div class="infos">
 					<div class="col-2-2">
+						<!-- C'est pour afficher l'image de l'utilisateur -->
 						<?php
 						$req = $bdd -> query("SELECT 	imageProfile FROM compte WHERE id='$currentid'");
 						$req -> execute(array('id' => $_SESSION['id']));
@@ -54,43 +56,30 @@
 						<?php
 						if ($currentid == $_SESSION['id']){ //sur son profil?>
 							<legend><p><b>Mes tests</b><p></legend>
+													<div>
+						<?php include("graph.php"); ?>
+					</div>
 	<?php			} else { //sur le profil de qqun dautre
 							$req = $bdd->prepare("SELECT * FROM compte WHERE id = :id");
 							$req -> execute(array("id" => $currentid));
 							$utilisateur = $req -> fetch();
 							if ($req->rowCount() > 0) { ?>
 								<legend><p><b>Liste des tests de <?php echo $utilisateur['prenom'].' '.$utilisateur['nom']?></b><p></legend>
-									<?php
-										$req = $bdd -> prepare("SELECT * FROM tests INNER JOIN compte ON compte.id = tests.id_examine WHERE id_examine = :id_examine OR id_examinateur = :id_examinateur");
-
-										$req -> execute(array('id_examine' => $currentid,'id_examinateur' => $currentid));
-										while ($test = $req->fetch()) {
-											echo "<div>";
-												echo "<p>(".$test['id_test'].") test du ".$test['date'].": ".$test['score']."</p>";
-												echo "<legend><p>infos comp: ".$test['nom']." - ".$test['mail']."<p></legend>";
-											echo "</div>";
-										}
-									?>
+									<?php include("graph.php"); ?>
 								</div>
 								<?php if ($_SESSION['typeUtilisateur']<2) { ?>
 									<div>
 										<a href="ajoutTest.php">Ajouter un test</a>
-									</div>
+								    </div>
 								<?php } ?>
-							<div class="menuProfil2">
-								<a href="modifINFO.php">MODIFIER MES INFORMATIONS PERSONNELLES</a>
-								<a href="modifMDP.php">MODIFIER MON MOT DE PASSE</a>
-							</div>
 <?php 				} else { //L'utilisateur a tapé l'ID d'un utilisateur qui n'existe pas ?>
 								<div class="infos">
-									<script type="text/javascript" src="javascript/errorprofile.js"></script>
 								</div>
 <?php						}
 		}
 						?>
 </div>
 					</div>
-
 					<div class="sautTest">
 					</div>
 
