@@ -41,7 +41,43 @@
 		        return $randstring;
 		    }
 
-			//on remplis les infos + eviter injection sql
+		    $infosBienRemplis = 0;
+
+		    //on verifie que les champs sont correctement rempilis avant de les mettre dans la base de donnée
+		    if (preg_match("#^[a-zA-Z]{2,}$#", $_POST['nom']))
+			{
+			    $infosBienRemplis += 1;
+			}
+			if (preg_match("#^[a-zA-Z]{2,}$#", $_POST['prenom']))
+			{
+			    $infosBienRemplis += 1;
+			}
+			if (preg_match("#^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$#", $_POST['mail']))
+			{
+			    $infosBienRemplis += 1;
+			}
+			if (preg_match("#^[0-9]{10}$#", $_POST['phone']))
+			{
+			    $infosBienRemplis += 1;
+			}
+			if (preg_match("#^[a-zA-Z]{2,}$#", $_POST['pays']))
+			{
+			    $infosBienRemplis += 1;
+			}
+			if (preg_match("#^[a-zA-Z]{2,}$#", $_POST['ville']))
+			{
+			    $infosBienRemplis += 1;
+			}
+			if (preg_match("#^[0-9]{5}$#", $_POST['ZIP']))
+			{
+			    $infosBienRemplis += 1;
+			}
+			if (preg_match("#^[0-9]{1,}[a-zA-Z0-9 ]{1,}$#", $_POST['adresse']))
+			{
+			    $infosBienRemplis += 1;
+			}
+
+
 			$nom = htmlspecialchars($_POST['nom']);
 			$prenom = htmlspecialchars($_POST['prenom']);
 			$genre = htmlspecialchars($_POST['genre']);
@@ -52,8 +88,6 @@
 			$ville = htmlspecialchars($_POST['ville']);
 			$ZIP = htmlspecialchars($_POST['ZIP']);
 			$adresse = htmlspecialchars($_POST['adresse']);
-			$mdp = RandomString(10);
-			$mdpHash = password_hash($mdp, PASSWORD_DEFAULT);
 
 			if(isset($_POST['adresse2']))
 			{
@@ -72,7 +106,6 @@
 			{
 				$typeUtilisateur = 2;
 			}
-			
 
 			echo 'mail =', $mail, '='; 
 			echo "<br>";
@@ -106,12 +139,17 @@
 			$req1 -> execute(array('mail' => $mail));
 			$mailBDD = $req1->fetch();
 
-			//on test si mail est deja present pour eviter les erreurs
-			if (isset($mailBDD['mail'])) {
+			//on test si mail est deja present pour eviter les erreurs ou si les champs sont mal remplis
+			if (isset($mailBDD['mail']) || $infosBienRemplis != 8) {
+
+				if ($infosBienRemplis != 8) {
+					setcookie("infos","non",time() + 600);
+				}
+
+				setcookie('mail',$mail,time() + 600);
 				echo "<a href = \"register.php\">le mail est deja lié a un autre compte</a>";
 				setcookie('nom',$nom,time() + 600);
 				setcookie('prenom',$prenom,time() + 600);
-				setcookie('mail',$mail,time() + 600);
 				setcookie('genre',$genre,time() + 600);
 				setcookie('birthday',$birthday,time() + 600);
 				setcookie('phone',$phone,time() + 600);
@@ -120,6 +158,7 @@
 				setcookie('ZIP',$ZIP,time() + 600);
 				setcookie('adresse',$adresse,time() + 600);
 				setcookie('typeUtilisateur',$typeUtilisateur,time() + 600);
+
 				if(isset($adresse2))
 				{
 					setcookie('adresse2',$adresse2,time() + 600);
@@ -129,6 +168,9 @@
 			}
 			//s'il n'est pas present on ajoute les infos et on redirige a lindex
 			else{
+
+				$mdp = RandomString(10);
+				$mdpHash = password_hash($mdp, PASSWORD_DEFAULT);
 
 				//envoie de mail
 	   			ini_set( 'display_errors', 1 );
@@ -172,6 +214,7 @@
 					setcookie('ZIP',$ZIP,time() - 600);
 					setcookie('adresse',$adresse,time() - 600);
 					setcookie('typeUtilisateur',$typeUtilisateur,time() - 600);
+					setcookie("infos","<span> les informations n'ont pas toutes été bien remplies. <span>",time() - 600);
 					if(isset($adresse2))
 					{
 						setcookie('adresse2',$adresse2,time() - 600);
