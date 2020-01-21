@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 02 déc. 2019 à 14:34
+-- Généré le :  mar. 21 jan. 2020 à 19:56
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -44,19 +44,20 @@ CREATE TABLE IF NOT EXISTS `compte` (
   `adresse` text NOT NULL,
   `adresse2` text NOT NULL,
   `typeUtilisateur` int(14) NOT NULL DEFAULT '2',
+  `imageProfile` text NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `mail` (`mail`)
-) ENGINE=MyISAM AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=30 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `compte`
 --
 
-INSERT INTO `compte` (`id`, `mail`, `mdp`, `birthday`, `phone`, `nom`, `prenom`, `genre`, `pays`, `ville`, `ZIP`, `adresse`, `adresse2`, `typeUtilisateur`) VALUES
-(18, 'cyne@gmail', 'mdp', '1900-01-01', 1023456789, 'NERIN', 'Cyril', 1, 'France', 'ISSY', 92130, '4 Bis rue CHENIER', 'NR', 0),
-(26, 'canchero@yopmail.com', 'mdp', '1999-07-02', 6, 'lacroix', 'leopold', 1, 'france', 'paris', 21, '21 av', '', 0),
-(27, 'a', 'mdp', '0001-01-01', 1, 'aA', 'a', 0, 'a', 'a', 1, 'a', 'a', 2),
-(28, 'aze', 'mdp', '0001-01-01', 11, '1', '1', 0, '1', '1', 1, '1', '', 2);
+INSERT INTO `compte` (`id`, `mail`, `mdp`, `birthday`, `phone`, `nom`, `prenom`, `genre`, `pays`, `ville`, `ZIP`, `adresse`, `adresse2`, `typeUtilisateur`, `imageProfile`) VALUES
+(18, 'ok@google.com', '$2y$10$1bii32T95nZHgnujbX8OAOx9uciTAwyGhMrwWhu4dIS.XBw75RfK6', '1900-01-01', 1023456789, 'ah', 'Cyril', 1, 'France', 'ISSY', 92130, '4 Bis rue CHENIER', 'NR', 0, 'stress.png'),
+(26, 'canchero@yopmail.com', '$2y$10$1bii32T95nZHgnujbX8OAOx9uciTAwyGhMrwWhu4dIS.XBw75RfK6', '1999-07-02', 6, 'lacroix', 'leopold', 1, 'france', 'paris', 21, '21 av', '', 0, ''),
+(27, 'oks@gmail.com', '$2y$10$1bii32T95nZHgnujbX8OAOx9uciTAwyGhMrwWhu4dIS.XBw75RfK6', '0001-01-01', 1, 'aA', 'a', 0, 'a', 'a', 1, 'a', 'a', 1, '78-hex-abstract-material-design-wallpaper.jpg'),
+(28, 'oka@gmail.com', '$2y$10$1bii32T95nZHgnujbX8OAOx9uciTAwyGhMrwWhu4dIS.XBw75RfK6', '0001-01-01', 11, '1', '1', 0, '1', '1', 1, '1', '', 2, 'stopwatch-icon-260nw-681013417.webp');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
