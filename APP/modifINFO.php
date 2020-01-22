@@ -23,7 +23,7 @@
 		  				<div class="labelInput">
 
 		  					<label> Nouveau nom </label>
-							<input type="text" name="nom" placeholder="Dupont" onblur="verifRempliLettre(this)">
+							<input class="inputText" type="text" name="nom" placeholder="Dupont" onblur="verifRempliLettre(this)">
 
 						</div>
 						<span class="tooltip"> Nom incorrect </span>
@@ -31,7 +31,7 @@
 						<div class="labelInput">
 
 							<label> Nouveau prenom </label>
-							<input type="text" name="prenom" placeholder="tintin" onblur="verifRempliLettre(this)"> 
+							<input class="inputText" type="text" name="prenom" placeholder="tintin" onblur="verifRempliLettre(this)"> 
 		  					
 		  				</div>
 		  				<span class="tooltip"> Prenom incorrect </span>
@@ -42,13 +42,13 @@
 
 						<div class="labelInput">
 							<label> Nouveau mail </label>
-							<input type="text" name="mail" placeholder="tintin.dupont@yopmail.com" onblur="verifMail(this)">
+							<input class="inputText" type="text" name="mail" placeholder="tintin.dupont@yopmail.com" onblur="verifMail(this)">
 						</div>
 						<span class="tooltip"> Mail incorect </span>
 						
 						<div class="labelInput">
 							<label> Nouveau telephone </label>
-							<input type="number" name="phone" placeholder="06" onblur="verifTel(this)">
+							<input class="inputText" type="number" name="phone" placeholder="06" onblur="verifTel(this)">
 						</div>
 						<span class="tooltip"> Telephone incorect </span>
 
@@ -58,25 +58,25 @@
 
 						<div class="labelInput">
 							<label> Nouveau pays </label>
-							<input type="text" name="pays" placeholder="france" onblur="verifRempliLettre(this)">
+							<input class="inputText" type="text" name="pays" placeholder="france" onblur="verifRempliLettre(this)">
 						</div>
 						<span class="tooltip"> Pays incorrect </span>
 
 						<div class="labelInput">
 							<label> Nouvelle ville </label>
-							<input type="text" name="ville" placeholder="paris" onblur="verifRempliLettre(this)">
+							<input class="inputText" type="text" name="ville" placeholder="paris" onblur="verifRempliLettre(this)">
 						</div>
 						<span class="tooltip"> Ville incorrecte </span>
 
 						<div class="labelInput">
 							<label> Code postal </label>
-							<input type="number" name="zip" placeholder="92" onblur="verifZIP(this)">
+							<input class="inputText" type="number" name="zip" placeholder="92" onblur="verifZIP(this)">
 						</div>
 						<span class="tooltip"> code postal de 5 chiffres svp </span>
 
 						<div class="labelInput">
 							<label> Nouvelle adresse </label>
-							<input type="text" name="adresse" placeholder="2 rue de la pompe" onblur="verifAdresse(this)">
+							<input class="inputText" type="text" name="adresse" placeholder="2 rue de la pompe" onblur="verifAdresse(this)">
 						</div> 
 						<span class="tooltip"> adresse incorect </span>
 						
@@ -88,7 +88,7 @@
 						<?php } ?>
 
 					<fieldset class="validif">
-						<input type="submit" name="validation" value="Changer">
+						<input class="inputText" type="submit" name="validation" value="Changer">
 					</fieldset>
 
 				</form>
