@@ -137,16 +137,9 @@ li{
 }
 
 
-.menubtn a:hover, .contenuMenu a:hover {
+.menubtn a:hover, .contenuMenu a:hover, .menubtnsingle:hover,.menubtnsingle2:hover{
   color: black;	
   background-color: grey;
-}
-
-.menubtnsingle{
-  display: inline-block;
-  position: relative;
-  bottom: 20px;
-  left: 100px;
 }
 
 /* barre de recherche */
@@ -168,7 +161,20 @@ nav {
 }
 
 .menubtnsingle{
-  font-size: medium;;
+  font-size: medium;
+  border: none;
+  background: transparent;
+  color: black;
+  padding: 5px;
+  height: 100%;
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+}
+.menubtnsingle2{
+  bottom: 20px;
+  left: 100px;
+  font-size: medium;
   border: none;
   background: transparent;
   color: black;
@@ -179,7 +185,7 @@ nav {
   text-align: center;
 }
 
-.menubtnsingle a{
+.menubtnsingle a,.menubtnsingle2 a{
   color: black;  
   text-decoration: none;
 }
@@ -191,8 +197,8 @@ input[type=search]
 	padding-left: 3px;
 	display: inline-block;
 	border-radius: 0px;
-}	
-	
+}
+
 #search-button {
 	margin: 0px;
 	border: none;
