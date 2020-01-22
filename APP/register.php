@@ -181,7 +181,7 @@
 					<?php } ?>
 
 					<fieldset class="submitButton" >
-						<input type="submit" name="submit" value="S'inscrire">
+						<input class="textInputs" type="submit" name="submit" value="S'inscrire">
 					</fieldset>
 
 				</form>
