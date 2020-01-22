@@ -33,7 +33,7 @@ fieldset {
   justify-content:  space-between;
 }
 
-input {
+.inputText {
   border-radius: 4px;
   margin: 0;
   width: 50%;
@@ -62,17 +62,33 @@ span{
 .correct {
 	border-color: rgba(0, 256, 0, 0.75);
   background: rgba(0, 256, 0, 0.1);
+  border-radius: 4px;
+  margin: 0;
+  width: 50%;
+  margin: 10px 0px 10px 0px;
 }
 	
 .correct:focus {
 	box-shadow: 0 0 8px rgba(68, 191, 68, 0.5);
+  border-radius: 4px;
+  margin: 0;
+  width: 50%;
+  margin: 10px 0px 10px 0px;
 }
 	
 .incorrect {
 	border-color: rgba(256, 0, 0, 0.60);
   background: rgba(256, 0, 0, 0.10);
+  border-radius: 4px;
+  margin: 0;
+  width: 50%;
+  margin: 10px 0px 10px 0px;
 }
 	
 .incorrect:focus {
 	box-shadow: 0 0 8px rgba(191, 68, 68, 0.5);
+  border-radius: 4px;
+  margin: 0;
+  width: 50%;
+  margin: 10px 0px 10px 0px;
 }
