@@ -106,7 +106,7 @@ catch(Exception $e)
 						<?php
 							//si on est gestionnaire, on peut créer des comptes
 						if (isset($_SESSION['typeUtilisateur']) and $_SESSION['typeUtilisateur'] == 1) { ?>
-							<button class="menubtnsingle" id="rightbutton">
+							<button class="menubtnsingle2" id="rightbutton">
 								<a href='register.php'>Créer un compte</a>
 							</button>
 						<?php
