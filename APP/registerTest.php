@@ -169,10 +169,9 @@
 				header('Location: register.php');
 				
 			}
+
 			//s'il n'est pas present on ajoute les infos et on redirige a lindex
 			else{
-
-				
 
 				//envoie de mail
 	   			ini_set( 'display_errors', 1 );
@@ -222,6 +221,10 @@
 					{
 						setcookie('adresse2',$adresse2,time() - 600);
 					}
+					header('Location: index.php');
+				}
+				else{
+					echo "<p style='color: red'><strong> UNE ERREURE S'EST PRODUITE </strong></p>";
 				}
 			} ?>
 
