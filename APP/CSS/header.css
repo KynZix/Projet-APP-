@@ -142,6 +142,12 @@ li{
   background-color: grey;
 }
 
+.menubtnsingle{
+  display: inline-block;
+  position: relative;
+  bottom: 20px;
+  left: 100px;
+}
 
 /* barre de recherche */
 nav {
