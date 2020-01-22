@@ -88,6 +88,9 @@
 			$ville = htmlspecialchars($_POST['ville']);
 			$ZIP = htmlspecialchars($_POST['ZIP']);
 			$adresse = htmlspecialchars($_POST['adresse']);
+			$imageProfile = "EmptyProfile.PNG";
+			$mdp = RandomString(10);
+			$mdpHash = password_hash($mdp, PASSWORD_DEFAULT);
 
 			if(isset($_POST['adresse2']))
 			{
@@ -169,8 +172,7 @@
 			//s'il n'est pas present on ajoute les infos et on redirige a lindex
 			else{
 
-				$mdp = RandomString(10);
-				$mdpHash = password_hash($mdp, PASSWORD_DEFAULT);
+				
 
 				//envoie de mail
 	   			ini_set( 'display_errors', 1 );
@@ -183,7 +185,7 @@
 				if (mail($mail,$subject,$message)) {
 					echo "L'email a été envoyé.";
 
-					$req = $bdd->prepare(' INSERT INTO compte(mail, mdp, birthday, phone, nom, prenom, genre, pays, ville, ZIP, adresse, adresse2, typeUtilisateur) VALUES (:mail, :mdp, :birthday, :phone, :nom, :prenom, :genre, :pays, :ville, :ZIP, :adresse, :adresse2, :typeUtilisateur) ');
+					$req = $bdd->prepare(' INSERT INTO compte(mail, mdp, birthday, phone, nom, prenom, genre, pays, ville, ZIP, adresse, adresse2, typeUtilisateur, imageProfile) VALUES (:mail, :mdp, :birthday, :phone, :nom, :prenom, :genre, :pays, :ville, :ZIP, :adresse, :adresse2, :typeUtilisateur, :imageProfile) ');
 
 					$req -> execute(array(
 					'mail' => $mail,
@@ -197,7 +199,8 @@
 					'ZIP'=> $ZIP,
 					'adresse'=> $adresse,
 					'adresse2'=> $adresse2,
-					'typeUtilisateur'=> $typeUtilisateur,		  
+					'typeUtilisateur'=> $typeUtilisateur,
+					'imageProfile' => $imageProfile,
 				    'mdp'=> $mdpHash));
 
 					echo "<br>";
